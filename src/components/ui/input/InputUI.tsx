@@ -1,13 +1,14 @@
 import * as React from "react";
 import Input, { InputProps } from "@mui/joy/Input";
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 
 type FormikInputProps = InputProps & { name: string; formik?: boolean };
 
 const InputUI: React.FC<FormikInputProps> = ({ formik, ...props }) => {
     if (formik && props.name) {
         const [field, meta] = useField(props.name);
-        const showError = Boolean(meta.touched && meta.error);
+        const { submitCount } = useFormikContext();
+        const showError = Boolean((meta.touched || submitCount > 0) && meta.error);
 
         return (
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -16,7 +17,17 @@ const InputUI: React.FC<FormikInputProps> = ({ formik, ...props }) => {
                     {...props}
                     error={showError}
                 />
-
+                {showError ? (
+                    <div
+                        style={{
+                            marginTop: 4,
+                            fontSize: "0.8rem",
+                            color: "var(--error-color)",
+                        }}
+                    >
+                        {meta.error}
+                    </div>
+                ) : null}
             </div>
         );
     }

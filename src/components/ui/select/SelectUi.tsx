@@ -1,6 +1,6 @@
 "use client";
 
-import { Field, ErrorMessage } from "formik";
+import { Field, useField, useFormikContext } from "formik";
 import styles from "./SelectUi.module.scss";
 
 interface Option {
@@ -19,9 +19,18 @@ export default function SelectUI({
                                      options,
                                      placeholder = "Select",
                                  }: SelectUIProps) {
+    const [, meta] = useField(name);
+    const { submitCount } = useFormikContext();
+    const showError = Boolean((meta.touched || submitCount > 0) && meta.error);
+
     return (
         <div className={styles.wrapper}>
-            <Field as="select" name={name} className={styles.select}>
+            <Field
+                as="select"
+                name={name}
+                className={styles.select}
+                aria-invalid={showError}
+            >
                 <option value="">{placeholder}</option>
                 {options.map((o) => (
                     <option key={o.value} value={o.value}>
@@ -29,7 +38,7 @@ export default function SelectUI({
                     </option>
                 ))}
             </Field>
-            <ErrorMessage name={name} component="div" className={styles.error} />
+            {showError ? <div className={styles.error}>{meta.error}</div> : null}
         </div>
     );
 }

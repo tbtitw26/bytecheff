@@ -8,7 +8,8 @@ import clsx from "clsx";
 import styles from "./FormUI.module.scss";
 import InputUI from "@/components/ui/input/InputUI";
 import ButtonUI from "@/components/ui/button/ButtonUI";
-import CountrySelect from "@/components/ui/country-select/CountrySelect";
+import SelectUI from "@/components/ui/select/SelectUi";
+import { ALLOWED_COUNTRIES } from "@/utils/countries";
 
 interface FieldConfig {
     name: string;
@@ -60,11 +61,15 @@ const FormUI: React.FC<FormUIProps> = ({
 
                     <Form className={styles.formContent}>
                         {fields.map((field) => {
-                            if (field.name === "addressCountry") {
+                            if (field.name === "country") {
                                 return (
-                                    <CountrySelect
+                                    <SelectUI
                                         key={field.name}
                                         name={field.name}
+                                        options={ALLOWED_COUNTRIES.map((country) => ({
+                                            value: country.alpha2,
+                                            label: country.name,
+                                        }))}
                                         placeholder={field.placeholder}
                                     />
                                 );

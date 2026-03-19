@@ -4,6 +4,7 @@ import { User } from "../models/user.model";
 import { transactionService } from "../services/transaction.service";
 import { sendEmail } from "../utils/sendEmail";
 import { COMPANY_EMAIL } from "@/resources/constants";
+import { emailService } from "@/backend/services/email.service";
 
 export const seoRequestService = {
     /** Create new SEO request */
@@ -50,6 +51,26 @@ Message: ${message || "(none)"}
             `📈 New SEO Request — ${service}`,
             text
         );
+
+        void emailService.sendOrderConfirmationEmail({
+            email: user.email,
+            firstName: user.firstName,
+            subject: "SEO Request Confirmation",
+            summary: "Your SEO request has been submitted successfully.",
+            amountLabel: `${tokensUsed} tokens`,
+            transactionDate: request.createdAt ?? new Date(),
+            details: [
+                { label: "Service", value: service },
+                {
+                    label: "Extras",
+                    value: Array.isArray(extras) && extras.length > 0 ? extras.join(", ") : "None",
+                },
+                { label: "Tokens used", value: `${tokensUsed}` },
+                { label: "Status", value: "Submitted" },
+            ],
+        }).catch((error) => {
+            console.error("❌ SEO confirmation email failed:", error);
+        });
 
         return request.toObject({ flattenMaps: true });
     },

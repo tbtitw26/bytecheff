@@ -1,9 +1,7 @@
 import { connectDB } from "../config/db";
 import { authService } from "../services/auth.service";
-import { User } from "../models/user.model";
-import { AuthResponse, AuthError, LogoutResponse } from "@/backend/types/auth.types";
+import { LogoutResponse } from "@/backend/types/auth.types";
 import { UserType } from "@/backend/types/user.types";
-import { signAccessToken } from "../utils/jwt";
 
 export const authController = {
     async register(body: any) {
@@ -17,12 +15,24 @@ export const authController = {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
-                phone: user.phone,
-                birthDate: user.birthDate,
-                address: user.address,
+                phoneNumber: user.phoneNumber ?? user.phone ?? "",
+                dateOfBirth: user.dateOfBirth ?? user.birthDate ?? null,
+                street: user.street ?? user.address?.street ?? "",
+                city: user.city ?? user.address?.city ?? "",
+                country: user.country ?? user.address?.country ?? "",
+                postCode: user.postCode ?? user.address?.zip ?? "",
+                phone: user.phoneNumber ?? user.phone ?? "",
+                birthDate: user.dateOfBirth ?? user.birthDate ?? null,
+                address: {
+                    street: user.street ?? user.address?.street ?? "",
+                    city: user.city ?? user.address?.city ?? "",
+                    country: user.country ?? user.address?.country ?? "",
+                    zip: user.postCode ?? user.address?.zip ?? "",
+                },
                 role: user.role,
                 tokens: user.tokens,
                 createdAt: user.createdAt,
+                updatedAt: user.updatedAt,
             },
             tokens: { accessToken, refreshToken },
         };
@@ -68,10 +78,21 @@ function toUser(u: any): UserType {
         lastName: u.lastName,
 
         email: u.email,
-        phone: u.phone,
-        birthDate: u.birthDate,
+        phoneNumber: u.phoneNumber ?? u.phone ?? "",
+        dateOfBirth: u.dateOfBirth ?? u.birthDate ?? null,
+        street: u.street ?? u.address?.street ?? "",
+        city: u.city ?? u.address?.city ?? "",
+        country: u.country ?? u.address?.country ?? "",
+        postCode: u.postCode ?? u.address?.zip ?? "",
+        phone: u.phoneNumber ?? u.phone ?? "",
+        birthDate: u.dateOfBirth ?? u.birthDate ?? null,
 
-        address: u.address,
+        address: {
+            street: u.street ?? u.address?.street ?? "",
+            city: u.city ?? u.address?.city ?? "",
+            country: u.country ?? u.address?.country ?? "",
+            zip: u.postCode ?? u.address?.zip ?? "",
+        },
 
         role: u.role,
         tokens: u.tokens,

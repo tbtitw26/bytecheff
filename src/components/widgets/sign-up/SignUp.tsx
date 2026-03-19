@@ -43,14 +43,15 @@ export default function SignUp() {
                     fields={[
                         { name: "firstName", type: "text", placeholder: t.fields.firstName },
                         { name: "lastName", type: "text", placeholder: t.fields.lastName },
+                        { name: "dateOfBirth", type: "date", placeholder: t.fields.dateOfBirth },
                         { name: "email", type: "email", placeholder: t.fields.email },
+                        { name: "phoneNumber", type: "tel", placeholder: t.fields.phoneNumber },
+                        { name: "street", type: "text", placeholder: t.fields.street },
+                        { name: "city", type: "text", placeholder: t.fields.city },
+                        { name: "country", type: "select", placeholder: t.fields.countryPlaceholder },
+                        { name: "postCode", type: "text", placeholder: t.fields.postCode },
                         { name: "password", type: "password", placeholder: t.fields.password },
-                        { name: "phone", type: "tel", placeholder: t.fields.phone },
-                        { name: "birthDate", type: "date", placeholder: t.fields.birthDate },
-                        { name: "addressStreet", type: "text", placeholder: t.fields.addressStreet },
-                        { name: "addressCity", type: "text", placeholder: t.fields.addressCity },
-                        { name: "addressCountry", type: "text", placeholder: t.fields.addressCountry },
-                        { name: "addressZip", type: "text", placeholder: t.fields.addressZip },
+                        { name: "confirmPassword", type: "password", placeholder: t.fields.confirmPassword },
                     ]}
                 />
             )}

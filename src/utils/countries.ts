@@ -3,7 +3,7 @@ import en from "i18n-iso-countries/langs/en.json";
 
 countries.registerLocale(en);
 
-const BLOCKED_ISO3 = new Set([
+export const RESTRICTED_COUNTRY_ALPHA3 = new Set([
     "RUS",
     "BLR",
     "IRN",
@@ -47,6 +47,21 @@ export function getAllowedCountries(): CountryOption[] {
             alpha3: countries.alpha2ToAlpha3(alpha2),
         }))
         .filter(hasAlpha3)
-        .filter((c) => !BLOCKED_ISO3.has(c.alpha3))
+        .filter((c) => !RESTRICTED_COUNTRY_ALPHA3.has(c.alpha3))
         .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export const ALLOWED_COUNTRIES = getAllowedCountries();
+export const ALLOWED_COUNTRY_CODES = new Set(
+    ALLOWED_COUNTRIES.map((country) => country.alpha2)
+);
+
+export function findAllowedCountry(value: string): CountryOption | undefined {
+    const normalized = value.trim().toUpperCase();
+
+    return ALLOWED_COUNTRIES.find(
+        (country) =>
+            country.alpha2 === normalized ||
+            country.name.toUpperCase() === normalized
+    );
 }

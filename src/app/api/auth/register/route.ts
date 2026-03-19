@@ -5,8 +5,6 @@ import { attachAuthCookies } from "@/backend/utils/cookies";
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        console.log("REGISTER BODY:", body);
-
         const { user, tokens } = await authController.register(body);
 
         const res = NextResponse.json({ user }, { status: 200 });
@@ -20,7 +18,14 @@ export async function POST(req: NextRequest) {
     } catch (e: any) {
         console.error("REGISTER ERROR:", e);
         const msg = e?.message || "Registration error";
-        const code = msg.includes("registered") ? 400 : 500;
+        const code =
+            msg.includes("registered") ||
+            msg.includes("required") ||
+            msg.includes("valid") ||
+            msg.includes("allowed") ||
+            msg.includes("Password")
+                ? 400
+                : 500;
 
         return NextResponse.json(
             { type: "RegisterError", message: msg },
@@ -28,4 +33,3 @@ export async function POST(req: NextRequest) {
         );
     }
 }
-

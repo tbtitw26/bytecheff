@@ -6,6 +6,7 @@ import { sha256, randomToken } from "../utils/crypto";
 import { signAccessToken, signRefreshToken } from "../utils/jwt";
 import { ENV } from "../config/env";
 import { emailService } from "@/backend/services/email.service";
+import { findAllowedCountry } from "@/utils/countries";
 
 function parseDurationToSec(input: string): number {
     const m = input.match(/^(\d+)([smhd])?$/i);
@@ -21,28 +22,74 @@ function parseDurationToSec(input: string): number {
 
 const REFRESH_TTL_SEC = parseDurationToSec(ENV.REFRESH_TOKEN_EXPIRES);
 
-const COUNTRY_BLACKLIST = [
-    "Crimea (Ukraine)",
-    "Darfur (Sudan)",
-    "Dem. Rep. of the Congo",
-    "Iran",
-    "Mali",
-    "Myanmar (Burma)",
-    "North Korea",
-    "South Sudan",
-    "Syria",
-    "Yemen",
-    "Afghanistan",
-    "Belarus",
-    "Central African Republic",
-    "Cuba",
-    "Haiti",
-    "Iraq",
-    "Russia",
-    "Somalia",
-    "Venezuela",
-    "Zimbabwe",
-];
+function isValidDateOnly(value: string): boolean {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+
+    const date = new Date(`${value}T00:00:00.000Z`);
+    if (Number.isNaN(date.getTime())) return false;
+
+    return date.toISOString().slice(0, 10) === value;
+}
+
+function trimRequired(value: unknown, fieldName: string): string {
+    const normalized = typeof value === "string" ? value.trim() : "";
+    if (!normalized) throw new Error(`${fieldName} is required`);
+    return normalized;
+}
+
+function normalizeRegistrationData(data: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    phoneNumber: string;
+    dateOfBirth: string;
+    street: string;
+    city: string;
+    country: string;
+    postCode: string;
+}) {
+    const firstName = trimRequired(data.firstName, "First name");
+    const lastName = trimRequired(data.lastName, "Last name");
+    const email = trimRequired(data.email, "Email").toLowerCase();
+    const password = typeof data.password === "string" ? data.password : "";
+    const phoneNumber = trimRequired(data.phoneNumber, "Phone number");
+    const dateOfBirth = trimRequired(data.dateOfBirth, "Date of birth");
+    const street = trimRequired(data.street, "Street");
+    const city = trimRequired(data.city, "City");
+    const countryInput = trimRequired(data.country, "Country");
+    const postCode = trimRequired(data.postCode, "Post code");
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        throw new Error("Enter a valid email");
+    }
+
+    if (password.length < 8) {
+        throw new Error("Password must be at least 8 characters");
+    }
+
+    if (!isValidDateOnly(dateOfBirth)) {
+        throw new Error("Enter a valid date of birth");
+    }
+
+    const allowedCountry = findAllowedCountry(countryInput);
+    if (!allowedCountry) {
+        throw new Error("Registration from this country is not allowed");
+    }
+
+    return {
+        firstName,
+        lastName,
+        email,
+        password,
+        phoneNumber,
+        dateOfBirth,
+        street,
+        city,
+        country: allowedCountry.name,
+        postCode,
+    };
+}
 
 export const authService = {
     async register(data: {
@@ -50,37 +97,41 @@ export const authService = {
         lastName: string;
         email: string;
         password: string;
-        phone: string;
-        birthDate: string;
-        addressStreet: string;
-        addressCity: string;
-        addressCountry: string;
-        addressZip: string;
+        phoneNumber: string;
+        dateOfBirth: string;
+        street: string;
+        city: string;
+        country: string;
+        postCode: string;
     }) {
-        const normalizedEmail = data.email.toLowerCase().trim();
-        const normalizedCountry = data.addressCountry.trim();
+        const normalized = normalizeRegistrationData(data);
 
-        const existing = await User.findOne({ email: normalizedEmail });
+        const existing = await User.findOne({ email: normalized.email });
         if (existing) throw new Error("Email already registered");
 
-        if (COUNTRY_BLACKLIST.includes(normalizedCountry)) {
-            throw new Error("Registration from this country is not allowed");
-        }
-
-        const hashed = await bcrypt.hash(data.password, 12);
+        const hashed = await bcrypt.hash(normalized.password, 12);
+        const parsedDateOfBirth = new Date(`${normalized.dateOfBirth}T00:00:00.000Z`);
 
         const user = await User.create({
-            firstName: data.firstName.trim(),
-            lastName: data.lastName.trim(),
-            email: normalizedEmail,
+            firstName: normalized.firstName,
+            lastName: normalized.lastName,
+            email: normalized.email,
             password: hashed,
-            phone: data.phone.trim(),
-            birthDate: new Date(data.birthDate),
+            phoneNumber: normalized.phoneNumber,
+            dateOfBirth: parsedDateOfBirth,
+            street: normalized.street,
+            city: normalized.city,
+            country: normalized.country,
+            postCode: normalized.postCode,
+
+            // Legacy mirrored fields for existing consumers.
+            phone: normalized.phoneNumber,
+            birthDate: parsedDateOfBirth,
             address: {
-                street: data.addressStreet.trim(),
-                city: data.addressCity.trim(),
-                country: normalizedCountry,
-                zip: data.addressZip.trim(),
+                street: normalized.street,
+                city: normalized.city,
+                country: normalized.country,
+                zip: normalized.postCode,
             },
         });
 
