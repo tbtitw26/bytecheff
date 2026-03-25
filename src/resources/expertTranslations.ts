@@ -20,7 +20,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Tsuji kulinariske skole",
             specialties: ["Fransk"],
             profile: {
-                intro: "Klassiske franske teknikker, presisjon og disiplin for kokker som vil bygge et solid grunnlag.",
                 headline: "Klassisk fransk kjøkken raffinert gjennom disiplin",
                 about: [
                     "Marcus Laurent er en klassisk utdannet fransk kokk med over 15 års erfaring.",
@@ -39,7 +38,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Le Cordon Bleu",
             specialties: ["Molekylær gastronomi", "Fransk"],
             profile: {
-                intro: "Eksperimentell matlaging der vitenskap, tekstur og moderne fransk inspirasjon møtes.",
                 headline: "Vitenskap møter kreativitet i moderne matlaging",
                 about: [
                     "Sarah spesialiserer seg på molekylær gastronomi og eksperimentell matlaging.",
@@ -58,7 +56,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Tokyo kulinariske institutt",
             specialties: ["Japansk kjøkken"],
             profile: {
-                intro: "Tradisjonell japansk matkultur med fokus på råvarekvalitet, balanse og kontroll i hvert trinn.",
                 headline: "Disiplin, balanse og respekt for råvarer",
                 about: [
                     "Kenji Tanaka er en mester i tradisjonell japansk matlaging.",
@@ -77,7 +74,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Madrid konditoriakademi",
             specialties: ["Spansk", "Konditorkunst"],
             profile: {
-                intro: "Spanske desserttradisjoner løftet med moderne konditorteknikk og visuell presisjon.",
                 headline: "Konditorkunst som kunst og håndverk",
                 about: [
                     "Maria kombinerer spanske tradisjoner med moderne konditorestetikk.",
@@ -96,7 +92,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Nettbasert kulinarisk program",
             specialties: ["Internasjonalt"],
             profile: {
-                intro: "Enkle, trygge metoder for hjemmekokker som vil komme raskt i gang og bygge selvtillit.",
                 headline: "Matlaging gjort enkelt for alle",
                 about: [
                     "Alex fokuserer på enkel og tilgjengelig hjemmelaging.",
@@ -115,7 +110,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "ALMA kulinariske skole",
             specialties: ["Italiensk"],
             profile: {
-                intro: "Autentiske italienske smaker, tydelige teknikker og moderne tolkninger av klassiske retter.",
                 headline: "Italiensk tradisjon med en moderne sjel",
                 about: [
                     "Luca bevarer autentiske italienske smaker.",
@@ -134,7 +128,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Hong Kong kulinariske akademi",
             specialties: ["Kinesisk", "Fusion"],
             profile: {
-                intro: "Kreativ asiatisk fusion der kinesiske teknikker møter moderne presentasjon og dristige kombinasjoner.",
                 headline: "Der asiatiske smaker møtes på en kreativ måte",
                 about: [
                     "Emily kombinerer asiatiske kjøkken i moderne fusionretter.",
@@ -153,7 +146,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Texas BBQ Institute",
             specialties: ["Amerikansk"],
             profile: {
-                intro: "Amerikansk BBQ med røyk, ildkontroll og lav temperatur for dype, tydelige smaker.",
                 headline: "Perfekt BBQ på lav varme over lang tid",
                 about: [
                     "David er en mester i amerikanske BBQ-teknikker.",
@@ -172,7 +164,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Ernæringsakademiet i Warszawa",
             specialties: ["Polsk", "Europeisk"],
             profile: {
-                intro: "Balanserte europeiske retter med ernæringsfokus, rene smaker og praktiske hverdagsløsninger.",
                 headline: "Sunn mat uten kompromisser",
                 about: [
                     "Anna spesialiserer seg på balansert europeisk mat.",
@@ -191,7 +182,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "École Ferrandi",
             specialties: ["Fransk", "Konditorkunst"],
             profile: {
-                intro: "Fransk konditorkunst bygget på nøyaktighet, struktur og klassiske teknikker fra Paris.",
                 headline: "Kunsten bak klassisk fransk konditorkunst",
                 about: [
                     "Pierre er en mester i tradisjonelle franske desserter.",
@@ -210,7 +200,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Plantebasert kulinarisk skole",
             specialties: ["Vegetarisk"],
             profile: {
-                intro: "Sesongbasert vegetarisk matlaging med kreativitet, tekstur og tydelige smaker i sentrum.",
                 headline: "Vegetarmat uten grenser",
                 about: [
                     "Sofia redefinerer vegetarisk matlaging.",
@@ -229,7 +218,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Beirut kulinariske institutt",
             specialties: ["Midtøstlig"],
             profile: {
-                intro: "Varme krydder, tradisjonelle teknikker og familieforankrede oppskrifter fra Midtøsten.",
                 headline: "Autentiske smaker fra Midtøsten",
                 about: [
                     "Omar bringer tradisjonelle oppskrifter fra Midtøsten.",
@@ -248,7 +236,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Berlin kulinariske studio",
             specialties: ["Tysk", "Europeisk"],
             profile: {
-                intro: "Hverdagsvennlig europeisk comfort food med tydelige metoder og tilgjengelige råvarer.",
                 headline: "Komfortmat for hverdagen",
                 about: [
                     "Julia fokuserer på enkle europeiske retter.",
@@ -267,7 +254,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Middelhavets kulinariske akademi",
             specialties: ["Middelhavet", "Italiensk"],
             profile: {
-                intro: "Friske middelhavssmaker, sjømat og enkel teknikk som fremhever råvarene fremfor å skjule dem.",
                 headline: "Middelhavets friskhet og balanse",
                 about: [
                     "Mateo spesialiserer seg på middelhavsbasert sjømat.",
@@ -286,7 +272,6 @@ const expertTranslations: Record<LangCode, ExpertTranslations> = {
             education: "Prahas kulinariske institutt",
             specialties: ["Ukrainsk", "Tsjekkisk"],
             profile: {
-                intro: "Østeuropeiske tradisjoner tolket med respekt for røtter, håndverk og moderne servering.",
                 headline: "Østeuropeiske tradisjoner nytolket",
                 about: [
                     "Nina bringer autentiske østeuropeiske oppskrifter.",

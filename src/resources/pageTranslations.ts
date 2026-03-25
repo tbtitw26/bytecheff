@@ -628,7 +628,6 @@ export const pageTranslations = {
         },
         chefProfile: {
             role: "Executive Chef",
-            subtitle: "Parisian trained, global perspective. Bringing the excellence of Michelin kitchens to your private events.",
             meta: {
                 rating: "⭐ Rating",
                 experience: "⏱ Experience",
@@ -1453,7 +1452,6 @@ export const pageTranslations = {
         },
         chefProfile: {
             role: "Sjefskokk",
-            subtitle: "Parisk utdannet, globalt perspektiv. Bringer ekspertisen fra Michelin-kjøkkener til dine private arrangementer.",
             meta: {
                 rating: "⭐ Vurdering",
                 experience: "⏱ Erfaring",

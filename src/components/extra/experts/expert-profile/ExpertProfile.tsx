@@ -68,10 +68,6 @@ export default function ExpertProfile({ expert }: Props) {
                             {translatedExpert.profile.headline}
                         </h1>
 
-                        <p className={styles.subtitle}>
-                            {translatedExpert.profile.intro ?? t.subtitle}
-                        </p>
-
                         <section className={styles.block}>
                             <h3>{t.sections.about}</h3>
                             {translatedExpert.profile.about.map((text, i) => (
