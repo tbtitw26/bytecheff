@@ -194,8 +194,16 @@ export default function CourseGeneratorForm() {
                     });
 
                     const data = await res.json();
-                    if (res.ok) showAlert("Success", "Course request saved!", "success");
-                    else showAlert("Error", data?.message || "Failed to save", "error");
+                    if (res.ok) {
+                        const status = data?.order?.status;
+                        const message =
+                            status === "queued"
+                                ? "Course request queued. Your recipe will be delivered in 2-4 hours."
+                                : "Course request saved and ready immediately.";
+                        showAlert("Success", message, "success");
+                    } else {
+                        showAlert("Error", data?.message || "Failed to save", "error");
+                    }
                 } catch (e) {
                     showAlert("Error", "Network or server issue", "error");
                 } finally {

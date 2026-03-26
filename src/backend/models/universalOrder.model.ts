@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { UniversalOrderStatus } from "../types/universal.types";
 
 export interface UniversalOrderDocument extends Document {
     userId: mongoose.Types.ObjectId;
@@ -14,8 +15,14 @@ export interface UniversalOrderDocument extends Document {
     response: string;
     extrasData: Record<string, string>;
 
-    status: "pending" | "ready";
-    readyAt: Date;
+    status: UniversalOrderStatus;
+    readyAt?: Date;
+    scheduledFor?: Date;
+    startedAt?: Date;
+    completedAt?: Date;
+    attempts?: number;
+    lastError?: string;
+    deliveryNotifiedAt?: Date;
     createdAt: Date;
 }
 
@@ -36,12 +43,24 @@ const universalOrderSchema = new Schema<UniversalOrderDocument>(
         response: { type: String, default: "" },
         extrasData: { type: Map, of: String, default: {} },
 
-        status: { type: String, enum: ["pending", "ready"], default: "ready" },
+        status: {
+            type: String,
+            enum: ["pending", "queued", "processing", "ready", "failed"],
+            default: "ready",
+        },
         readyAt: { type: Date },
+        scheduledFor: { type: Date },
+        startedAt: { type: Date },
+        completedAt: { type: Date },
+        attempts: { type: Number, default: 0 },
+        lastError: { type: String, default: "" },
+        deliveryNotifiedAt: { type: Date },
         createdAt: { type: Date, default: Date.now },
     },
     { strict: false }
 );
+
+universalOrderSchema.index({ category: 1, status: 1, scheduledFor: 1 });
 
 universalOrderSchema.set("toJSON", {
     transform: (_, ret) => {

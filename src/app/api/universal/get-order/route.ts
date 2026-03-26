@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
         if (!id)
             return NextResponse.json({ message: "Missing order id" }, { status: 400 });
 
-        const result = await universalController.getOrder(user.sub, id);
+        const result = await universalController.getOrder(user.sub, id, true);
 
         // 🧩 Гарантовано конвертуємо Map → Object
         const order = result?.order;
@@ -23,6 +23,7 @@ export async function GET(req: NextRequest) {
 
         return NextResponse.json({ order });
     } catch (err: any) {
-        return NextResponse.json({ message: err.message }, { status: 400 });
+        const status = err.message === "OrderNotReady" ? 409 : 400;
+        return NextResponse.json({ message: err.message }, { status });
     }
 }

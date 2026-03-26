@@ -2,18 +2,10 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { CVOrderType } from "@/backend/types/cv.types";
-
-export interface AiOrder {
-    _id: string;
-    userId: string;
-    email: string;
-    prompt: string;
-    response: string;
-    createdAt: string;
-}
+import { UniversalOrderUI } from "@/types/universal-order";
 
 interface AllOrdersContextType {
-    aiOrders: AiOrder[];
+    aiOrders: UniversalOrderUI[];
     cvOrders: CVOrderType[];
     refreshOrders: () => Promise<void>;
     loading: boolean;
@@ -29,7 +21,7 @@ const AllOrdersContext = createContext<AllOrdersContextType>({
 export const useAllOrders = () => useContext(AllOrdersContext);
 
 export const AllOrdersProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [aiOrders, setAiOrders] = useState<AiOrder[]>([]);
+    const [aiOrders, setAiOrders] = useState<UniversalOrderUI[]>([]);
     const [cvOrders, setCvOrders] = useState<CVOrderType[]>([]);
     const [loading, setLoading] = useState(false);
 

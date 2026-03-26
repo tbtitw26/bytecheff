@@ -14,9 +14,9 @@ export const universalController = {
         return { orders };
     },
 
-    async getOrder(userId: string, id: string) {
+    async getOrder(userId: string, id: string, requireReady = false) {
         await connectDB();
-        const order = await universalService.getOrderById(userId, id);
+        const order = await universalService.getOrderById(userId, id, requireReady);
         if (!order) throw new Error("Order not found");
         return { order };
     },

@@ -6,6 +6,19 @@ export function env(name: string, fallback?: string): string {
     return value;
 }
 
+function enumEnv<const T extends readonly string[]>(
+    name: string,
+    allowed: T,
+    fallback: T[number]
+): T[number] {
+    const value = env(name, fallback).toUpperCase();
+    if (!allowed.includes(value as T[number])) {
+        throw new Error(`${name} must be one of: ${allowed.join(", ")}`);
+    }
+
+    return value as T[number];
+}
+
 export const ENV = {
     MONGODB_URI: env("MONGODB_URI"),
     JWT_ACCESS_SECRET: env("JWT_ACCESS_SECRET"),
@@ -25,4 +38,6 @@ export const ENV = {
     SMTP_PASS: env("SMTP_PASS", ""),
     EMAIL_FROM: env("EMAIL_FROM", ""),
     RESEND_API: env("RESEND_API", ""),
+    RECIPE_DELIVERY_MODE: enumEnv("RECIPE_DELIVERY_MODE", ["TEST", "LIVE"] as const, "TEST"),
+    CRON_SECRET: env("CRON_SECRET", "dev-cron-secret"),
 };

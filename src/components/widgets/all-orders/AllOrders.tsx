@@ -19,10 +19,56 @@ const AllOrders: React.FC = () => {
             year: "numeric",
         });
 
+    const formatDateTime = (dateStr?: string) => {
+        if (!dateStr) return "Not scheduled";
+
+        return new Date(dateStr).toLocaleString("en-US", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+    };
+
     const formatId = (id: string) => id.slice(-6);
+
+    const timeLeft = (dateStr?: string) => {
+        if (!dateStr) return "Waiting";
+        const ms = new Date(dateStr).getTime() - Date.now();
+        if (ms <= 0) return "Ready soon";
+
+        const h = Math.floor(ms / 3600000);
+        const m = Math.floor((ms % 3600000) / 60000);
+        return `${h}h ${m}m left`;
+    };
+
+    const isReady = (order: UniversalOrderUI) => order.status === "ready";
+
+    const getStatusLabel = (order: UniversalOrderUI) => {
+        if (order.status === "ready") return "Ready";
+        if (order.status === "processing") return "Processing";
+        if (order.status === "failed") return order.lastError ? `Failed: ${order.lastError}` : "Failed";
+        if (order.status === "pending" || order.status === "queued") {
+            return `Queued • ${timeLeft(order.scheduledFor || order.readyAt)}`;
+        }
+
+        return order.status;
+    };
+
+    const getActionLabel = (order: UniversalOrderUI) => {
+        if (order.status === "ready") return "Download";
+        if (order.status === "processing") return "Processing";
+        if (order.status === "failed") return "Unavailable";
+        return "Queued";
+    };
 
     const handleDownload = async (order: UniversalOrderUI) => {
         try {
+            if (!isReady(order)) {
+                return;
+            }
+
             if (order.extrasData && Object.keys(order.extrasData).length > 0) {
                 await downloadUniversalPDF(order as any);
                 return;
@@ -76,6 +122,7 @@ const AllOrders: React.FC = () => {
                     <span>Email</span>
                     <span>Date</span>
                     <span>Tokens</span>
+                    <span>Status</span>
                     <span className={styles.actionsHead}>Actions</span>
                 </div>
 
@@ -98,13 +145,18 @@ const AllOrders: React.FC = () => {
                             -{order.totalTokens}
                         </span>
 
+                        <span className={styles.date} title={formatDateTime(order.scheduledFor || order.readyAt)}>
+                            {getStatusLabel(order)}
+                        </span>
+
                         <div className={styles.actions}>
                             <button
                                 type="button"
                                 className={styles.download}
+                                disabled={!isReady(order)}
                                 onClick={() => handleDownload(order)}
                             >
-                                Download
+                                {getActionLabel(order)}
                             </button>
                         </div>
                     </div>

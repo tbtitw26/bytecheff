@@ -1,3 +1,10 @@
+export type UniversalOrderStatus =
+    | "pending"
+    | "queued"
+    | "processing"
+    | "ready"
+    | "failed";
+
 export interface UniversalOrderUI {
     _id: string;
     userId: string;
@@ -15,7 +22,13 @@ export interface UniversalOrderUI {
     response: string;
     extrasData?: Record<string, string>;
 
-    status: "pending" | "ready";
+    status: UniversalOrderStatus;
     readyAt?: string;
+    scheduledFor?: string;
+    startedAt?: string;
+    completedAt?: string;
+    attempts?: number;
+    lastError?: string;
+    deliveryNotifiedAt?: string;
     createdAt: string;
 }

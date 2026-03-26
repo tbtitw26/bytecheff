@@ -17,7 +17,7 @@ const SignUpAside: React.FC = () => {
             <span className={styles.badge}>Join our community</span>
 
             <h3 className={styles.title}>
-                Master the art of cooking <br /> with AI.
+                Master the art of cooking <br /> with CheffMate.
             </h3>
 
             <p className={styles.subtitle}>

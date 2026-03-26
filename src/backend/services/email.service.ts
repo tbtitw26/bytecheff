@@ -206,6 +206,75 @@ ${companyName} Team
 
         return await sendEmail(data.email, data.subject, text, html);
     },
+
+    async sendOrderReadyEmail(data: {
+        email: string;
+        firstName?: string;
+        category: string;
+        orderId: string;
+    }) {
+        const companyName = COMPANY_NAME || "Cheff Mate";
+        const greetingName = data.firstName?.trim() || "there";
+        const dashboardUrl = `${ENV.APP_URL.replace(/\/$/, "")}/profile`;
+        const shortOrderId = data.orderId.slice(-6);
+
+        const subject = "Your recipe is ready";
+        const summary = `Your ${data.category} order #${shortOrderId} is now available in your account dashboard.`;
+
+        const text = `
+Hi ${greetingName},
+
+${summary}
+
+Open your dashboard here: ${dashboardUrl}
+
+${COMPANY_EMAIL ? `Support email: ${COMPANY_EMAIL}` : ""}
+
+Best regards,
+${companyName} Team
+        `.trim();
+
+        const html = `
+        <div style="font-family: Arial, sans-serif; background:#f4faff; padding:20px; color:#333;">
+          <div style="max-width:600px; margin:auto; background:#fff; border-radius:8px; padding:30px; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
+            <h2 style="color:#007BFF; text-align:center; margin-bottom:24px;">
+              ${escapeHtml(subject)}
+            </h2>
+
+            <p style="font-size:16px; line-height:1.6;">
+              Hi <strong>${escapeHtml(greetingName)}</strong>,
+            </p>
+
+            <p style="font-size:16px; line-height:1.6;">
+              ${escapeHtml(summary)}
+            </p>
+
+            <div style="text-align:center; margin:30px 0;">
+              <a
+                href="${escapeHtml(dashboardUrl)}"
+                style="background:#007BFF; color:#fff; text-decoration:none; padding:12px 24px; border-radius:6px; font-weight:bold; display:inline-block;"
+              >
+                Open Dashboard
+              </a>
+            </div>
+
+            ${
+                COMPANY_EMAIL
+                    ? `<p style="font-size:14px; color:#666;">Need help? Contact us at ${escapeHtml(COMPANY_EMAIL)}.</p>`
+                    : ""
+            }
+
+            <hr style="margin:20px 0; border:none; border-top:1px solid #eee;" />
+
+            <p style="font-size:14px; color:#777; text-align:center; margin:0;">
+              © ${new Date().getFullYear()} ${escapeHtml(companyName)}
+            </p>
+          </div>
+        </div>
+        `;
+
+        return await sendEmail(data.email, subject, text, html);
+    },
 };
 
 function escapeHtml(value: string) {

@@ -1,5 +1,12 @@
 import { Types } from "mongoose";
 
+export type UniversalOrderStatus =
+    | "pending"
+    | "queued"
+    | "processing"
+    | "ready"
+    | "failed";
+
 export interface UniversalOrderType {
     _id: Types.ObjectId;
     userId: Types.ObjectId;
@@ -12,8 +19,14 @@ export interface UniversalOrderType {
     language?: string;
     response: string;
     extrasData: Record<string, string>;
-    status: "pending" | "ready";
-    readyAt: Date;
+    status: UniversalOrderStatus;
+    readyAt?: Date;
+    scheduledFor?: Date;
+    startedAt?: Date;
+    completedAt?: Date;
+    attempts?: number;
+    lastError?: string;
+    deliveryNotifiedAt?: Date;
     createdAt: Date;
 }
 

@@ -39,7 +39,7 @@
 .head,
 .row {
   display: grid;
-  grid-template-columns: 1fr 2fr 1.2fr 1fr auto;
+  grid-template-columns: 0.8fr 1.8fr 1.1fr 0.8fr 1.6fr auto;
   gap: 1rem;
   padding: 0.9rem 0;
   align-items: center;
@@ -113,6 +113,12 @@
 
 .download:hover {
   background: var(--surface-muted);
+}
+
+.download:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: transparent;
 }
 
 /* ======================
