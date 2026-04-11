@@ -9,6 +9,7 @@ import HowItWorksSection from "@/components/sections/how-it-works-section/HowItW
 import TeamGrid from "@/components/constructor/team-grid/TeamGrid";
 import Section from "@/components/constructor/section/Section";
 import InfoBlock from "@/components/constructor/Info-block/InfoBlock";
+import { experts } from "@/data/experts";
 import { siteContent } from "@/resources/siteContent";
 
 export default function HomePageClient() {
@@ -149,12 +150,15 @@ export default function HomePageClient() {
                 description={t.team.description}
                 viewAllText={t.team.viewAllText}
                 viewAllLink="/extra/chefs"
-                members={[
-                    { name: "Marcus L.", role: "Cuisine française", image: "team1" },
-                    { name: "Sarah J.", role: "Gastronomie moléculaire", image: "team2" },
-                    { name: "Kenji T.", role: "Japansk kjøkken", image: "team4" },
-                    { name: "Maria G.", role: "Konditorkunst", image: "team3" },
-                ]}
+                members={experts.slice(0, 4).map((expert) => ({
+                    name: expert.fullName
+                        .replace(/^@/, "")
+                        .split(/[_-]+/)
+                        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+                        .join(" "),
+                    role: expert.subtitle,
+                    image: expert.avatar,
+                }))}
             />
 
             <TestimonialsSlider
