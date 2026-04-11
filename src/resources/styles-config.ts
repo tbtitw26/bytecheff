@@ -106,33 +106,33 @@ export const footerStyles = {
     showTopBorder: true,
     showBottomBorder: true,
     maxWidth: 1200,
-    paddings: {x: 40, y: 10},
-    gap: 30,
-    columnsGap: 50,
+    paddings: {x: 40, y: 26},
+    gap: 36,
+    columnsGap: 56,
     logo: {width: 180, height: 50, align: "center" as FooterLogoAlign},
     colors: {
-        bg: "var(--text-secondary)",
+        bg: "#f1e8de",
 
-        title: "var(--text-inverse)",
-        contactLabel: "var(--text-inverse)", //Company:
+        title: "var(--text-primary)",
+        contactLabel: "var(--text-secondary)",
 
-        text: "var(--text-inverse)",
-        muted: "var(--text-inverse)",
+        text: "var(--text-primary)",
+        muted: "var(--text-secondary)",
         border: "var(--border-color)",
-        link: "var(--text-inverse)",
-        linkHover: "var(--text-inverse)",
-        contactHover: "var(--text-inverse)",
-        socialHover: "var(--text-inverse)",
+        link: "var(--text-primary)",
+        linkHover: "var(--primary-color)",
+        contactHover: "var(--primary-color)",
+        socialHover: "var(--primary-color)",
     },
     grid: {colsXL: 1, colsLG: 2, colsMD: 2, colsSM: 1},
-    font: {size: 16, legalSize: 24},
+    font: {size: 15, legalSize: 16},
     sizes: {
         titles: {xl: 16, lg: 16, md: 16, sm: 16},
         links: {xl: 16, lg: 16, md: 16, sm: 16},
         icons: {xl: 20, lg: 20, md: 20, sm: 18},
     },
-    radius: "0",
-    shadow: "none",
+    radius: "24px 24px 0 0",
+    shadow: "0 -10px 40px rgba(70, 49, 32, 0.04)",
 };
 
 // Hover effects
@@ -177,4 +177,3 @@ export const cardVariants: Record<CardVariant, {
         },
     },
 };
-

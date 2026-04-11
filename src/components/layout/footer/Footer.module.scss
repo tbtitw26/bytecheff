@@ -44,6 +44,7 @@
   background: var(--bg);
   color: var(--text);
   font-size: var(--fs);
+  margin-top: 24px;
 
   a {
     color: var(--text);
@@ -88,7 +89,7 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--columns-gap);
   width: 100%;
-  padding: 30px 0;
+  padding: 28px 0 36px;
 }
 
 .footer__payments{
@@ -101,16 +102,17 @@
 .footer__column {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   align-items: start;
 }
 
 .footer__column-title {
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--footer-title-color);
   font-size: var(--footer-title-fs);
-  text-align: center;
+  text-align: left;
+  letter-spacing: 0.02em;
 }
 
 .footer__link {
@@ -118,9 +120,11 @@
   align-items: center;
   color: var(--link);
   font-size: var(--footer-link-fs);
+  opacity: 0.9;
 
   &:hover {
     color: var(--link-hover);
+    opacity: 1;
   }
 }
 
@@ -144,10 +148,10 @@
 .footer__legal-address {
   color: var(--legal);
   font-size: var(--footer-link-fs);
-  font-weight: 500;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
 .footer__legal-label {
@@ -184,14 +188,16 @@
 .footer__rights {
   width: 100%;
   text-align: center;
-  padding: 20px 130px;
+  padding: 18px 40px 28px;
   color: var(--muted);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 
   @media(max-width: 768px){
-    padding: 10px 30px;
+    padding: 14px 20px 24px;
+    flex-direction: column;
   }
 }
 

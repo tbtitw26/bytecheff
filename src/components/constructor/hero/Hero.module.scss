@@ -1,33 +1,77 @@
 .hero {
+  position: relative;
   width: 100%;
-  padding: 90px 24px;
-  background: var(--quaternary-color);
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 0 0 32px 32px;
+  background: #111;
+}
+
+.mediaLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+          linear-gradient(
+                          180deg,
+                          rgba(10, 10, 10, 0.18) 0%,
+                          rgba(10, 10, 10, 0.42) 38%,
+                          rgba(10, 10, 10, 0.72) 68%,
+                          rgba(10, 10, 10, 0.9) 100%
+          );
 }
 
 .inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 5rem;
+  padding: 48px 24px 56px;
 }
 
-/* =====================
-   LEFT CONTENT
-===================== */
-
 .content {
+  max-width: 760px;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .title {
-  font-size: clamp(2.8rem, 4vw, 3.6rem);
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.94;
   font-weight: 900;
-  line-height: 1.15;
-  color: var(--text-primary);
+  letter-spacing: -0.05em;
+  color: #fff;
+  max-width: 900px;
 
   span {
     color: var(--primary-color);
@@ -35,112 +79,130 @@
 }
 
 .description {
-  max-width: 520px;
+  max-width: 620px;
   font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .actions {
   display: flex;
+  align-items: center;
   gap: 1rem;
-  margin-top: 0.5rem;
   flex-wrap: wrap;
+  margin-top: 0.25rem;
 }
 
-/* =====================
-   FEATURES
-===================== */
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
 
 .features {
-  margin-top: 1.8rem;
+  margin-top: 0.8rem;
   display: flex;
-  gap: 1.8rem;
   flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 760px;
 }
 
 .featureItem {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--primary-color);
-}
-
-/* =====================
-   IMAGE CARD
-===================== */
-
-.imageCard {
-  position: relative;
-  width: 100%;
-  height: 420px;
-  border-radius: 28px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
-}
-
-.image {
-  object-fit: cover;
-}
-
-/* =====================
-   BADGE
-===================== */
-
-.badge {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  background: #fff;
+  gap: 0.55rem;
+  min-height: 40px;
+  padding: 0 14px;
   border-radius: 999px;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.badgeDot {
-  width: 8px;
-  height: 8px;
+.featureDot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--primary-color);
+  flex-shrink: 0;
 }
 
-/* =====================
-   MOBILE
-===================== */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 78vh;
+  }
 
-@media (max-width: 768px) {
-  .inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
+  .title {
+    font-size: clamp(2.8rem, 8vw, 4.8rem);
   }
 
   .description {
-    margin: 0 auto;
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 74vh;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .inner {
+    padding: 28px 16px 32px;
+  }
+
+  .content {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
+    line-height: 0.98;
+  }
+
+  .description {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.65;
   }
 
   .actions {
-    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions a {
+    width: 100%;
+  }
+
+  .secondaryLink {
+    width: fit-content;
+    min-height: auto;
+    position: relative;
   }
 
   .features {
-    justify-content: center;
+    gap: 0.6rem;
+    max-width: 100%;
   }
 
-  .imageCard {
-    height: 320px;
+  .featureItem {
+    white-space: normal;
+    min-height: 38px;
+    font-size: 0.88rem;
   }
 }

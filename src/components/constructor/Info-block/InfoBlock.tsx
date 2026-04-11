@@ -10,7 +10,7 @@ interface InfoBlockProps {
     title: string;
     description?: string;
     image?: keyof typeof media; // ✅ як у всіх
-    bullets?: string[];
+    bullets?: readonly string[];
     variant?: "chef" | "ai";
 }
 

@@ -5,12 +5,11 @@ import FeatureStep from "@/components/constructor/feature-step/FeatureStep";
 import FAQ from "@/components/constructor/faq/FAQ";
 import TextWithButton from "@/components/constructor/text-with-button/TextWithButton";
 import FeatureStepsWrapper from "@/components/constructor/feature-step/wrapper/FeatureStepsWrapper";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 export default function GetStartedPage() {
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).getStarted;
+    const t = siteContent.getStarted;
+
     return (
         <>
             <HeroSection
@@ -22,8 +21,9 @@ export default function GetStartedPage() {
                     </>
                 }
                 description={t.hero.description}
+                primaryCta={{ text: t.hero.primaryCta, link: "/sign-up" }}
                 secondaryCta={{ text: t.hero.secondaryCta, link: "/extra/chefs" }}
-                image="image12"
+                image="image7"
             />
 
             <FeatureStepsWrapper>
@@ -32,10 +32,10 @@ export default function GetStartedPage() {
                     title={t.steps[0].title}
                     description={t.steps[0].description}
                     bullets={t.steps[0].bullets}
-                    image="image13"
+                    image="image8"
                     badge={t.steps[0].badge}
                     buttonText={t.steps[0].buttonText}
-                    buttonLink="/dashboard"
+                    buttonLink="/sign-up"
                     imagePosition="left"
                 />
 
@@ -44,7 +44,7 @@ export default function GetStartedPage() {
                     title={t.steps[1].title}
                     description={t.steps[1].description}
                     bullets={t.steps[1].bullets}
-                    image="image14"
+                    image="image11"
                     badge={t.steps[1].badge}
                     buttonText={t.steps[1].buttonText}
                     buttonLink="/pricing"
@@ -56,7 +56,7 @@ export default function GetStartedPage() {
                     title={t.steps[2].title}
                     description={t.steps[2].description}
                     bullets={t.steps[2].bullets}
-                    image="image4"
+                    image="image12"
                     badge={t.steps[2].badge}
                     buttonText={t.steps[2].buttonText}
                     buttonLink="/extra/chefs"
@@ -68,7 +68,7 @@ export default function GetStartedPage() {
                     title={t.steps[3].title}
                     description={t.steps[3].description}
                     bullets={t.steps[3].bullets}
-                    image="image15"
+                    image="image13"
                     badge={t.steps[3].badge}
                     buttonText={t.steps[3].buttonText}
                     buttonLink="/dashboard"
@@ -80,7 +80,7 @@ export default function GetStartedPage() {
                     title={t.steps[4].title}
                     description={t.steps[4].description}
                     bullets={t.steps[4].bullets}
-                    image="image16"
+                    image="image14"
                     badge={t.steps[4].badge}
                     imagePosition="left"
                 />
@@ -92,7 +92,7 @@ export default function GetStartedPage() {
                 title={t.cta.title}
                 description={t.cta.description}
                 buttonText={t.cta.buttonText}
-                buttonLink="/dashboard"
+                buttonLink="/sign-up"
             />
         </>
     );

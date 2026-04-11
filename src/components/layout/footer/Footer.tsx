@@ -8,17 +8,9 @@ import styles from "./Footer.module.scss";
 import {getFooterContent} from "@/resources/content";
 import {footerStyles} from "@/resources/styles-config";
 import {SmartLinkProps} from "@/types/smart-link";
-import {media} from "@/resources/media";
-import { useI18n } from "@/context/i18nContext";
 import {
-    FaApplePay,
-    FaCcAmex,
-    FaCcMastercard,
-    FaCcVisa,
-    FaGooglePay,
     FaInstagram,
     FaLinkedinIn,
-    FaTwitter
 } from "react-icons/fa";
 import visa from "@/assets/cards/visa.png";
 import mastercard from "@/assets/cards/mastercard.png";
@@ -57,8 +49,7 @@ const SmartLink: React.FC<SmartLinkProps> = ({
 };
 
 const Footer: React.FC = () => {
-    const { lang } = useI18n();
-    const footerContent = getFooterContent(lang);
+    const footerContent = getFooterContent();
     const {logo, columns, contact, socials, legal, companyLabel, followUs} = footerContent;
 
     const LegalAddress = () =>
@@ -319,7 +310,7 @@ const Footer: React.FC = () => {
                         {/* Contact */}
                         <div className={styles["footer__corporate-col"]}>
                             <div className={styles["footer__column-title"]}>
-                                {lang === "no" ? "Kontakt" : "Contact"}
+                                Kontakt
                             </div>
                             {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
                             {contact.phone && <a href={`tel:${contact.phone}`}>{contact.phone}</a>}
@@ -332,7 +323,7 @@ const Footer: React.FC = () => {
                     {/* Нижня частина */}
                     <div className={styles["footer__corporate-bottom"]}>
                         <div className={styles["footer__corporate-links"]}>
-                            {columns.find(c => c.title === "Legal")?.links.map(link => (
+                            {columns[1]?.links?.map(link => (
                                 <SmartLink key={link.label} href={link.href} className={styles["footer__link"]}>
                                     {link.label}
                                 </SmartLink>

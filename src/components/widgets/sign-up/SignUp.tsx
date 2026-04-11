@@ -11,16 +11,14 @@ import {
     signUpOnSubmit,
 } from "@/validationSchemas/sign-up/schema";
 import SignUpAside from "@/components/widgets/sign-up/SignUpAside";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 export type SignUpValues = typeof signUpInitialValues;
 
 export default function SignUp() {
     const { showAlert } = useAlert();
     const router = useRouter();
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).signUp;
+    const t = siteContent.signUp;
 
     return (
         <Formik<SignUpValues>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import { motion } from "framer-motion";
 import ButtonUI from "@/components/ui/button/ButtonUI";
@@ -9,8 +9,7 @@ import { getContactValidationSchema, initialValues, sendContactRequest } from ".
 import { FaClock, FaEnvelope } from "react-icons/fa";
 import { COMPANY_EMAIL } from "@/resources/constants";
 import styles from "./ContactForm.module.scss";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 interface ContactFormValues {
     name: string;
@@ -22,8 +21,7 @@ interface ContactFormValues {
 
 const ContactSupport: React.FC = () => {
     const { showAlert } = useAlert();
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).contactUs;
+    const t = siteContent.contactUs;
     const [successMsg, setSuccessMsg] = useState("");
 
     const handleSubmit = async (
@@ -51,35 +49,37 @@ const ContactSupport: React.FC = () => {
         <section className={styles.section}>
             <div className={styles.layout}>
                 <motion.div
-                    className={styles.left}
-                    initial={{ opacity: 0, y: 30 }}
+                    className={styles.copy}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <span className={styles.label}>{t.supportCenter}</span>
+                    <span className={styles.eyebrow}>{t.supportCenter}</span>
+                    <h2 className={styles.title}>{t.title}</h2>
+                    <p className={styles.description}>{t.description}</p>
 
-                    <h2>{t.title}</h2>
-
-                    <p>{t.description}</p>
-
-                    <div className={styles.extra}>
-                        <strong>{t.otherWays}</strong>
-
-                        <div className={styles.contactItem}>
-                            <FaEnvelope />
-                            <span>{COMPANY_EMAIL}</span>
+                    <div className={styles.notes}>
+                        <div className={styles.note}>
+                            <span className={styles.noteLabel}>{t.otherWays}</span>
+                            <div className={styles.noteValue}>
+                                <FaEnvelope />
+                                <span>{COMPANY_EMAIL}</span>
+                            </div>
                         </div>
 
-                        <div className={styles.contactItem}>
-                            <FaClock />
-                            <span>{t.repliesWithin}</span>
+                        <div className={styles.note}>
+                            <span className={styles.noteLabel}>{t.repliesWithin}</span>
+                            <div className={styles.noteValue}>
+                                <FaClock />
+                                <span>{t.repliesWithin}</span>
+                            </div>
                         </div>
                     </div>
                 </motion.div>
 
                 <motion.div
-                    className={styles.formCard}
-                    initial={{ opacity: 0, y: 30 }}
+                    className={styles.formWrap}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
@@ -88,55 +88,65 @@ const ContactSupport: React.FC = () => {
                     ) : (
                         <Formik
                             initialValues={initialValues}
-                            validationSchema={getContactValidationSchema(lang)}
+                            validationSchema={getContactValidationSchema()}
                             validateOnBlur
                             validateOnChange
                             onSubmit={handleSubmit}
                         >
                             {({ isSubmitting, isValid }) => (
                                 <Form className={styles.form}>
-                                    <div className={styles.row}>
-                                        <div className={styles.field}>
-                                            <Field name="name" placeholder={t.fields.firstName} />
-                                            <ErrorMessage name="name" component="div" className={styles.error} />
+                                    <div className={styles.fields}>
+                                        <div className={styles.fieldGrid}>
+                                            <label className={styles.field}>
+                                                <span className={styles.fieldLabel}>{t.fields.firstName}</span>
+                                                <Field name="name" placeholder={t.fields.firstName} />
+                                                <ErrorMessage name="name" component="div" className={styles.error} />
+                                            </label>
+
+                                            <label className={styles.field}>
+                                                <span className={styles.fieldLabel}>{t.fields.lastName}</span>
+                                                <Field name="secondName" placeholder={t.fields.lastName} />
+                                                <ErrorMessage name="secondName" component="div" className={styles.error} />
+                                            </label>
                                         </div>
 
-                                        <div className={styles.field}>
-                                            <Field name="secondName" placeholder={t.fields.lastName} />
-                                            <ErrorMessage name="secondName" component="div" className={styles.error} />
+                                        <div className={styles.fieldGrid}>
+                                            <label className={styles.field}>
+                                                <span className={styles.fieldLabel}>{t.fields.email}</span>
+                                                <Field name="email" type="email" placeholder={t.fields.email} />
+                                                <ErrorMessage name="email" component="div" className={styles.error} />
+                                            </label>
+
+                                            <label className={styles.field}>
+                                                <span className={styles.fieldLabel}>{t.fields.phone}</span>
+                                                <Field name="phone" type="tel" placeholder={t.fields.phone} />
+                                                <ErrorMessage name="phone" component="div" className={styles.error} />
+                                            </label>
                                         </div>
+
+                                        <label className={styles.field}>
+                                            <span className={styles.fieldLabel}>{t.fields.message}</span>
+                                            <Field
+                                                as="textarea"
+                                                name="message"
+                                                placeholder={t.fields.message}
+                                                rows={6}
+                                            />
+                                            <ErrorMessage name="message" component="div" className={styles.error} />
+                                        </label>
                                     </div>
 
-                                    <div className={styles.field}>
-                                        <Field name="email" type="email" placeholder={t.fields.email} />
-                                        <ErrorMessage name="email" component="div" className={styles.error} />
-                                    </div>
-
-                                    <div className={styles.field}>
-                                        <Field name="phone" type="tel" placeholder={t.fields.phone} />
-                                        <ErrorMessage name="phone" component="div" className={styles.error} />
-                                    </div>
-
-                                    <div className={styles.field}>
-                                        <Field
-                                            as="textarea"
-                                            name="message"
-                                            placeholder={t.fields.message}
-                                            rows={5}
+                                    <div className={styles.actions}>
+                                        <ButtonUI
+                                            type="submit"
+                                            loading={isSubmitting}
+                                            disabled={!isValid || isSubmitting}
+                                            text={t.submitButton}
+                                            color="primary"
+                                            size="lg"
                                         />
-                                        <ErrorMessage name="message" component="div" className={styles.error} />
+                                        <span className={styles.policy}>{t.policyText}</span>
                                     </div>
-
-                                    <ButtonUI
-                                        type="submit"
-                                        fullWidth
-                                        loading={isSubmitting}
-                                        disabled={!isValid || isSubmitting}
-                                        text={t.submitButton}
-                                        color="primary"
-                                    />
-
-                                    <span className={styles.policy}>{t.policyText}</span>
                                 </Form>
                             )}
                         </Formik>

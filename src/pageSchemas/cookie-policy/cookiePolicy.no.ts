@@ -1,4 +1,11 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_ADDRESS,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_NAME,
+    COMPANY_PHONE,
+} from "@/resources/constants";
 
 const cookiePolicyNo: PageSchema = {
     meta: {
@@ -17,7 +24,8 @@ const cookiePolicyNo: PageSchema = {
         canonical: "/cookie-policy",
         ogImage: {
             title: "Cheffmate – Informasjonskapselpolicy",
-            description: "Gjennomsiktig informasjonskapselpolicy for Cheffmate matlagningsplattform.",
+            description:
+                "Gjennomsiktig informasjonskapselpolicy for Cheffmate matlagningsplattform.",
             bg: "#ffffff",
             color: "#000000",
         },
@@ -32,7 +40,7 @@ const cookiePolicyNo: PageSchema = {
             type: "text",
             title: "1. Introduksjon",
             description:
-                "Denne Informasjonskapselpolicyen forklarer hvordan FUSION FAIRIES LTD («vi», «oss», «vår») bruker informasjonskapsler og lignende teknologier for å gjenkjenne deg når du besøker vår nettside på cheffmate.co.uk. Den forklarer hva disse teknologiene er og hvorfor vi bruker dem, samt dine rettigheter til å kontrollere vår bruk av dem.",
+                `Denne Informasjonskapselpolicyen forklarer hvordan ${COMPANY_LEGAL_NAME || COMPANY_NAME || "FUSION FAIRIES LTD"} («vi», «oss», «vår») bruker informasjonskapsler og lignende teknologier for å gjenkjenne deg når du besøker vår nettside på cheffmate.co.uk. Den forklarer hva disse teknologiene er og hvorfor vi bruker dem, samt dine rettigheter til å kontrollere vår bruk av dem.`,
         },
         {
             type: "text",
@@ -60,13 +68,13 @@ const cookiePolicyNo: PageSchema = {
         },
         {
             type: "text",
-            title: "5. Spesielt: AI og Token-sikkerhet",
+            title: "5. Spesielt: KI og Token-sikkerhet",
             description:
-                "Siden Cheffmate bruker en Token-basert økonomi og AI-generering, bruker vi spesifikke informasjonskapsler for å:",
+                "Siden Cheffmate bruker en Token-basert økonomi og KI-generering, bruker vi spesifikke informasjonskapsler for å:",
             bullets: [
                 "Sikre at Token-transaksjoner er sikkert koblet til din unike økt.",
                 "Forhindre «dobbeltforbruk» av Tokens på grunn av sideoppdateringer.",
-                "Opprettholde stabiliteten til AI Matlagningsassistenten mens den behandler oppskriften din (som kan ta opptil flere minutter).",
+                "Opprettholde stabiliteten til KI Matlagningsassistenten mens den behandler oppskriften din (som kan ta opptil flere minutter).",
             ],
         },
         {
@@ -75,8 +83,8 @@ const cookiePolicyNo: PageSchema = {
             description:
                 "Du har rett til å bestemme om du vil akseptere eller avvise informasjonskapsler.",
             bullets: [
-                "Informasjonskapselpreferansebehandler: Du kan sette preferansene dine i vårt samtykkebanner for informasjonskapsler som vises når du første gang besøker nettstedet.",
-                "Nettleserkontroller: Du kan sette eller endre nettleserkontrollene dine for å akseptere eller avvise informasjonskapsler. Hvis du velger å avvise strengt nødvendige informasjonskapsler, kan du fortsatt bruke nettsiden vår, men tilgangen din til noen funksjoner (som Dashbord og AI-assistent) vil være begrenset.",
+                "Preferansebehandler for informasjonskapsler: Du kan sette preferansene dine i vår samtykkebanner for informasjonskapsler som vises når du første gang besøker nettstedet.",
+                "Nettleserkontroller: Du kan sette eller endre nettleserkontrollene dine for å akseptere eller avvise informasjonskapsler. Hvis du velger å avvise strengt nødvendige informasjonskapsler, kan du fortsatt bruke nettsiden vår, men tilgangen din til noen funksjoner (som Dashbord og KI-assistent) vil være begrenset.",
                 "Fravikelse av analyse: For å velge bort sporing av Google Analytics på tvers av alle nettsider, besøk http://tools.google.com/dlpage/gaoptout.",
             ],
         },
@@ -100,10 +108,10 @@ const cookiePolicyNo: PageSchema = {
             type: "text",
             title: "9. Kontakt oss",
             bullets: [
-                "FUSION FAIRIES LTD",
-                "20 Wenlock Road, London, England, N1 7GU",
-                "E-post: contact@cheffmate.co.uk",
-                "Telefon: +44 7537 127672",
+                COMPANY_LEGAL_NAME || COMPANY_NAME || "FUSION FAIRIES LTD",
+                `${COMPANY_ADDRESS}`,
+                `E-post: ${COMPANY_EMAIL}`,
+                `Telefon: ${COMPANY_PHONE}`,
             ],
         },
     ],

@@ -198,7 +198,7 @@ Vår revisjon avdekker de skjulte problemene som hindrer Google fra å fullt ut 
             type: "custom",
             component: "TextWithButton",
             title: "Trenger en Teknisk SEO-Revisjon?",
-            description: `Våre spesialister vil analysere nettstedet ditt, finne tekniske barrierer og forberede en fullstendig optimaliseringsplan — ingen AI, bare ekte eksperter.`,
+            description: `Våre spesialister vil analysere nettstedet ditt, finne tekniske barrierer og forberede en fullstendig optimaliseringsplan — ingen KI, bare ekte eksperter.`,
             buttonText: "Be Om Din Revisjon",
             buttonLink: "/contact-us?service=Technical%20Website%20Audit&tokens=5"
         },

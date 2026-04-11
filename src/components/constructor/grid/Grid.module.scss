@@ -1,8 +1,8 @@
 .grid {
   display: grid !important;
   width: 100% !important;
-  padding: 0 20px;
-  max-width: 1320px !important;
+  padding: 0 24px;
+  max-width: 1360px !important;
   justify-content: center;
 
   @media (max-width: 1024px) {
@@ -19,13 +19,13 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 2.8rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 /* Desktop */
@@ -55,4 +55,3 @@
     grid-column: span 1;
   }
 }
-

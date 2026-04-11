@@ -11,7 +11,7 @@ export function LogoutButton({all = false}: { all?: boolean }) {
 
     const handleClick = async () => {
         const ok = all ? await logoutAll() : await logout();
-        showAlert(ok ? "Logged out" : "Logout failed", "", ok ? "success" : "error");
+        showAlert(ok ? "Logget ut" : "Utklogging mislyktes", "", ok ? "success" : "error");
     };
 
     return (
@@ -25,7 +25,7 @@ export function LogoutButton({all = false}: { all?: boolean }) {
             endIcon={<FaSignOutAlt/>}
             onClick={handleClick}
         >
-            {all ? "Log out from all devices" : "Log out"}
+            {all ? "Logg ut fra alle enheter" : "Logg ut"}
         </ButtonUI>
 
     );

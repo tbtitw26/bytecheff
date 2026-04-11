@@ -29,7 +29,7 @@ const servicesSchema: PageSchema = {
             left: {
                 type: "text",
                 title: "Alt du trenger for å transformere din fitness",
-                description: `${COMPANY_NAME} kombinerer AI-drevet planlegging med profesjonell innsikt. Fra personaliserte treningsøkter til ernæring og fremdriftssporing — alt i én app.`,
+                description: `${COMPANY_NAME} kombinerer KI-drevet planlegging med profesjonell innsikt. Fra personaliserte treningsøkter til ernæring og fremdriftssporing — alt i én app.`,
                 centerTitle: true,
                 centerDescription: true,
             },
@@ -42,7 +42,7 @@ const servicesSchema: PageSchema = {
                 {
                     image: "image1",
                     title: "Personaliserte Treningsplaner",
-                    description: "AI-genererte treningsøkter som matcher ditt nivå og tilpasser seg etter hvert som du utvikler deg.",
+                    description: "KI-genererte treningsøkter som matcher ditt nivå og tilpasser seg etter hvert som du utvikler deg.",
                     buttonLink: "/get-started",
                     buttonText: "Få din plan",
                 },
@@ -157,7 +157,7 @@ const servicesSchema: PageSchema = {
                 title: "Hvorfor velge oss?",
                 description: `Fordi fitness skal være enkelt, motiverende og personalisert. ${COMPANY_NAME} tilpasser seg deg — ikke omvendt.`,
                 bullets: [
-                    "AI-assistert personalisering",
+                    "KI-assistert personalisering",
                     "Fleksibel prising med tokens",
                     "Alt-i-ett løsning: trening + ernæring + sporing",
                 ],

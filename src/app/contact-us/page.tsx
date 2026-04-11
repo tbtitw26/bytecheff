@@ -4,13 +4,11 @@ import { useSearchParams } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import ContactUsForm from "@/components/widgets/contact-form/ContactForm";
 import SeoRequestForm from "@/components/extra/seo/seo-form/SeoForm";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 export default function ContactUsPage() {
     const user = useUser();
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).contactUs;
+    const t = siteContent.contactUs;
     const search = useSearchParams();
     const service = search.get("service");
     const tokens = Number(search.get("tokens") || 30);

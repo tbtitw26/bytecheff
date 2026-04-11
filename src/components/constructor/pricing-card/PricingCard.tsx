@@ -10,8 +10,7 @@ import { useUser } from "@/context/UserContext";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useRouter } from "next/navigation";
 import { useCheckoutStore } from "@/utils/store";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 const TOKENS_PER_GBP = 100;
 
@@ -41,10 +40,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
     const { showAlert } = useAlert();
     const user = useUser();
     const { sign, convertFromGBP, convertToGBP, currency } = useCurrency();
-    const { lang } = useI18n();
-    const pageTranslations = getPageTranslations(lang);
-    const common = pageTranslations.home.common;
-    const checkout = pageTranslations.checkout;
+    const common = siteContent.home.common;
+    const checkout = siteContent.checkout;
     const router = useRouter();
     const { setPlan } = useCheckoutStore();
 
@@ -73,7 +70,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
     const handleBuy = () => {
         if (!user) {
-            showAlert("Sign in required", "Please sign in to continue", "info");
+            showAlert("Innlogging kreves", "Logg inn for å fortsette", "info");
             setTimeout(() => router.push("/sign-in"), 1200);
             return;
         }

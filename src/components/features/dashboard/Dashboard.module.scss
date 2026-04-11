@@ -1,47 +1,111 @@
 .dashboard {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 0 30px;
+  display: grid;
+  gap: 22px;
 }
 
-/* 🔹 Text-based tabs (Stripe / GitHub style) */
-.tabs {
+.dashboardHeader {
   display: flex;
-  gap: 2.5rem;
-  border-bottom: 1px solid var(--border-color);
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media (max-width: 980px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.headerCopy {
+  h3 {
+    margin: 8px 0;
+    color: #1f1813;
+    font-size: clamp(1.4rem, 1.7vw, 1.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    max-width: 520px;
+    color: rgba(66, 51, 38, 0.68);
+    line-height: 1.6;
+  }
+}
+
+.eyebrow {
+  color: var(--primary-color);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tabs {
+  display: inline-flex;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 249, 243, 0.9);
+
+  @media (max-width: 640px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 18px;
+  }
 }
 
 .tabs button {
-  background: none;
-  border: none;
-  padding: 0.75rem 0;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-muted);
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  min-width: 190px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(66, 51, 38, 0.72);
   cursor: pointer;
-  position: relative;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+
+  @media (max-width: 640px) {
+    min-width: 0;
+    border-radius: 14px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.74);
+  }
 }
 
-.tabs button:hover {
-  color: var(--text-primary);
+.tabLabel {
+  color: #261c15;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.tabHint {
+  color: rgba(66, 51, 38, 0.54);
+  font-size: 0.84rem;
+  line-height: 1.4;
 }
 
 .tabs button.active {
-  color: var(--text-primary);
-  font-weight: 600;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(70, 49, 32, 0.08);
 }
 
-.tabs button.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: var(--text-primary);
+.active {
+}
+
+.contentShell {
+  min-width: 0;
 }
 
 .content {
-  padding-top: 1rem;
+  min-width: 0;
 }

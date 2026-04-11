@@ -10,8 +10,7 @@ import {
     signInValidation,
     signInOnSubmit,
 } from "@/validationSchemas/sign-in/schema";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 export type SignInValues = {
     email: string;
@@ -21,8 +20,7 @@ export type SignInValues = {
 export default function SignIn() {
     const { showAlert } = useAlert();
     const router = useRouter();
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).signIn;
+    const t = siteContent.signIn;
 
     return (
         <Formik<SignInValues>

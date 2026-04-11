@@ -1,6 +1,6 @@
 .section {
   margin: 0 auto;
-  padding: 30px;
+  padding: 0 24px;
   width: 100%;
   background: transparent;
 }
@@ -10,7 +10,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
+  gap: 28px;
   max-width: 1280px;
   margin: 0 auto;
 
@@ -19,40 +19,37 @@
 /* 🧩 Card */
 .card {
   max-width: 1280px;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 32px 28px;
+  background: rgba(255, 252, 248, 0.94);
+  border-radius: 24px;
+  padding: 34px 30px;
   text-align: left;
-
-  /* дуже легкий бордер як у макеті */
-  border: 1px solid #f0f0f0;
-
-  /* БЕЗ hover */
+  border: 1px solid var(--border-color);
+  box-shadow: 0 12px 28px rgba(70, 49, 32, 0.05);
 }
 
 .iconWrapper {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--tertiary-color);
   color: var(--primary-color);
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 /* 📝 Text */
 .cardTitle {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 600;
-  color: #111;
-  margin-bottom: 8px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
 }
 
 .cardText {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #6b7280;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
 }

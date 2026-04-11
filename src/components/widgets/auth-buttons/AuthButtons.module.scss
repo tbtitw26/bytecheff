@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  gap: 10px;
+  gap: 12px;
   align-content: center;
   justify-items: center;
 
@@ -144,30 +144,30 @@ width: fit-content;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 6px 16px;
+  padding: 9px 14px 9px 16px;
   border-radius: 9999px;
-
-  background: var(--text-accent); /* світло-блакитний */
+  min-height: 44px;
+  background: rgba(255, 252, 248, 0.92);
   color: var(--text-primary);
   text-decoration: none;
   border: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 8px 18px rgba(70, 49, 32, 0.08);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.18s ease;
 
   &:hover {
-    background: var(--primary-color);
-    border-color: var(--secondary-color);
-    color: var(--text-inverse);
+    background: #fffdf9;
+    border-color: rgba(166, 124, 82, 0.4);
+    color: var(--text-primary);
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 12px 22px rgba(70, 49, 32, 0.1);
 
     .iconMoney {
-      color: var(--warning-color);
+      color: var(--primary-color);
     }
 
     .iconUser {
-      color: #fff;
+      color: var(--primary-color);
     }
   }
 }
@@ -176,26 +176,26 @@ width: fit-content;
 .balance {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--text-primary);
   span {
-    color: var(--background-light);
+    color: var(--text-primary);
   }
 }
 
 /* 🔹 Іконки */
 .iconMoney {
-  font-size: 16px;
-  color: #f5b301;
-  transition: color 0.25s ease;
+  font-size: 15px;
+  color: var(--text-muted);
+  transition: color 0.18s ease;
 }
 
 .iconUser {
-  font-size: 22px;
-  color: var(--background-light);
-  transition: color 0.25s ease;
+  font-size: 18px;
+  color: var(--text-muted);
+  transition: color 0.18s ease;
 }
 
 /* 🔹 Контейнер авторизованого користувача */
@@ -224,5 +224,4 @@ width: fit-content;
     font-size: 20px;
   }
 }
-
 

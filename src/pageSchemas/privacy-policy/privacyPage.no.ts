@@ -1,4 +1,12 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_ADDRESS,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_NAME,
+    COMPANY_NUMBER,
+    COMPANY_PHONE,
+} from "@/resources/constants";
 
 const privacyPolicySchema: PageSchema = {
     meta: {
@@ -10,14 +18,15 @@ const privacyPolicySchema: PageSchema = {
             "GDPR",
             "databeskyttelse",
             "cheffmate",
-            "matlaging AI",
+            "matlaging KI",
             "personopplysninger",
             "uk gdpr",
         ],
         canonical: "/privacy-policy",
         ogImage: {
             title: "Cheffmate – Personvernpolicy",
-            description: "Gjennomsiktig personvernpraksis for Cheffmate matlagningsplattform under UK GDPR.",
+            description:
+                "Gjennomsiktig personvernpraksis for Cheffmate matlagningsplattform under UK GDPR.",
             bg: "#ffffff",
             color: "#000000",
         },
@@ -32,27 +41,25 @@ const privacyPolicySchema: PageSchema = {
             type: "text",
             title: "1. Introduksjon",
             description:
-                "Vi respekterer ditt personvern og er forpliktet til å beskytte dine personopplysninger. Denne Personvernpolicyen forklarer hvilke personopplysninger vi samler inn, hvorfor vi bruker dem, hvor lenge vi oppbevarer dem, og hvordan du kan utøve dine rettigheter når du bruker cheffmate.co.uk og våre relaterte digitale kulinariske tjenester («Tjenesten»).",
+                "Vi respekterer ditt personvern og er forpliktet til å beskytte dine personopplysninger. Denne Personvernpolicyen forklarer hvilke personopplysninger vi samler inn, hvorfor vi bruker dem, hvor lenge vi oppbevarer dem, og hvordan du kan utøve dine rettigheter når du bruker cheffmate.co.uk og våre relaterte digitale kulinariske tjenester («Tjenesten»).\n\nVed å bruke Tjenesten anerkjenner du at dine personopplysninger vil bli behandlet i samsvar med denne Personvernpolicyen og gjeldende lov om databeskyttelse, inkludert UK GDPR og Data Protection Act 2018.",
             bullets: [
-                "Kontroller: FUSION FAIRIES LTD (Organisasjonsnummer 15613978), 20 Wenlock Road, London, England, N1 7GU («Cheffmate», «vi», «oss», «vår»).",
-                "Kontakt: contact@cheffmate.co.uk",
-                "Omfang: Denne Policyen gjelder alle brukere av Tjenesten, inkludert personer som kjøper Tokens, får tilgang til Kokkekurs eller genererer AI Matlagningsplaner.",
+                `Kontroller: ${COMPANY_LEGAL_NAME || COMPANY_NAME || "FUSION FAIRIES LTD"} (Organisasjonsnummer ${COMPANY_NUMBER}), ${COMPANY_ADDRESS} («Cheffmate», «vi», «oss», «vår»).`,
+                `Kontakt: ${COMPANY_EMAIL}`,
+                "Omfang: Denne Policyen gjelder alle brukere av Tjenesten, inkludert personer som kjøper Tokens, får tilgang til Kokkekurs eller genererer KI Matlagningsplaner.",
             ],
-            description2:
-                "Ved å bruke Tjenesten anerkjenner du at dine personopplysninger vil bli behandlet i samsvar med denne Personvernpolicyen og gjeldende lov om databeskyttelse, inkludert UK GDPR og Data Protection Act 2018.",
         },
         {
             type: "text",
             title: "2. Personopplysninger vi samler inn",
             description:
-                "Vi samler kun inn data som er nødvendig for å gi deg kulinarisk utdanning, generere personlige AI-oppskrifter, behandle betalinger og forbedre plattformen vår.",
+                "Vi samler kun inn data som er nødvendig for å gi deg kulinarisk utdanning, generere personlige KI-oppskrifter, behandle betalinger og forbedre plattformen vår.",
         },
         {
             type: "text",
             title: "2.1. Data du oppgir direkte",
             bullets: [
                 "Konto og identitet: Navn, e-postadresse og passord.",
-                "Kulinariske og AI-opplysninger: Informasjon du oppgir når du ber om en AI Matlagningsplan. Dette kan inkludere matlagningsferdighetsnivå, tilgjengelig kjøkkenutstyr, foretrukne kjøkkener og spesifikke ingredienser.",
+                "Kulinariske og KI-opplysninger: Informasjon du oppgir når du ber om en KI Matlagningsplan. Dette kan inkludere matlagningsferdighetsnivå, tilgjengelig kjøkkenutstyr, foretrukne kjøkkener og spesifikke ingredienser.",
                 "Faktureringsinformasjon: Faktureringsnavn, registrert adresse og betalingsmetodedetaljer (behandles sikkert via tredjeparter).",
                 "Lommebok og Tokens: Transaksjonshistorikk, Token-forbrukslogger (f.eks. «5000 Tokens brukt på Fransk kjøkken-kurs») og nåværende saldo.",
                 "Support og kommunikasjon: Kommunikasjon med vårt supportteam angående tekniske problemer eller refusjoner.",
@@ -63,7 +70,7 @@ const privacyPolicySchema: PageSchema = {
             title: "2.2. Data samlet inn automatisk",
             bullets: [
                 "Tekniske data: IP-adresse, nettlesertype, enhetsinformasjon, tidssone og operativsystem.",
-                "Bruksdata: Hvordan du bruker plattformen (f.eks. hvilke Kokkekurs du ser, videofullføringsrater, prompter brukt til AI-generering).",
+                "Bruksdata: Hvordan du bruker plattformen (f.eks. hvilke Kokkekurs du ser, videofullføringsrater, prompter brukt til KI-generering).",
                 "Sikkerhetstelemetri: Innloggingslogger, mislykkede autentiseringsforsøk og svindeloppdagelsessignaler for å beskytte kontoen din og Token-saldoen.",
             ],
         },
@@ -78,7 +85,7 @@ const privacyPolicySchema: PageSchema = {
             type: "text",
             title: "2.4. Spesielle kategorier data (helse, allergier og kosthold)",
             description:
-                "Vi krever ikke «spesielle kategorier» data (som helsetilstander eller strenge medisinske dieter) for å opprette en konto. Men hvis du frivillig oppgir slik informasjon til AI Matlagningsassistenten (f.eks. «Jeg har peanøttallergi», «Jeg er diabetiker», «Jeg trenger en glutenfri plan»), samtykker du uttrykkelig til at vi behandler disse helserelaterte dataene. Vi bruker disse dataene utelukkende til å generere den forespurte matlagningsplanen din og bruker dem ikke til markedsføringsformål.",
+                "Vi krever ikke «spesielle kategorier» data (som helsetilstander eller strenge medisinske dieter) for å opprette en konto. Men hvis du frivillig oppgir slik informasjon til KI Matlagningsassistenten (f.eks. «Jeg har peanøttallergi», «Jeg er diabetiker», «Jeg trenger en glutenfri plan»), samtykker du uttrykkelig til at vi behandler disse helserelaterte dataene. Vi bruker disse dataene utelukkende til å generere den forespurte matlagningsplanen din og bruker dem ikke til markedsføringsformål.",
         },
         {
             type: "text",
@@ -91,7 +98,7 @@ const privacyPolicySchema: PageSchema = {
             title: "3.1. Oppfyllelse av en avtale",
             bullets: [
                 "For å opprette kontoen din og gi tilgang til plattformen.",
-                "For å levere Kokkekurs og generere AI Matlagningsplaner du har låst opp med Tokens.",
+                "For å levere Kokkekurs og generere KI Matlagningsplaner du har låst opp med Tokens.",
                 "For å administrere Token-saldoen din og behandle betalinger.",
             ],
         },
@@ -116,15 +123,18 @@ const privacyPolicySchema: PageSchema = {
             type: "text",
             title: "3.4. Uttrykkelig samtykke",
             bullets: [
-                "Behandling av frivillig oppgitt kostholds-/helsedata (allergier) utelukkende for AI-oppskriftsgenerering.",
+                "Behandling av frivillig oppgitt kostholds-/helsedata (allergier) utelukkende for KI-oppskriftsgenerering.",
                 "Sending av markedsføringsnyhetsbrev (som du kan melde deg av når som helst).",
             ],
         },
         {
             type: "text",
-            title: "4. Automatisert behandling og AI",
-            description:
-                "4.1. AI-generering: Kjernen i vår AI Matlagningsassistent er avhengig av generativ AI (store språkmodeller). Dine inndata (ingredienser, preferanser) behandles av disse algoritmene for å produsere tilpassede oppskrifter.\n\n4.2. Datapersonvern i AI: Vi bruker avtaler på bedriftsnivå med våre AI-leverandører. Dine spesifikke opplysninger og kostholdskrav behandles kortvarig for å generere resultatet og brukes ikke av disse tredjepartsleverandørene til å trene deres offentlige AI-modeller.\n\n4.3. Ingen juridiske avgjørelser: Vår AI fungerer utelukkende som en kulinarisk utkastassistent. Den tar ikke automatiserte avgjørelser som har juridiske, finansielle eller tilsvarende betydelige effekter på deg.",
+            title: "4. Automatisert behandling og KI",
+            bullets: [
+                "4.1. KI-generering: Kjernen i vår KI Matlagningsassistent er avhengig av generativ KI (store språkmodeller). Dine inndata (ingredienser, preferanser) behandles av disse algoritmene for å produsere tilpassede oppskrifter.",
+                "4.2. Datapersonvern i KI: Vi bruker avtaler på bedriftsnivå med våre KI-leverandører. Dine spesifikke opplysninger og kostholdskrav behandles kortvarig for å generere resultatet og brukes ikke av disse tredjepartsleverandørene til å trene deres offentlige KI-modeller.",
+                "4.3. Ingen juridiske avgjørelser: Vår KI fungerer utelukkende som en kulinarisk utkastassistent. Den tar ikke automatiserte avgjørelser som har juridiske, finansielle eller tilsvarende betydelige effekter på deg.",
+            ],
         },
         {
             type: "text",
@@ -132,20 +142,18 @@ const privacyPolicySchema: PageSchema = {
             description:
                 "Vi deler personopplysninger kun når det er nødvendig for å drive Tjenesten:",
             bullets: [
-                "AI og skyleverandører: Pålitelige tredjepartsbehandlere (f.eks. skylevering, AI API-leverandører) som leverer beregningskraft for å hoste videoene våre og generere oppskriftene dine.",
+                "KI og skyleverandører: Pålitelige tredjepartsbehandlere (f.eks. skylevering, KI API-leverandører) som leverer beregningskraft for å hoste videoene våre og generere oppskriftene dine.",
                 "Betalingsporter: For å behandle korttransaksjoner sikkert.",
                 "Kokkepartnere: Profesjonelle kokker som opptrer som uavhengige entreprenører mottar aggregerte, anonymiserte data om ytelsen til kursene sine. De mottar ikke din personlige kontaktinformasjon med mindre du uttrykkelig kommuniserer med dem via en plattformfunksjon.",
+                "Internasjonale overføringer: Noen av våre teknologipartnere (f.eks. serververter eller KI-leverandører) kan være lokalisert utenfor Storbritannia eller EØS (f.eks. i USA). Vi sikrer at dataene dine er beskyttet gjennom: Tilstrekkelighetsvedtak: UK/EUs anerkjennelse av mottakerlandets standarder for databeskyttelse. Standard kontraktsklausuler (SCCs / IDTA): Juridiske kontrakter som krever at mottakeren beskytter dataene dine etter britiske standarder.",
             ],
-            description2:
-                "Internasjonale overføringer: Noen av våre teknologipartnere (f.eks. serververter eller AI-leverandører) kan være lokalisert utenfor Storbritannia eller EØS (f.eks. i USA). Vi sikrer at dataene dine er beskyttet gjennom: Tilstrekkelighetsvedtak: UK/EUs anerkjennelse av mottakerlandets standarder for databeskyttelse. Standard kontraktsklausuler (SCCs / IDTA): Juridiske kontrakter som krever at mottakeren beskytter dataene dine etter britiske standarder.",
         },
         {
             type: "text",
             title: "6. Oppbevaring av data",
-            description:
-                "Vi følger strenge policyer for dataoppbevaring:",
+            description: "Vi følger strenge policyer for dataoppbevaring:",
             bullets: [
-                "Kontodata og innhold: Vi oppbevarer kontodetaljene dine og genererte AI Matlagningsplaner i dashbordet ditt så lenge kontoen din er aktiv.",
+                "Kontodata og innhold: Vi oppbevarer kontodetaljene dine og genererte KI Matlagningsplaner i dashbordet ditt så lenge kontoen din er aktiv.",
                 "Inaktive kontoer: Hvis kontoen din forblir fullstendig inaktiv (ingen innlogginger, ingen Token-bruk) i 24 måneder, kan vi permanent slette kontoen din, Token-saldoen og genererte data for å spare lagring og beskytte personvernet.",
                 "Finansielle poster: Vi oppbevarer transaksjonsdata (Token-kjøp og refusjonsforespørsler) i 6 år som kreves av britisk skatte- og regnskapslovgivning.",
             ],
@@ -154,20 +162,18 @@ const privacyPolicySchema: PageSchema = {
             type: "text",
             title: "7. Sikkerhet",
             description:
-                "Vi behandler dataene dine med høy konfidensialitet. Tiltak inkluderer:",
+                "Vi behandler dataene dine med høy konfidensialitet. Tiltak inkluderer:\n\nSelv om vi implementerer robust sikkerhet, er ingen overføring på nett 100 % sikker. Du er ansvarlig for å holde passordet til kontoen din konfidensielt.",
             bullets: [
                 "Kryptering: Data krypteres under overføring (TLS/SSL) og i ro hvor mulig.",
                 "Tilgangskontroll: Strenge interne tilgangskontroller for supportteamet vårt.",
                 "Segregering: Vi skiller strengt betalingsportdata fra din kulinariske profil.",
             ],
-            description2:
-                "Selv om vi implementerer robust sikkerhet, er ingen overføring på nett 100 % sikker. Du er ansvarlig for å holde passordet til kontoen din konfidensielt.",
         },
         {
             type: "text",
             title: "8. Dine rettigheter",
             description:
-                "Under UK GDPR har du rett til:",
+                `Under UK GDPR har du rett til:\n\nFor å utøve disse rettighetene, e-post ${COMPANY_EMAIL}. Vi etterstreber å svare innen 30 dager.`,
             bullets: [
                 "Tilgang: Be om en kopi av personopplysningene vi har om deg.",
                 "Retting: Rette unøyaktige personopplysninger.",
@@ -176,8 +182,6 @@ const privacyPolicySchema: PageSchema = {
                 "Trekke tilbake samtykke: Trekke tilbake samtykket ditt til behandling av kostholds-/helsedata når som helst (ved å slette opplysningene eller kontoen din).",
                 "Innvende: Innvende mot behandling basert på legitime interesser (f.eks. direkte markedsføring).",
             ],
-            description2:
-                "For å utøve disse rettighetene, e-post contact@cheffmate.co.uk. Vi tar oss fore å svare innen 30 dager.",
         },
         {
             type: "text",
@@ -188,15 +192,15 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "10. Kontaktinformasjon og klager",
-            bullets: [
-                "FUSION FAIRIES LTD",
-                "Organisasjonsnummer: 15613978",
-                "Adresse: 20 Wenlock Road, London, England, N1 7GU",
-                "E-post: contact@cheffmate.co.uk",
-                "Telefon: +44 7537 127672",
-            ],
-            description2:
+            description:
                 "Tilsynsmyndighet: Hvis du mener vi har håndtert dine personopplysninger feil, har du rett til å inngi klage til Information Commissioner's Office (ICO) i Storbritannia (www.ico.org.uk). Vi vil imidlertid sette pris på muligheten til å ta tak i bekymringene dine direkte før du henvender deg til ICO.",
+            bullets: [
+                COMPANY_LEGAL_NAME || COMPANY_NAME || "FUSION FAIRIES LTD",
+                `Organisasjonsnummer: ${COMPANY_NUMBER}`,
+                `Adresse: ${COMPANY_ADDRESS}`,
+                `E-post: ${COMPANY_EMAIL}`,
+                `Telefon: ${COMPANY_PHONE}`,
+            ],
         },
     ],
 };

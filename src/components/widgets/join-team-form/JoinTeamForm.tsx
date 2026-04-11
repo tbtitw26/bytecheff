@@ -1,69 +1,55 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import { motion } from "framer-motion";
 import ButtonUI from "@/components/ui/button/ButtonUI";
 import { useAlert } from "@/context/AlertContext";
 import { initialValues, validationSchema, sendJoinTeamRequest } from "./schema";
 import styles from "./JoinTeamForm.module.scss";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
-
+import { siteContent } from "@/resources/siteContent";
 import { FaUsers, FaClock } from "react-icons/fa";
 
 export default function JoinTeamForm() {
     const { showAlert } = useAlert();
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).joinTeamPage.form;
+    const t = siteContent.joinTeamPage.form;
     const [success, setSuccess] = useState(false);
 
     return (
         <section className={styles.section}>
             <div className={styles.layout}>
-
-                {/* LEFT — INFO */}
                 <motion.div
-                    className={styles.left}
-                    initial={{ opacity: 0, y: 30 }}
+                    className={styles.header}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <span className={styles.label}>{t.label}</span>
+                    <div className={styles.headerCopy}>
+                        <span className={styles.eyebrow}>{t.label}</span>
+                        <h2 className={styles.title}>{t.title}</h2>
+                        <p className={styles.description}>{t.description}</p>
+                    </div>
 
-                    <h2>
-                        {t.title.split(". ")[0]}. <br />
-                        {t.title.split(". ")[1]}
-                    </h2>
-
-                    <p>
-                        {t.description}
-                    </p>
-
-                    <div className={styles.extra}>
-                        <div className={styles.extraItem}>
+                    <div className={styles.aside}>
+                        <div className={styles.asideItem}>
                             <FaUsers />
                             <span>{t.extraItems[0]}</span>
                         </div>
-
-                        <div className={styles.extraItem}>
+                        <div className={styles.asideItem}>
                             <FaClock />
                             <span>{t.extraItems[1]}</span>
                         </div>
                     </div>
                 </motion.div>
 
-                {/* RIGHT — FORM */}
                 <motion.div
-                    className={styles.formCard}
-                    initial={{ opacity: 0, y: 30 }}
+                    className={styles.formWrap}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
                     {success ? (
-                        <div className={styles.success}>
-                            {t.successMessage}
-                        </div>
+                        <div className={styles.success}>{t.successMessage}</div>
                     ) : (
                         <Formik
                             initialValues={initialValues}
@@ -73,9 +59,9 @@ export default function JoinTeamForm() {
                                     await sendJoinTeamRequest(values);
                                     resetForm();
                                     setSuccess(true);
-                                    showAlert("Success", "Application sent", "success");
+                                    showAlert("Suksess", "Søknaden er sendt", "success");
                                 } catch {
-                                    showAlert("Error", "Failed to send application", "error");
+                                    showAlert("Feil", "Kunne ikke sende søknaden", "error");
                                 } finally {
                                     setSubmitting(false);
                                 }
@@ -83,89 +69,120 @@ export default function JoinTeamForm() {
                         >
                             {({ values, isSubmitting }) => (
                                 <Form className={styles.form}>
-                                    <div className={styles.row}>
-                                        <Field className={styles.input} name="firstName" placeholder={t.fields.firstName} />
-                                        <Field className={styles.input} name="lastName" placeholder={t.fields.lastName} />
-                                    </div>
-
-                                    <div className={styles.row}>
-                                        <Field className={styles.input} name="email" type="email" placeholder={t.fields.email} />
-                                        <Field className={styles.input} name="phone" placeholder={t.fields.phone} />
-                                    </div>
-
-                                    <Field className={styles.input} name="country" placeholder={t.fields.country} />
-
-                                    {/* Languages */}
-                                    <FieldArray name="languages">
-                                        {({ push, remove }) => (
-                                            <div className={styles.listBlock}>
-                                                <label>{t.fields.languages}</label>
-                                                {values.languages.map((_, i) => (
-                                                    <div key={i} className={styles.listRow}>
-                                                        <Field
-                                                            className={styles.input}
-                                                            name={`languages.${i}`}
-                                                            placeholder={t.fields.languagePlaceholder}
-                                                        />
-                                                        {values.languages.length > 1 && (
-                                                            <button
-                                                                type="button"
-                                                                onClick={() => remove(i)}
-                                                                className={styles.remove}
-                                                            >
-                                                                ×
-                                                            </button>
-                                                        )}
-                                                    </div>
-                                                ))}
-                                                <button type="button" className={styles.add} onClick={() => push("")}>
-                                                    {t.fields.addLanguage}
-                                                </button>
+                                    <section className={styles.group}>
+                                        <div className={styles.groupHead}>
+                                            <span className={styles.groupLabel}>{t.label}</span>
+                                        </div>
+                                        <div className={styles.groupBody}>
+                                            <div className={styles.fieldGrid}>
+                                                <label className={styles.field}>
+                                                    <span className={styles.fieldLabel}>{t.fields.firstName}</span>
+                                                    <Field className={styles.input} name="firstName" placeholder={t.fields.firstName} />
+                                                </label>
+                                                <label className={styles.field}>
+                                                    <span className={styles.fieldLabel}>{t.fields.lastName}</span>
+                                                    <Field className={styles.input} name="lastName" placeholder={t.fields.lastName} />
+                                                </label>
                                             </div>
-                                        )}
-                                    </FieldArray>
 
-                                    {/* Skills */}
-                                    <FieldArray name="skills">
-                                        {({ push, remove }) => (
-                                            <div className={styles.listBlock}>
-                                                <label>{t.fields.skills}</label>
-                                                {values.skills.map((_, i) => (
-                                                    <div key={i} className={styles.listRow}>
-                                                        <Field
-                                                            className={styles.input}
-                                                            name={`skills.${i}`}
-                                                            placeholder={t.fields.skillPlaceholder}
-                                                        />
-                                                        {values.skills.length > 1 && (
-                                                            <button
-                                                                type="button"
-                                                                onClick={() => remove(i)}
-                                                                className={styles.remove}
-                                                            >
-                                                                ×
-                                                            </button>
-                                                        )}
-                                                    </div>
-                                                ))}
-                                                <button type="button" className={styles.add} onClick={() => push("")}>
-                                                    {t.fields.addSkill}
-                                                </button>
+                                            <div className={styles.fieldGrid}>
+                                                <label className={styles.field}>
+                                                    <span className={styles.fieldLabel}>{t.fields.email}</span>
+                                                    <Field className={styles.input} name="email" type="email" placeholder={t.fields.email} />
+                                                </label>
+                                                <label className={styles.field}>
+                                                    <span className={styles.fieldLabel}>{t.fields.phone}</span>
+                                                    <Field className={styles.input} name="phone" placeholder={t.fields.phone} />
+                                                </label>
                                             </div>
-                                        )}
-                                    </FieldArray>
 
-                                    <ButtonUI
-                                        type="submit"
-                                        fullWidth
-                                        loading={isSubmitting}
-                                        text={t.submitButton}
-                                        color="primary"
-                                    />
+                                            <label className={styles.field}>
+                                                <span className={styles.fieldLabel}>{t.fields.country}</span>
+                                                <Field className={styles.input} name="country" placeholder={t.fields.country} />
+                                            </label>
+                                        </div>
+                                    </section>
 
-                                    <span className={styles.policy}>
-                                        {t.policyText}
-                                    </span>
+                                    <section className={styles.group}>
+                                        <div className={styles.groupHead}>
+                                            <span className={styles.groupLabel}>{t.fields.languages}</span>
+                                        </div>
+                                        <div className={styles.groupBody}>
+                                            <FieldArray name="languages">
+                                                {({ push, remove }) => (
+                                                    <div className={styles.collection}>
+                                                        {values.languages.map((_, i) => (
+                                                            <div key={i} className={styles.collectionRow}>
+                                                                <Field
+                                                                    className={styles.input}
+                                                                    name={`languages.${i}`}
+                                                                    placeholder={t.fields.languagePlaceholder}
+                                                                />
+                                                                {values.languages.length > 1 && (
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => remove(i)}
+                                                                        className={styles.remove}
+                                                                    >
+                                                                        ×
+                                                                    </button>
+                                                                )}
+                                                            </div>
+                                                        ))}
+                                                        <button type="button" className={styles.add} onClick={() => push("")}>
+                                                            {t.fields.addLanguage}
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </FieldArray>
+                                        </div>
+                                    </section>
+
+                                    <section className={styles.group}>
+                                        <div className={styles.groupHead}>
+                                            <span className={styles.groupLabel}>{t.fields.skills}</span>
+                                        </div>
+                                        <div className={styles.groupBody}>
+                                            <FieldArray name="skills">
+                                                {({ push, remove }) => (
+                                                    <div className={styles.collection}>
+                                                        {values.skills.map((_, i) => (
+                                                            <div key={i} className={styles.collectionRow}>
+                                                                <Field
+                                                                    className={styles.input}
+                                                                    name={`skills.${i}`}
+                                                                    placeholder={t.fields.skillPlaceholder}
+                                                                />
+                                                                {values.skills.length > 1 && (
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => remove(i)}
+                                                                        className={styles.remove}
+                                                                    >
+                                                                        ×
+                                                                    </button>
+                                                                )}
+                                                            </div>
+                                                        ))}
+                                                        <button type="button" className={styles.add} onClick={() => push("")}>
+                                                            {t.fields.addSkill}
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </FieldArray>
+                                        </div>
+                                    </section>
+
+                                    <div className={styles.actions}>
+                                        <ButtonUI
+                                            type="submit"
+                                            loading={isSubmitting}
+                                            text={t.submitButton}
+                                            color="primary"
+                                            size="lg"
+                                        />
+                                        <span className={styles.policy}>{t.policyText}</span>
+                                    </div>
                                 </Form>
                             )}
                         </Formik>

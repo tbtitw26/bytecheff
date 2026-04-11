@@ -5,13 +5,11 @@ import Link from "next/link";
 import styles from "./AuthButtons.module.scss";
 import {FaUser} from "react-icons/fa";
 import {GrMoney} from "react-icons/gr";
-import { useI18n } from "@/context/i18nContext";
-import { getTranslations } from "@/resources/translations";
+import { siteContent } from "@/resources/siteContent";
 
 const AuthButtons: React.FC = () => {
     const user = useUser();
-    const { lang } = useI18n();
-    const t = getTranslations(lang);
+    const t = siteContent;
 
     if (user) {
         return (

@@ -1,6 +1,5 @@
 import * as Yup from "yup";
-import { LangCode } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 export async function sendContactRequest(data: {
     name: string;
@@ -18,8 +17,8 @@ export async function sendContactRequest(data: {
     return res.json();
 }
 
-export function getContactValidationSchema(lang: LangCode) {
-    const t = getPageTranslations(lang).contactUs.validation;
+export function getContactValidationSchema() {
+    const t = siteContent.contactUs.validation;
 
     return Yup.object().shape({
         name: Yup.string().required(t.firstNameRequired),

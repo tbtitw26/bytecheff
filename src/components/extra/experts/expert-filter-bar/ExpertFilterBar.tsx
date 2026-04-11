@@ -3,8 +3,7 @@
 import styles from "./ExpertFilterBar.module.scss";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 type Props = {
     search: string;
@@ -25,65 +24,89 @@ export default function ExpertsFilterBar({
                                              onLevelChange,
                                              cuisines,
                                          }: Props) {
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).chefs.filter;
+    const t = siteContent.chefs.filter;
     const POPULAR_CUISINES = t.popularCuisines;
+    const hasActiveFilters = Boolean(search || cuisine || level);
+
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.bar}>
-                {/* SEARCH */}
-                <div className={styles.searchWrap}>
-                    <input
-                        className={styles.search}
-                        placeholder={t.searchPlaceholder}
-                        value={search}
-                        onChange={(e) => onSearchChange(e.target.value)}
-                    />
+        <section className={styles.wrapper} aria-label={t.quickFiltersLabel}>
+            <div className={styles.panel}>
+                <div className={styles.bar}>
+                    <label className={styles.searchWrap} aria-label={t.searchPlaceholder}>
+                        <input
+                            className={styles.search}
+                            placeholder={t.searchPlaceholder}
+                            value={search}
+                            onChange={(e) => onSearchChange(e.target.value)}
+                        />
+                    </label>
+
+                    <label className={styles.selectWrap}>
+                        <span className={styles.hiddenLabel}>{t.cuisineLabel}</span>
+                        <Select
+                            value={cuisine || null}
+                            placeholder={t.cuisineLabel}
+                            onChange={(_, value) => onCuisineChange(value ?? "")}
+                            className={styles.muiSelect}
+                            size="md"
+                            variant="plain"
+                        >
+                            {cuisines.map((c) => (
+                                <Option key={c} value={c}>
+                                    {c}
+                                </Option>
+                            ))}
+                        </Select>
+                    </label>
+
+                    <label className={styles.selectWrap}>
+                        <span className={styles.hiddenLabel}>{t.expertiseLabel}</span>
+                        <Select
+                            value={level || null}
+                            placeholder={t.expertiseLabel}
+                            onChange={(_, value) => onLevelChange(value ?? "")}
+                            className={styles.muiSelect}
+                            size="md"
+                            variant="plain"
+                        >
+                            <Option value="beginner">{t.expertiseOptions.beginner}</Option>
+                            <Option value="intermediate">{t.expertiseOptions.intermediate}</Option>
+                            <Option value="advanced">{t.expertiseOptions.advanced}</Option>
+                        </Select>
+                    </label>
                 </div>
 
-                {/* CUISINE */}
-                <Select
-                    value={cuisine || null}
-                    placeholder={t.cuisineLabel}
-                    onChange={(_, value) => onCuisineChange(value ?? "")}
-                    className={styles.muiSelect}
-                    size="md"
-                    variant="outlined"
-                >
-                    {cuisines.map((c) => (
-                        <Option key={c} value={c}>
-                            {c}
-                        </Option>
-                    ))}
-                </Select>
+                <div className={styles.tags}>
+                    {POPULAR_CUISINES.map((tag) => {
+                        const isActive = cuisine === tag;
 
-                {/* LEVEL */}
-                <Select
-                    value={level || null}
-                    placeholder={t.expertiseLabel}
-                    onChange={(_, value) => onLevelChange(value ?? "")}
-                    className={styles.muiSelect}
-                    size="md"
-                    variant="outlined"
-                >
-                    <Option value="beginner">{t.expertiseOptions.beginner}</Option>
-                    <Option value="intermediate">{t.expertiseOptions.intermediate}</Option>
-                    <Option value="advanced">{t.expertiseOptions.advanced}</Option>
-                </Select>
-            </div>
+                        return (
+                            <button
+                                key={tag}
+                                type="button"
+                                className={`${styles.tag} ${isActive ? styles.tagActive : ""}`}
+                                onClick={() => onCuisineChange(isActive ? "" : tag)}
+                            >
+                                {tag}
+                            </button>
+                        );
+                    })}
 
-            {/* TAGS */}
-            <div className={styles.tags}>
-                {POPULAR_CUISINES.map((tag) => (
-                    <button
-                        key={tag}
-                        className={styles.tag}
-                        onClick={() => onCuisineChange(tag)}
-                    >
-                        {tag}
-                    </button>
-                ))}
+                    {hasActiveFilters && (
+                        <button
+                            type="button"
+                            className={styles.clearTag}
+                            onClick={() => {
+                                onSearchChange("");
+                                onCuisineChange("");
+                                onLevelChange("");
+                            }}
+                        >
+                            {t.clearFilters}
+                        </button>
+                    )}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }

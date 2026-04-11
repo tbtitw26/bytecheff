@@ -4,12 +4,12 @@ import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 const faqSchema: PageSchema = {
     meta: {
         title: `FAQ — ${COMPANY_NAME} Kulinarisk Plattform`,
-        description: `Ofte stilte spørsmål om å lære å lage mat med ${COMPANY_NAME} — AI-kokk, ekte kokker, tokens, kurs og resultater.`,
+        description: `Ofte stilte spørsmål om å lære å lage mat med ${COMPANY_NAME} — KI-kokk, ekte kokker, tokens, kurs og resultater.`,
         keywords: [
             "koke kurs FAQ",
-            "AI kokk matlaging",
+            "KI kokk matlaging",
             "online kulinarisk opplæring",
-            "lære matlaging med AI",
+            "lære matlaging med KI",
             "kokk veiledning online",
             "kulinariske tokens",
         ],
@@ -17,7 +17,7 @@ const faqSchema: PageSchema = {
         ogImage: {
             title: `${COMPANY_NAME} — Kulinarisk FAQ`,
             description:
-                "Svar på de vanligste spørsmålene om å lære med AI-kokker og profesjonelle kulinariske mentorer.",
+                "Svar på de vanligste spørsmålene om å lære med KI-kokker og profesjonelle kulinariske mentorer.",
             bg: "#1E2F1E",
             color: "#ffffff",
         },
@@ -29,27 +29,27 @@ const faqSchema: PageSchema = {
             items: [
                 {
                     question: `Hva er ${COMPANY_NAME}?`,
-                    answer: `${COMPANY_NAME} er en moderne kulinarisk læringsplattform hvor du forbedrer dine matlagingsferdigheter ved å bruke AI-kokker eller profesjonelle menneskelige kokker gjennom strukturerte, ukesbaserte læringsplaner.`,
+                    answer: `${COMPANY_NAME} er en moderne kulinarisk læringsplattform hvor du forbedrer dine matlagingsferdigheter ved å bruke KI-kokker eller profesjonelle menneskelige kokker gjennom strukturerte, ukesbaserte læringsplaner.`,
                 },
                 {
                     question: "Hvordan fungerer læring på plattformen?",
                     answer:
-                        "Du kjøper tokens og bruker dem på ukentlige læringsplaner. Hver plan inkluderer oppskrifter, veiledning, tilbakemeldinger og klare mål — enten drevet av AI eller ledet av en ekte kokk.",
+                        "Du kjøper tokens og bruker dem på ukentlige læringsplaner. Hver plan inkluderer oppskrifter, veiledning, tilbakemeldinger og klare mål — enten drevet av KI eller ledet av en ekte kokk.",
                 },
                 {
                     question: "Hva er tokens?",
                     answer:
-                        "Tokens er plattformens interne valuta. Du bruker dem til å låse opp læringsplaner, kokk veiledning, AI-guidance og nedlastbare læringsmateriell.",
+                        "Tokens er plattformens interne valuta. Du bruker dem til å låse opp læringsplaner, kokk veiledning, KI-guidance og nedlastbare læringsmateriell.",
                 },
                 {
-                    question: "Hva er forskjellen mellom en AI-kokk og en ekte kokk?",
+                    question: "Hva er forskjellen mellom en KI-kokk og en ekte kokk?",
                     answer:
-                        "AI-kokker er raskere og mer rimelige, ideelle for raske resultater og daglig praksis. Menneskelige kokker tilbyr dypere ekspertise, personlig stil og avansert teknikkforbedring — de koster mer, men gir rikere veiledning.",
+                        "KI-kokker er raskere og mer rimelige, ideelle for raske resultater og daglig praksis. Menneskelige kokker tilbyr dypere ekspertise, personlig stil og avansert teknikkforbedring — de koster mer, men gir rikere veiledning.",
                 },
                 {
-                    question: "Hvilket alternativ bør jeg velge — AI eller kokk?",
+                    question: "Hvilket alternativ bør jeg velge — KI eller kokk?",
                     answer:
-                        "Hvis du vil ha hastighet, struktur og umiddelbar tilbakemelding, start med AI. Hvis du vil ha dybde, kulinarisk filosofi og profesjonell forbedring, velg en ekte kokk — eller kombiner begge.",
+                        "Hvis du vil ha hastighet, struktur og umiddelbar tilbakemelding, start med KI. Hvis du vil ha dybde, kulinarisk filosofi og profesjonell forbedring, velg en ekte kokk — eller kombiner begge.",
                 },
                 {
                     question: "Hvor lenge varer en læringsplan?",
@@ -67,9 +67,9 @@ const faqSchema: PageSchema = {
                         "Du mottar strukturerte oppskrifter, trinn-for-trinn veiledning, fremdriftsinnsikt og en nedlastbar PDF-sammendrag av dine læringsresultater.",
                 },
                 {
-                    question: "Kan jeg bytte mellom AI og en ekte kokk?",
+                    question: "Kan jeg bytte mellom KI og en ekte kokk?",
                     answer:
-                        "Ja. Mange brukere starter med AI for hastighet, deretter bytter til en kokk for forbedring — eller bruker begge parallelt.",
+                        "Ja. Mange brukere starter med KI for hastighet, deretter bytter til en kokk for forbedring — eller bruker begge parallelt.",
                 },
                 {
                     question: "Utløper tokens?",

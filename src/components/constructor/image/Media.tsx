@@ -48,6 +48,8 @@ const Media: React.FC<MediaProps> = ({
     }
 
     const resolvedSrc = type === "image" ? resolveMedia(src) : undefined;
+    const isStaticImport =
+        typeof resolvedSrc === "object" && resolvedSrc !== null && "src" in resolvedSrc;
 
     return (
         <div
@@ -59,8 +61,16 @@ const Media: React.FC<MediaProps> = ({
                     src={resolvedSrc}
                     alt={alt}
                     fill
+                    quality={95}
+                    sizes="100vw"
                     style={{ objectFit }}
                     className={styles.image}
+                    {...(isStaticImport && "blurDataURL" in resolvedSrc
+                        ? {
+                            placeholder: "blur" as const,
+                            blurDataURL: resolvedSrc.blurDataURL,
+                        }
+                        : {})}
                 />
             ) : type === "video" && typeof src === "string" ? (
                 <video

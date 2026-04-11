@@ -1,115 +1,143 @@
-
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 20px 40px;
-    background: var(--tertiary-color, #EEF4E6);
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-    border: 1px solid var(--border-color, #E5E7EB);
-    font-family: var(--font-family, 'Inter', sans-serif);
-  }
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: start;
+  min-height: 100%;
+  padding: 32px 0 0;
 
-  .heroUserContainer {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+    padding-top: 8px;
+    gap: 22px;
   }
+}
 
-  .avatar {
-    width: 96px;
-    height: 96px;
-    min-width: 96px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, var(--button-primary, #6B8F2A) 0%, var(--button-hover, #4F6F1F) 100%);
-    color: var(--text-inverse, #FFFFFF);
-    font-size: 44px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    flex-shrink: 0;
+.identityShell {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+
+.identityTop {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  @media (max-width: 520px) {
+    align-items: flex-start;
   }
+}
 
-  .text {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+.avatarWrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 auto;
+
+  @media (max-width: 520px) {
+    width: 84px;
+    height: 84px;
   }
+}
 
-  .text h1 {
+.avatarHalo {
+  position: absolute;
+  inset: 6px;
+  border-radius: 24px;
+  background: rgba(166, 124, 82, 0.08);
+}
+
+.avatar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  border-radius: 26px;
+  color: #9a714b;
+  background: rgba(255, 249, 243, 0.96);
+}
+
+.text {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+
+  h1 {
     margin: 0;
-    font-size: 1.5rem; /* ~24px */
-    line-height: 1.1;
-    color: var(--text-primary, #111111);
-    font-weight: 600;
+    color: #1f1813;
+    font-size: clamp(1.8rem, 2.4vw, 2.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    font-weight: 700;
   }
+}
 
-  .text p {
-    margin: 0;
-    font-size: 1.05rem; /* ~17px */
-    color: var(--text-secondary, #4B5563);
+.eyebrow {
+  color: var(--primary-color);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.lead {
+  margin: 0;
+  color: rgba(66, 51, 38, 0.72);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.identityMeta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
+}
 
-  .text p.member {
-    font-weight: 500;
-    color: var(--text-accent, #6B8F2A);
-    font-size: 1.03rem;
+.metaCard {
+  display: grid;
+  gap: 6px;
+
+  strong {
+    color: #241a14;
+    font-size: 0.97rem;
+    line-height: 1.45;
+    font-weight: 700;
+    word-break: break-word;
   }
+}
 
-  .text p.muted {
-    color: var(--text-muted, #9CA3AF);
-    font-size: 0.95rem;
+.metaLabel,
+.actionHintLabel {
+  color: rgba(66, 51, 38, 0.56);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.actionArea {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-width: 200px;
+
+  @media (max-width: 860px) {
+    min-width: 0;
   }
+}
 
-  /* Стили для кнопки выхода — применяются к прямому дочернему button внутри .hero */
-  .hero > button {
-    background: var(--button-primary, #6B8F2A);
-    color: var(--text-inverse, #FFFFFF);
-    border: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 0.98rem;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 150ms ease, background 150ms ease;
+.actionHint {
+  p {
+    margin: 8px 0 0;
+    color: rgba(66, 51, 38, 0.64);
+    line-height: 1.55;
+    font-size: 0.92rem;
   }
-
-  .hero > button:hover {
-    background: var(--button-hover, #4F6F1F);
-    transform: translateY(-2px);
-  }
-
-  /* Responsive */
-  @media (max-width: 720px) {
-    .hero {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 16px;
-    }
-
-    .heroUserContainer {
-      width: 100%;
-    }
-
-    .avatar {
-      width: 80px;
-      height: 80px;
-      font-size: 36px;
-    }
-
-    .text h1 {
-      font-size: 1.25rem;
-    }
-
-    .text p {
-      font-size: 1rem;
-    }
-
-    .hero > button {
-      align-self: flex-end;
-      margin-top: 12px;
-    }
-  }
+}

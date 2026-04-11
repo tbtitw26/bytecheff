@@ -17,7 +17,7 @@ interface SelectUIProps {
 export default function SelectUI({
                                      name,
                                      options,
-                                     placeholder = "Select",
+                                     placeholder = "Velg",
                                  }: SelectUIProps) {
     const [, meta] = useField(name);
     const { submitCount } = useFormikContext();
@@ -25,8 +25,12 @@ export default function SelectUI({
 
     return (
         <div className={styles.wrapper}>
+            <label htmlFor={name} className={styles.label}>
+                {placeholder}
+            </label>
             <Field
                 as="select"
+                id={name}
                 name={name}
                 className={styles.select}
                 aria-invalid={showError}

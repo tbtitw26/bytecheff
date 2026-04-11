@@ -57,7 +57,7 @@ const CountrySelect: React.FC<Props> = ({ name, placeholder }) => {
                     </span>
                 ) : (
                     <span className={styles.placeholder}>
-                        {placeholder || "Select country"}
+                        {placeholder || "Velg land"}
                     </span>
                 )}
             </div>
@@ -67,7 +67,7 @@ const CountrySelect: React.FC<Props> = ({ name, placeholder }) => {
                 <div className={styles.dropdown}>
                     <input
                         className={styles.search}
-                        placeholder="Search country…"
+                        placeholder="Søk etter land…"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         autoFocus

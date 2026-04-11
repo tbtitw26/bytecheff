@@ -1,23 +1,20 @@
 import {media} from "@/resources/media";
-import {FaTwitter, FaFacebook, FaLinkedin} from "react-icons/fa";
 import {
     COMPANY_ADDRESS,
     COMPANY_EMAIL,
     COMPANY_LEGAL_NAME,
-    COMPANY_NAME,
     COMPANY_NUMBER,
     COMPANY_PHONE
 } from "@/resources/constants";
-import { LangCode } from "@/context/i18nContext";
-import { getTranslations } from "./translations";
+import { siteContent } from "./siteContent";
 
 export const baseURL =
     typeof window !== "undefined"
         ? window.location.origin
         : process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000";
 
-export const getHeaderContent = (lang: LangCode = "en") => {
-    const t = getTranslations(lang);
+export const getHeaderContent = () => {
+    const t = siteContent;
     return {
         logo: {
             src: media.logo.src,
@@ -37,11 +34,10 @@ export const getHeaderContent = (lang: LangCode = "en") => {
     };
 };
 
-// Backward compatibility - defaults to English
-export const headerContent = getHeaderContent("en");
+export const headerContent = getHeaderContent();
 
-export const getFooterContent = (lang: LangCode = "en") => {
-    const t = getTranslations(lang);
+export const getFooterContent = () => {
+    const t = siteContent;
     return {
         logo: {src: media.logo.src, alt: t.footer.logoAlt, href: "/"},
         columns: [
@@ -87,6 +83,4 @@ export const getFooterContent = (lang: LangCode = "en") => {
     };
 };
 
-// Backward compatibility - defaults to English
-export const footerContent = getFooterContent("en");
-
+export const footerContent = getFooterContent();

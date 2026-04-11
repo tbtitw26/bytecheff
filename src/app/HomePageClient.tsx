@@ -1,8 +1,4 @@
-"use client";
-
 import React from "react";
-import {COMPANY_NAME} from "@/resources/constants";
-
 import HeroSection from "@/components/constructor/hero/Hero";
 import ValuesIcons from "@/components/constructor/values-icons/ValuesIcons";
 import Grid from "@/components/constructor/grid/Grid";
@@ -11,15 +7,12 @@ import PricingCard from "@/components/constructor/pricing-card/PricingCard";
 import TestimonialsSlider from "@/components/constructor/testimonials-slider/TestimonialsSlider";
 import HowItWorksSection from "@/components/sections/how-it-works-section/HowItWorksSection";
 import TeamGrid from "@/components/constructor/team-grid/TeamGrid";
-import PromoFeatureCard from "@/components/features/promo-card/PromoFeatureCard";
 import Section from "@/components/constructor/section/Section";
 import InfoBlock from "@/components/constructor/Info-block/InfoBlock";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 export default function HomePageClient() {
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).home;
+    const t = siteContent.home;
 
     return (
         <>
@@ -37,55 +30,17 @@ export default function HomePageClient() {
                 image="image1"
             />
 
-            <Grid columns={2} gap="2rem">
-                <PromoFeatureCard
-                    icon="chef"
-                    title={t.features.chef.title}
-                    description={t.features.chef.description}
-                    image="image2"
-                    actionText={t.features.chef.actionText}
-                    actionLink="/extra/chefs"
-                />
-
-                <PromoFeatureCard
-                    icon="brain"
-                    title={t.features.ai.title}
-                    description={t.features.ai.description}
-                    image="image3"
-                    imagePosition="right"
-                    actionText={t.features.ai.actionText}
-                    actionLink="/get-started"
-                />
-            </Grid>
-
-            <HowItWorksSection
-                label={t.howItWorks.title}
-                title={t.howItWorks.title}
-                description={t.howItWorks.description}
-                steps={t.howItWorks.steps.map((step, idx) => ({
-                    icon: idx === 0 ? "user" : idx === 1 ? "wallet" : "chef",
-                    title: step.title,
-                    description: step.description,
-                }))}
-            />
-
             <Section
                 title={t.twoWays.title}
                 description={t.twoWays.description}
             >
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr 1fr",
-                        gap: "2rem",
-                    }}
-                >
+                <Grid columns={2} gap="2rem">
                     <InfoBlock
                         eyebrow={t.twoWays.chef.eyebrow}
                         title={t.twoWays.chef.title}
                         description={t.twoWays.chef.description}
                         bullets={t.twoWays.chef.bullets}
-                        image="image4"
+                        image="image9"
                         variant="chef"
                     />
 
@@ -94,17 +49,36 @@ export default function HomePageClient() {
                         title={t.twoWays.ai.title}
                         description={t.twoWays.ai.description}
                         bullets={t.twoWays.ai.bullets}
-                        image="image5"
+                        image="image10"
                         variant="ai"
                     />
-                </div>
+                </Grid>
             </Section>
+
+            <HowItWorksSection
+                label={t.howItWorks.label}
+                title={t.howItWorks.title}
+                description={t.howItWorks.description}
+                steps={t.howItWorks.steps.map((step, idx) => ({
+                    icon: idx === 0 ? "user" : idx === 1 ? "wallet" : "chef",
+                    title: step.title,
+                    description: step.description,
+                }))}
+                note={t.howItWorks.note}
+            />
 
             <ValuesIcons
                 title={t.coreValues.title}
                 description={t.coreValues.description}
                 values={t.coreValues.values.map((v, idx) => ({
-                    icon: idx === 0 ? "accessibility" : idx === 1 ? "settings" : idx === 2 ? "bulb" : "community",
+                    icon:
+                        idx === 0
+                            ? "accessibility"
+                            : idx === 1
+                                ? "settings"
+                                : idx === 2
+                                    ? "bulb"
+                                    : "community",
                     title: v.title,
                     description: v.description,
                 }))}
@@ -115,7 +89,7 @@ export default function HomePageClient() {
                     index={0}
                     variant="starter"
                     title={t.pricing.cards[0].title}
-                    price="€5"
+                    price="£5"
                     tokens={500}
                     badgeTop={t.pricing.cards[0].badgeTop}
                     description={t.pricing.cards[0].description}
@@ -127,8 +101,8 @@ export default function HomePageClient() {
                     index={1}
                     variant="pro"
                     title={t.pricing.cards[1].title}
-                    price="€15"
-                    tokens={1500}
+                    price="£25"
+                    tokens={2500}
                     badgeTop={t.pricing.cards[1].badgeTop}
                     description={t.pricing.cards[1].description}
                     features={[]}
@@ -139,8 +113,8 @@ export default function HomePageClient() {
                     index={2}
                     variant="premium"
                     title={t.pricing.cards[2].title}
-                    price="€50"
-                    tokens={5000}
+                    price="£75"
+                    tokens={7500}
                     badgeTop={t.pricing.cards[2].badgeTop}
                     description={t.pricing.cards[2].description}
                     features={[]}
@@ -176,10 +150,10 @@ export default function HomePageClient() {
                 viewAllText={t.team.viewAllText}
                 viewAllLink="/extra/chefs"
                 members={[
-                    {name: "Marcus L.", role: lang === "no" ? "Cuisine française" : "French Cuisine", image: "team1"},
-                    {name: "Sarah J.", role: lang === "no" ? "Gastronomie moléculaire" : "Molecular Gastronomy", image: "team2"},
-                    {name: "Kenji T.", role: lang === "no" ? "Japansk kjøkken" : "Japanese Cuisine", image: "team4"},
-                    {name: "Maria G.", role: lang === "no" ? "Konditorkunst" : "Pastry Arts", image: "team3"},
+                    { name: "Marcus L.", role: "Cuisine française", image: "team1" },
+                    { name: "Sarah J.", role: "Gastronomie moléculaire", image: "team2" },
+                    { name: "Kenji T.", role: "Japansk kjøkken", image: "team4" },
+                    { name: "Maria G.", role: "Konditorkunst", image: "team3" },
                 ]}
             />
 

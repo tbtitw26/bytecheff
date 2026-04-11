@@ -1,23 +1,20 @@
 "use client";
 
 import HeroSection from "@/components/constructor/hero/Hero";
-import Section from "@/components/constructor/section/Section";
-import ValuesIcons from "@/components/constructor/values-icons/ValuesIcons";
-import InfoBlock from "@/components/constructor/Info-block/InfoBlock";
-import MissionBanner from "@/components/constructor/missio-banner/MissionBanner";
 import StoryGridSection from "@/components/sections/story-grid-section/StoryGridSection";
+import Grid from "@/components/constructor/grid/Grid";
+import Card from "@/components/constructor/card/Card";
+import MissionBanner from "@/components/constructor/missio-banner/MissionBanner";
+import PromoFeatureCard from "@/components/features/promo-card/PromoFeatureCard";
 import HowItWorksSection from "@/components/sections/how-it-works-section/HowItWorksSection";
-import TeamGrid from "@/components/constructor/team-grid/TeamGrid";
-import TextWithButton from "@/components/constructor/text-with-button/TextWithButton";
+import ValuesIcons from "@/components/constructor/values-icons/ValuesIcons";
 import FAQ from "@/components/constructor/faq/FAQ";
-import HighlightStrip from "@/components/constructor/highlight-strip/HighlightStrip";
-import StoryTimeline from "@/components/constructor/story-timeline/StoryTimeline";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import TextWithButton from "@/components/constructor/text-with-button/TextWithButton";
+import { siteContent } from "@/resources/siteContent";
 
 export default function AboutPage() {
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).about;
+    const t = siteContent.about;
+
     return (
         <>
             <HeroSection
@@ -29,8 +26,10 @@ export default function AboutPage() {
                     </>
                 }
                 description={t.hero.description}
-                secondaryCta={{text: t.hero.secondaryCta, link: "/extra/chefs"}}
-                image="image7"
+                primaryCta={{ text: t.hero.primaryCta, link: "/get-started" }}
+                secondaryCta={{ text: t.hero.secondaryCta, link: "/extra/chefs" }}
+                image="image2"
+                features={false}
             />
 
             <StoryGridSection
@@ -43,10 +42,6 @@ export default function AboutPage() {
                         text: t.origins.cards[0].text,
                     },
                     {
-                        type: "image",
-                        image: "image8",
-                    },
-                    {
                         type: "quote",
                         quote: t.origins.cards[1].quote,
                         author: t.origins.cards[1].author,
@@ -54,56 +49,71 @@ export default function AboutPage() {
                     },
                     {
                         type: "wideImage",
-                        image: "image10",
+                        image: "image3",
                         title: t.origins.cards[2].title,
                         text: t.origins.cards[2].text,
+                    },
+                    {
+                        type: "text",
+                        title: t.origins.cards[3].title,
+                        text: t.origins.cards[3].text,
                     },
                 ]}
             />
 
+            <Grid columns={3} gap="2rem">
+                <Card
+                    icon="chef"
+                    title={t.pillars[0].title}
+                    description={t.pillars[0].description}
+                />
+
+                <Card
+                    icon="brain"
+                    title={t.pillars[1].title}
+                    description={t.pillars[1].description}
+                />
+
+                <Card
+                    icon="community"
+                    title={t.pillars[2].title}
+                    description={t.pillars[2].description}
+                />
+            </Grid>
+
             <MissionBanner
                 title={t.mission.title}
                 description={t.mission.description}
-                image="image9"
+                image="image4"
             />
 
-            <Section
-                title={t.twoWays.title}
-                description={t.twoWays.description}
-            >
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr 1fr",
-                        gap: "2rem",
-                    }}
-                >
-                    <InfoBlock
-                        eyebrow={t.twoWays.chef.eyebrow}
-                        title={t.twoWays.chef.title}
-                        description={t.twoWays.chef.description}
-                        bullets={t.twoWays.chef.bullets}
-                        image="image11"
-                        variant="chef"
-                    />
+            <Grid columns={2} gap="2rem">
+                <PromoFeatureCard
+                    icon="chef"
+                    title={t.balance.chef.title}
+                    description={t.balance.chef.description}
+                    image="image5"
+                    actionText={t.balance.chef.actionText}
+                    actionLink="/extra/chefs"
+                />
 
-                    <InfoBlock
-                        eyebrow={t.twoWays.ai.eyebrow}
-                        title={t.twoWays.ai.title}
-                        description={t.twoWays.ai.description}
-                        bullets={t.twoWays.ai.bullets}
-                        image="image12"
-                        variant="ai"
-                    />
-                </div>
-            </Section>
+                <PromoFeatureCard
+                    icon="brain"
+                    title={t.balance.ai.title}
+                    description={t.balance.ai.description}
+                    image="image6"
+                    imagePosition="right"
+                    actionText={t.balance.ai.actionText}
+                    actionLink="/get-started"
+                />
+            </Grid>
 
             <HowItWorksSection
                 label={t.howItWorks.label}
                 title={
                     <>
                         {t.howItWorks.title.split(t.howItWorks.titleHighlight)[0]}
-                        <br/>
+                        <br />
                         <span>{t.howItWorks.titleHighlight}</span>
                     </>
                 }
@@ -113,7 +123,7 @@ export default function AboutPage() {
                     description: h.description,
                 }))}
                 steps={t.howItWorks.steps.map((step, idx) => ({
-                    icon: idx === 0 ? "chef" : idx === 1 ? "brain" : "accessibility",
+                    icon: idx === 0 ? "chef" : idx === 1 ? "brain" : "user",
                     title: step.title,
                     description: step.description,
                 }))}
@@ -124,23 +134,17 @@ export default function AboutPage() {
                 title={t.coreValues.title}
                 description={t.coreValues.description}
                 values={t.coreValues.values.map((v, idx) => ({
-                    icon: idx === 0 ? "accessibility" : idx === 1 ? "settings" : idx === 2 ? "bulb" : "community",
+                    icon:
+                        idx === 0
+                            ? "accessibility"
+                            : idx === 1
+                                ? "settings"
+                                : idx === 2
+                                    ? "bulb"
+                                    : "community",
                     title: v.title,
                     description: v.description,
                 }))}
-            />
-
-            <TeamGrid
-                title={t.team.title}
-                description={t.team.description}
-                viewAllText={t.team.viewAllText}
-                viewAllLink="/extra/chefs"
-                members={[
-                    {name: "Marcus L.", role: lang === "no" ? "Cuisine française" : "French Cuisine", image: "team1"},
-                    {name: "Sarah J.", role: lang === "no" ? "Gastronomie moléculaire" : "Molecular Gastronomy", image: "team2"},
-                    {name: "Kenji T.", role: lang === "no" ? "Fermentering" : "Fermentation", image: "team4"},
-                    {name: "Maria G.", role: lang === "no" ? "Konditorkunst" : "Pastry Arts", image: "team3"},
-                ]}
             />
 
             <FAQ items={t.faq.items} />
@@ -149,7 +153,7 @@ export default function AboutPage() {
                 title={t.cta.title}
                 description={t.cta.description}
                 buttonText={t.cta.buttonText}
-                buttonLink="/dashboard"
+                buttonLink="/get-started"
             />
         </>
     );

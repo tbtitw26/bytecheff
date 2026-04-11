@@ -10,6 +10,10 @@ body {
     font-family: var(--font-family);
     background-color: var(--background-light);
     color: var(--text-primary);
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -17,58 +21,71 @@ a {
     color: inherit;
 }
 
-:root {
-    /* =========================
-       Brand (Culinary AI)
-    ========================= */
-    --primary-color: #6B8F2A;          /* olive green — головний бренд */
-    --secondary-color: #4F6F1F;        /* темніший olive (hover, nav) */
-    --tertiary-color: #EEF4E6;         /* дуже світлий olive фон */
-    --quaternary-color: #ececec;       /* теплий білий */
-
-    /* =========================
-       Backgrounds & Surfaces
-    ========================= */
-    --background-light: #ffffff;       /* основний фон */
-    --background-dark: #1C1C1C;        /* майже чорний */
-    --surface-color: #FFFFFF;          /* картки */
-    --surface-muted: #F3F4F1;          /* секції */
-
-    /* =========================
-       Text
-    ========================= */
-    --text-primary: #111111;            /* заголовки */
-    --text-secondary: #4B5563;          /* основний текст */
-    --text-muted: #9CA3AF;              /* допоміжний */
-    --text-inverse: #FFFFFF;
-    --text-accent: #6B8F2A;             /* olive акцент (world, cooks) */
-
-    /* =========================
-       Status
-    ========================= */
-    --success-color: #70ef7c;           /* natural green */
-    --warning-color: #E6B566;           /* теплий жовтий */
-    --error-color: #C2410C;             /* теплий червоний */
-    --info-color: #64748B;              /* нейтральний */
-
-    /* =========================
-       Interactive
-    ========================= */
-    --button-primary: #6B8F2A;          /* CTA кнопка */
-    --button-hover: #4F6F1F;            /* hover */
-    --button-outline: #E5E7EB;
-
-    --link-color: #4F6F1F;
-    --link-hover: #6B8F2A;
-
-    /* =========================
-       System
-    ========================= */
-    --border-color: #E5E7EB;
-    --shadow-color: rgba(0, 0, 0, 0.12);
-
-    --font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-
-    --main-padding: 0 50px;
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(166, 124, 82, 0.09), transparent 32%),
+        linear-gradient(180deg, #fbf8f3 0%, var(--background-light) 18%, #f5f0e8 100%);
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+:root {
+    --primary-color: #A67C52;
+    --secondary-color: #8B6541;
+    --tertiary-color: #F1E8DE;
+    --quaternary-color: #F4EEE6;
+
+    --background-light: #F7F4EF;
+    --background-dark: #1C1C1C;
+    --surface-color: #FFFCF8;
+    --surface-muted: #F3ECE3;
+
+    --text-primary: #1E1E1E;
+    --text-secondary: #6B6B6B;
+    --text-muted: #9A8F84;
+    --text-inverse: #FFFFFF;
+    --text-accent: #A67C52;
+
+    --success-color: #7A9B68;
+    --warning-color: #D3A76D;
+    --error-color: #B45F47;
+    --info-color: #7D8A91;
+
+    --button-primary: #A67C52;
+    --button-hover: #8B6541;
+    --button-outline: #E8E1D9;
+
+    --link-color: #7D5D3D;
+    --link-hover: #A67C52;
+
+    --border-color: #E8E1D9;
+    --shadow-color: rgba(70, 49, 32, 0.08);
+    --shadow-soft: 0 20px 44px rgba(70, 49, 32, 0.08);
+    --shadow-card: 0 14px 30px rgba(70, 49, 32, 0.06);
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --section-spacing: clamp(72px, 10vw, 120px);
+    --content-width: 1280px;
+
+    --font-family: 'Poppins', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+    --main-padding: 0 32px;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --main-padding: 0 20px;
+    }
+}

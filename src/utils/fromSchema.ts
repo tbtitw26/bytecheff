@@ -14,7 +14,7 @@ export async function absoluteUrl(path: string): Promise<string> {
     return path.startsWith("http") ? path : `${base}${path}`;
 }
 
-export async function metadataFromSchema(meta: MetaSchema, lang?: "en" | "no"): Promise<Metadata> {
+export async function metadataFromSchema(meta: MetaSchema): Promise<Metadata> {
     const title = meta.ogTitle ?? meta.title;
     const description = meta.ogDescription ?? meta.description ?? "";
 
@@ -32,9 +32,6 @@ export async function metadataFromSchema(meta: MetaSchema, lang?: "en" | "no"): 
         absoluteUrl(ogImagePath),
     ]);
 
-    const locale = lang === "no" ? "no_NO" : "en_US";
-    const alternateLocale = lang === "no" ? "en_US" : "no_NO";
-
     return {
         title: meta.title,
         description: meta.description,
@@ -42,7 +39,6 @@ export async function metadataFromSchema(meta: MetaSchema, lang?: "en" | "no"): 
         alternates: {
             canonical: canonicalAbs,
             languages: {
-                "en": canonicalAbs,
                 "no": canonicalAbs,
             },
         },
@@ -52,8 +48,7 @@ export async function metadataFromSchema(meta: MetaSchema, lang?: "en" | "no"): 
             url: canonicalAbs,
             siteName: COMPANY_NAME,
             type: "website",
-            locale,
-            alternateLocale: [alternateLocale],
+            locale: "no_NO",
             images: [
                 {
                     url: ogImageAbs,

@@ -3,42 +3,30 @@
 import {useMemo, useState} from "react";
 import ExpertCard from "@/components/extra/experts/expert-card/Card";
 import {experts} from "@/data/experts";
-import Grid from "@/components/constructor/grid/Grid";
 import ExpertsFilterBar from "@/components/extra/experts/expert-filter-bar/ExpertFilterBar";
 import HeroSection from "@/components/constructor/hero/Hero";
-import Link from "next/link";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 import { getTranslatedExpert } from "@/resources/expertTranslations";
+import styles from "./page.module.scss";
 
 export default function Page() {
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).chefs;
+    const t = siteContent.chefs;
     const translatedExperts = useMemo(
-        () => experts.map((expert) => getTranslatedExpert(expert, lang)),
-        [lang]
+        () => experts.map((expert) => getTranslatedExpert(expert)),
+        []
     );
     const [search, setSearch] = useState("");
     const [cuisine, setCuisine] = useState("");
     const [level, setLevel] = useState("");
 
-    // зібрати всі унікальні кухні
     const cuisines = useMemo(() => {
         return Array.from(
             new Set(translatedExperts.flatMap((e) => e.specialties))
         ).sort();
     }, [translatedExperts]);
 
-    // фільтрація
-    const LEVEL_ORDER = {
-        advanced: 0,
-        intermediate: 1,
-        beginner: 2,
-    };
-
     const filteredExperts = useMemo(() => {
-        return experts.filter((e) => {
-            const translatedExpert = getTranslatedExpert(e, lang);
+        return translatedExperts.filter((translatedExpert) => {
             const byName =
                 translatedExpert.fullName.toLowerCase().includes(search.toLowerCase()) ||
                 translatedExpert.specialties.some((s) =>
@@ -49,15 +37,17 @@ export default function Page() {
                 !cuisine || translatedExpert.specialties.includes(cuisine);
 
             const byLevel =
-                !level || e.experienceLevel === level;
+                !level || translatedExpert.experienceLevel === level;
 
             return byName && byCuisine && byLevel;
         });
-    }, [search, cuisine, level, lang]);
+    }, [search, cuisine, level, translatedExperts]);
+
+    const activeFilters = [search, cuisine, level].filter(Boolean);
+    const resultsLabel = t.results.showing.replace("{count}", String(filteredExperts.length));
 
     return (
         <>
-
             <HeroSection
                 title={
                     <>
@@ -70,26 +60,67 @@ export default function Page() {
                 image="image18"
             />
 
-            <div>
-                <ExpertsFilterBar
-                    search={search}
-                    onSearchChange={setSearch}
-                    cuisine={cuisine}
-                    onCuisineChange={setCuisine}
-                    level={level}
-                    onLevelChange={setLevel}
-                    cuisines={cuisines}
-                />
+            <main className={styles.page}>
+                <section className={styles.directorySection}>
+                    <div className={styles.directoryIntro}>
+                        <span className={styles.eyebrow}>{t.directory.label}</span>
+                        <h2 className={styles.directoryTitle}>{t.directory.title}</h2>
+                        <p className={styles.directoryDescription}>{t.directory.description}</p>
+                    </div>
 
-                <Grid columns={4} gap="2rem">
-                    {filteredExperts.map((expert) => (
-                            <ExpertCard
-                                key={expert.id}
-                                expert={expert}
-                            />
-                    ))}
-                </Grid>
-            </div>
+                    <ExpertsFilterBar
+                        search={search}
+                        onSearchChange={setSearch}
+                        cuisine={cuisine}
+                        onCuisineChange={setCuisine}
+                        level={level}
+                        onLevelChange={setLevel}
+                        cuisines={cuisines}
+                    />
+
+                    <div className={styles.resultsHeader}>
+                        <p className={styles.resultsLabel}>{resultsLabel}</p>
+                        {activeFilters.length > 0 && (
+                            <div className={styles.activeFilterList} aria-label={t.results.showing}>
+                                {search && <span className={styles.activeFilterChip}>{search}</span>}
+                                {cuisine && <span className={styles.activeFilterChip}>{cuisine}</span>}
+                                {level && (
+                                    <span className={styles.activeFilterChip}>
+                                        {t.filter.expertiseOptions[level as keyof typeof t.filter.expertiseOptions]}
+                                    </span>
+                                )}
+                            </div>
+                        )}
+                    </div>
+
+                    {filteredExperts.length > 0 ? (
+                        <div className={styles.chefGrid}>
+                            {filteredExperts.map((expert) => (
+                                <ExpertCard
+                                    key={expert.id}
+                                    expert={expert}
+                                />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className={styles.emptyState}>
+                            <h3 className={styles.emptyTitle}>{t.results.emptyTitle}</h3>
+                            <p className={styles.emptyDescription}>{t.results.emptyDescription}</p>
+                            <button
+                                type="button"
+                                className={styles.resetButton}
+                                onClick={() => {
+                                    setSearch("");
+                                    setCuisine("");
+                                    setLevel("");
+                                }}
+                            >
+                                {t.results.reset}
+                            </button>
+                        </div>
+                    )}
+                </section>
+            </main>
         </>
     );
 }

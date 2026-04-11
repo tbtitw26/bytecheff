@@ -1,33 +1,30 @@
 .section {
   width: 100%;
-  padding: 0;
+  padding: 0 24px;
 }
 
 .inner {
-  position: relative;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
 }
 
-/* 🔴 вертикальна вісь */
 .axis {
-  position: absolute;
-  left: 40px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(
-                  to bottom,
-                  transparent,
-                  var(--border-color),
-                  transparent
-  );
+  display: none;
 }
 
-/* steps list */
 .steps {
   display: flex;
   flex-direction: column;
-  gap: 5.5rem; /* <-- ключовий ритм */
+  gap: clamp(56px, 8vw, 110px);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 0 16px;
+  }
+
+  .steps {
+    gap: 44px;
+  }
 }

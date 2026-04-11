@@ -16,7 +16,7 @@ interface Props {
     label?: string;
     title: string;
     description?: string;
-    testimonials: Testimonial[];
+    testimonials: readonly Testimonial[];
 }
 
 export default function TestimonialsSlider({

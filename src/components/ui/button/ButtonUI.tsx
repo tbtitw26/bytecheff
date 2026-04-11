@@ -50,9 +50,9 @@ const ButtonUI: React.FC<ButtonUIProps & { hoverEffect?: "none" | "shadow" | "gl
         : resolvedText;
 
     const circleSizes: Record<"sm" | "md" | "lg", number> = {
-        sm: 32,
-        md: 40,
-        lg: 56,
+        sm: 34,
+        md: 42,
+        lg: 54,
     };
     const isCircle = shape === "circle";
     const side = circleSizes[size];
@@ -60,15 +60,15 @@ const ButtonUI: React.FC<ButtonUIProps & { hoverEffect?: "none" | "shadow" | "gl
     const hoverEffects: Record<NonNullable<typeof hoverEffect>, any> = {
         none: {},
         shadow: {
-            boxShadow: "0 4px 14px rgba(0,0,0,0.2)",
-            transform: "translateY(-2px)",
+            boxShadow: "0 10px 20px rgba(70, 49, 32, 0.10)",
+            transform: "translateY(-1px)",
         },
         glow: {
-            boxShadow: `0 0 10px ${resolvedHover}`,
+            boxShadow: `0 8px 18px ${hexToRgba(resolvedHover, 0.14)}`,
             transform: "translateY(-1px)",
         },
         scale: {
-            transform: "translateY(-2px) scale(1.05)",
+            transform: "translateY(-1px) scale(1.01)",
         },
     };
 
@@ -77,48 +77,71 @@ const ButtonUI: React.FC<ButtonUIProps & { hoverEffect?: "none" | "shadow" | "gl
             ? {
                 color: resolvedText || resolvedBase,
                 borderColor: resolvedBase,
-                bgcolor: "transparent",
-                transition: "all 0.25s ease-in-out",
+                bgcolor: "rgba(255,252,248,0.82)",
+                transition: "all 0.18s ease-in-out",
                 "&:hover": {
                     color: resolvedHoverText || resolvedHover,
                     borderColor: resolvedHover,
-                    bgcolor: hexToRgba(resolvedHover, 0.08),
+                    bgcolor: hexToRgba(resolvedHover, 0.06),
                     ...hoverEffects[hoverEffect],
+                },
+                "&:active": {
+                    transform: "translateY(0)",
+                    boxShadow: "none",
                 },
             }
             : variant === "soft"
                 ? {
-                    color: resolvedText || resolveColor("inverse"),
-                    bgcolor: hexToRgba(resolvedBase, 0.85),
-                    transition: "all 0.25s ease-in-out",
+                    color: resolvedText || resolvedBase,
+                    bgcolor: hexToRgba(resolvedBase, 0.1),
+                    transition: "all 0.18s ease-in-out",
                     "&:hover": {
-                        color: resolvedHoverText || resolveColor("inverse"),
-                        bgcolor: hexToRgba(resolvedHover, 1),
+                        color: resolvedHoverText || resolvedHover,
+                        bgcolor: hexToRgba(resolvedHover, 0.14),
                         ...hoverEffects[hoverEffect],
+                    },
+                    "&:active": {
+                        transform: "translateY(0)",
+                        boxShadow: "none",
                     },
                 }
                 : variant === "plain"
                     ? {
                         color: resolvedText || resolvedBase,
                         bgcolor: "transparent",
-                        transition: "all 0.25s ease-in-out",
+                        transition: "all 0.18s ease-in-out",
                         "&:hover": {
                             color: resolvedHoverText || resolvedHover,
-                            bgcolor: hexToRgba(resolvedHover, 0.12),
+                            bgcolor: hexToRgba(resolvedHover, 0.07),
                             ...hoverEffects[hoverEffect],
+                        },
+                        "&:active": {
+                            transform: "translateY(0)",
+                            boxShadow: "none",
                         },
                     }
                     : {
                         // solid
                         color: resolvedText || resolveColor("inverse"),
                         bgcolor: resolvedBase,
-                        transition: "all 0.25s ease-in-out",
+                        transition: "all 0.18s ease-in-out",
                         "&:hover": {
                             color: resolvedHoverText || resolveColor("inverse"),
                             bgcolor: resolvedHover,
                             ...hoverEffects[hoverEffect],
                         },
+                        "&:active": {
+                            transform: "translateY(0)",
+                            boxShadow: "0 6px 14px rgba(70, 49, 32, 0.10)",
+                        },
                     };
+
+    const sizeStyles: Record<"sm" | "md" | "lg", { px: number; py: number; fs: string }> = {
+        sm: { px: 14, py: 8, fs: "0.84rem" },
+        md: { px: 18, py: 10, fs: "0.92rem" },
+        lg: { px: 22, py: 12, fs: "0.98rem" },
+    };
+    const currentSize = sizeStyles[size];
 
     return (
         <Button
@@ -132,7 +155,7 @@ const ButtonUI: React.FC<ButtonUIProps & { hoverEffect?: "none" | "shadow" | "gl
             endDecorator={endIcon}
             onClick={onClick}
             sx={{
-                borderRadius: isCircle ? "50%" : shape === "rounded" ? "30px" : "8px",
+                borderRadius: isCircle ? "50%" : shape === "rounded" ? "999px" : "14px",
                 ...(isCircle && {
                     width: side,
                     height: side,
@@ -145,9 +168,23 @@ const ButtonUI: React.FC<ButtonUIProps & { hoverEffect?: "none" | "shadow" | "gl
                     flex: "0 0 auto",
                     alignSelf: "center",
                     "--Button-gap": "0px",
-                    fontSize: size === "sm" ? "14px" : size === "lg" ? "18px" : "16px",
+                    fontSize: size === "sm" ? "14px" : size === "lg" ? "17px" : "15px",
                 }),
                 fontFamily: "var(--font-family, 'Roboto', sans-serif)",
+                fontWeight: 600,
+                letterSpacing: "0.015em",
+                textTransform: "none",
+                minHeight: isCircle ? side : "auto",
+                paddingInline: isCircle ? 0 : `${currentSize.px}px`,
+                paddingBlock: isCircle ? 0 : `${currentSize.py}px`,
+                fontSize: isCircle ? undefined : currentSize.fs,
+                lineHeight: isCircle ? undefined : 1.1,
+                justifyContent: "center",
+                boxShadow: variant === "solid" ? "0 8px 18px rgba(70, 49, 32, 0.10)" : "none",
+                "&.Mui-disabled": {
+                    opacity: 0.55,
+                    boxShadow: "none",
+                },
                 ...byVariant,
                 ...sx,
             }}

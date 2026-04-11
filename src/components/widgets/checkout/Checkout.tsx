@@ -4,14 +4,12 @@ import React, { useEffect, useMemo, useState } from "react";
 import styles from "./Checkout.module.scss";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useCheckoutStore } from "@/utils/store";
-import { useI18n } from "@/context/i18nContext";
-import { getPageTranslations } from "@/resources/pageTranslations";
+import { siteContent } from "@/resources/siteContent";
 
 const TOKENS_PER_GBP = 100;
 
 const Checkout = () => {
-    const { lang } = useI18n();
-    const t = getPageTranslations(lang).checkout;
+    const t = siteContent.checkout;
     const { plan, setPlan, clearPlan } = useCheckoutStore();
     const [activePlan, setActivePlan] = useState(plan);
     const { currency, sign, convertFromGBP, convertToGBP } = useCurrency();
