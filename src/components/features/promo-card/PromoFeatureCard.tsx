@@ -38,7 +38,16 @@ const PromoFeatureCard: React.FC<PromoFeatureCardProps> = ({
         >
             <div className={styles.mediaCol}>
                 <div className={styles.imageWrap}>
-                    {img && <Image src={img} alt={title} fill className={styles.image} />}
+                    {img && (
+                        <Image
+                            src={img}
+                            alt={title}
+                            fill
+                            quality={95}
+                            sizes="(max-width: 900px) 100vw, 50vw"
+                            className={styles.image}
+                        />
+                    )}
                     <div className={styles.imageOverlay} />
                 </div>
             </div>

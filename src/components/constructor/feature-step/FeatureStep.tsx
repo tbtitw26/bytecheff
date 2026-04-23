@@ -41,6 +41,8 @@ const FeatureStep: React.FC<FeatureStepProps> = ({
                         src={media[image]}
                         alt={title}
                         fill
+                        quality={95}
+                        sizes="(max-width: 900px) 100vw, 50vw"
                         className={styles.image}
                     />
                 </div>

@@ -38,6 +38,7 @@ const InfoBlock: React.FC<InfoBlockProps> = ({
                         src={imageSrc}
                         alt={title}
                         fill
+                        quality={95}
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
                 </div>

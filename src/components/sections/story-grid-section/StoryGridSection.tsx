@@ -63,6 +63,8 @@ export default function StoryGridSection({
                                         }
                                         alt={wideImageCard.title || "Feature image"}
                                         fill
+                                        quality={95}
+                                        sizes="(max-width: 900px) 100vw, 50vw"
                                         className={styles.image}
                                     />
                                 )}
@@ -108,6 +110,8 @@ export default function StoryGridSection({
                                                 src={img}
                                                 alt={card.title || "Story image"}
                                                 fill
+                                                quality={95}
+                                                sizes="(max-width: 900px) 100vw, 25vw"
                                                 className={styles.image}
                                             />
                                         </article>

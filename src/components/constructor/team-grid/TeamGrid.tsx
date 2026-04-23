@@ -66,8 +66,8 @@ const TeamGrid: React.FC<TeamGridProps> = ({
                                     src={img}
                                     alt={m.name}
                                     fill
-                                    sizes="150px"
-                                    quality={90}
+                                    sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 72px) / 2), 410px"
+                                    quality={95}
                                     priority={i < 2}
                                     className={styles.image}
                                 />

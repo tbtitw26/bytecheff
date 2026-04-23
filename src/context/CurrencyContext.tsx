@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useCallback, useContext, useMemo, useState, ReactNode } from "react";
 
 export type Currency = "GBP" | "EUR" | "USD" | "NOK";
 
@@ -56,27 +56,34 @@ export const CurrencyProvider = ({ children }: { children: ReactNode }) => {
     });
 
     // Prevent currency change on Norwegian domain
-    const handleSetCurrency = (val: Currency) => {
+    const handleSetCurrency = useCallback((val: Currency) => {
         if (isNorwegianDomain) {
             return; // Don't allow currency change on cheffmate.org
         }
         setCurrency(val);
-    };
+    }, [isNorwegianDomain]);
 
-    const rateToGBP = RATES[currency];
-    const sign = CURRENCY_SIGNS[currency];
+    const activeCurrency = isNorwegianDomain ? "NOK" : currency;
+    const rateToGBP = RATES[activeCurrency];
+    const sign = CURRENCY_SIGNS[activeCurrency];
+
+    const convertFromGBP = useCallback((gbp: number) => gbp * rateToGBP, [rateToGBP]);
+    const convertToGBP = useCallback((val: number) => val / rateToGBP, [rateToGBP]);
+
+    const value = useMemo(
+        () => ({
+            currency: activeCurrency,
+            setCurrency: handleSetCurrency,
+            sign,
+            rateToGBP,
+            convertFromGBP,
+            convertToGBP,
+        }),
+        [activeCurrency, convertFromGBP, convertToGBP, handleSetCurrency, rateToGBP, sign]
+    );
 
     return (
-        <CurrencyContext.Provider
-            value={{
-                currency: isNorwegianDomain ? "NOK" : currency, // Force NOK on Norwegian domain
-                setCurrency: handleSetCurrency,
-                sign,
-                rateToGBP,
-                convertFromGBP: (gbp) => gbp * rateToGBP,
-                convertToGBP: (val) => val / rateToGBP,
-            }}
-        >
+        <CurrencyContext.Provider value={value}>
             {children}
         </CurrencyContext.Provider>
     );

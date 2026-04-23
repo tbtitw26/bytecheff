@@ -33,6 +33,8 @@ const Slider: React.FC<SliderProps> = ({ images, height = "400px" }) => {
                         <Image
                             src={img}
                             alt={`Slide ${idx + 1}`}
+                            quality={95}
+                            sizes="100vw"
                             className={styles.image}
                             style={{ height: "100%", width: "100%", objectFit: "cover" }}
                         />

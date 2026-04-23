@@ -151,11 +151,7 @@ export default function HomePageClient() {
                 viewAllText={t.team.viewAllText}
                 viewAllLink="/extra/chefs"
                 members={experts.slice(0, 4).map((expert) => ({
-                    name: expert.fullName
-                        .replace(/^@/, "")
-                        .split(/[_-]+/)
-                        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-                        .join(" "),
+                    name: expert.fullName,
                     role: expert.subtitle,
                     image: expert.avatar,
                 }))}
