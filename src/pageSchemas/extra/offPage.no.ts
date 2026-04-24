@@ -111,7 +111,7 @@ Vi bygger trygge, relevante og varige backlinks som virkelig gjør en forskjell.
                         "Hastighetsanbefalinger",
                         "Grunnleggende nøkkelordanalyse",
                     ],
-                    buttonText: "Kjøp Tokens",
+                    buttonText: "Kjøp Points",
                     buttonLink: "/pricing",
                 },
                 {

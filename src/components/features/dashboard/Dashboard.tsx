@@ -32,7 +32,7 @@ export default function Dashboard() {
                         onClick={() => setActiveTab("transactions")}
                     >
                         <span className={styles.tabLabel}>{t.tabs.transactions}</span>
-                        <span className={styles.tabHint}>Billing and token activity</span>
+                        <span className={styles.tabHint}>Billing and point activity</span>
                     </button>
                 </nav>
             </div>

@@ -111,7 +111,7 @@ Vår revisjon avdekker de skjulte problemene som hindrer Google fra å fullt ut 
                         "Hastighetsanbefalinger",
                         "Grunnleggende nøkkelordanalyse",
                     ],
-                    buttonText: "Kjøp Tokens",
+                    buttonText: "Kjøp Points",
                     buttonLink: "/pricing",
                 },
                 {

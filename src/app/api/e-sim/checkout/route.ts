@@ -41,13 +41,13 @@ export async function POST(req: NextRequest) {
                 firstName: user.firstName,
                 subject: "eSIM Order Confirmation",
                 summary: `Your eSIM order for ${country} was completed successfully.`,
-                amountLabel: `${tokens} tokens`,
+                amountLabel: `${tokens} points`,
                 transactionDate: order.createdAt ?? new Date(),
                 details: [
                     { label: "Service", value: "eSIM" },
                     { label: "Country", value: country },
                     { label: "Plan", value: plan },
-                    { label: "Tokens used", value: `${tokens}` },
+                    { label: "Points used", value: `${tokens}` },
                     { label: "Status", value: "Confirmed" },
                 ],
             });

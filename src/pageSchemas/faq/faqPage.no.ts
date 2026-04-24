@@ -4,14 +4,14 @@ import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 const faqSchema: PageSchema = {
     meta: {
         title: `FAQ — ${COMPANY_NAME} Kulinarisk Plattform`,
-        description: `Ofte stilte spørsmål om å lære å lage mat med ${COMPANY_NAME} — KI-kokk, ekte kokker, tokens, kurs og resultater.`,
+        description: `Ofte stilte spørsmål om å lære å lage mat med ${COMPANY_NAME} — KI-kokk, ekte kokker, points, kurs og resultater.`,
         keywords: [
             "koke kurs FAQ",
             "KI kokk matlaging",
             "online kulinarisk opplæring",
             "lære matlaging med KI",
             "kokk veiledning online",
-            "kulinariske tokens",
+            "kulinariske points",
         ],
         canonical: "/faq",
         ogImage: {
@@ -34,12 +34,12 @@ const faqSchema: PageSchema = {
                 {
                     question: "Hvordan fungerer læring på plattformen?",
                     answer:
-                        "Du kjøper tokens og bruker dem på ukentlige læringsplaner. Hver plan inkluderer oppskrifter, veiledning, tilbakemeldinger og klare mål — enten drevet av KI eller ledet av en ekte kokk.",
+                        "Du kjøper points og bruker dem på ukentlige læringsplaner. Hver plan inkluderer oppskrifter, veiledning, tilbakemeldinger og klare mål — enten drevet av KI eller ledet av en ekte kokk.",
                 },
                 {
-                    question: "Hva er tokens?",
+                    question: "Hva er points?",
                     answer:
-                        "Tokens er plattformens interne valuta. Du bruker dem til å låse opp læringsplaner, kokk veiledning, KI-guidance og nedlastbare læringsmateriell.",
+                        "Points er plattformens interne valuta. Du bruker dem til å låse opp læringsplaner, kokk veiledning, KI-guidance og nedlastbare læringsmateriell.",
                 },
                 {
                     question: "Hva er forskjellen mellom en KI-kokk og en ekte kokk?",
@@ -72,9 +72,9 @@ const faqSchema: PageSchema = {
                         "Ja. Mange brukere starter med KI for hastighet, deretter bytter til en kokk for forbedring — eller bruker begge parallelt.",
                 },
                 {
-                    question: "Utløper tokens?",
+                    question: "Utløper points?",
                     answer:
-                        "Nei. Dine tokens forblir på kontoen din og kan brukes når som helst uten utløp.",
+                        "Nei. Dine points forblir på kontoen din og kan brukes når som helst uten utløp.",
                 },
                 {
                     question: "Er betalingen min sikker?",

@@ -217,7 +217,7 @@ export const cvService = {
                 firstName: user.firstName,
                 subject: "CV Order Confirmation",
                 summary: "Your CV order has been created successfully.",
-                amountLabel: `${totalCost} tokens`,
+                amountLabel: `${totalCost} points`,
                 transactionDate: order.createdAt ? new Date(order.createdAt) : new Date(),
                 details: [
                     { label: "Service", value: "CV" },
@@ -228,7 +228,7 @@ export const cvService = {
                             ? body.extras.join(", ")
                             : "None",
                     },
-                    { label: "Tokens used", value: `${totalCost}` },
+                    { label: "Points used", value: `${totalCost}` },
                     { label: "Status", value: isManager ? "Pending review" : "Ready" },
                 ],
             });

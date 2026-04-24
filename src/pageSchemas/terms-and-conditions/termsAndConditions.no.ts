@@ -12,11 +12,11 @@ const termsSchema: PageSchema = {
     meta: {
         title: "Vilkår og Betingelser – Cheffmate",
         description:
-            "Offisielle Vilkår og Betingelser for bruk av Cheffmate.co.uk – regler, betalinger, tokens, refusjoner, ansvar og brukerrettigheter.",
+            "Offisielle Vilkår og Betingelser for bruk av Cheffmate.co.uk – regler, betalinger, points, refusjoner, ansvar og brukerrettigheter.",
         keywords: [
             "vilkår og betingelser",
             "cheffmate",
-            "tokens",
+            "points",
             "refusjoner",
             "kokkekurs",
             "KI matlaging",
@@ -43,7 +43,7 @@ const termsSchema: PageSchema = {
             title: "1. Introduksjon",
             bullets: [
                 `1.1. Disse Vilkårene og Betingelsene («Vilkår») styrer din tilgang til og bruk av Cheffmate.co.uk nettsiden og tjenester («Tjenesten»), drevet av ${COMPANY_LEGAL_NAME || COMPANY_NAME || "FUSION FAIRIES LTD"} (organisasjonsnummer: ${COMPANY_NUMBER}, registrert kontor: ${COMPANY_ADDRESS}) («vi», «oss», «vår»).`,
-                "1.2. Ved å få tilgang til eller bruke Tjenesten, opprette en konto eller kjøpe Tokens, Kokkekurs eller KI Matlagningsplaner, godtar du å være bundet av disse Vilkårene. Hvis du ikke godtar, må du ikke bruke Tjenesten.",
+                "1.2. Ved å få tilgang til eller bruke Tjenesten, opprette en konto eller kjøpe Points, Kokkekurs eller KI Matlagningsplaner, godtar du å være bundet av disse Vilkårene. Hvis du ikke godtar, må du ikke bruke Tjenesten.",
             ],
         },
         {
@@ -54,7 +54,7 @@ const termsSchema: PageSchema = {
                 '"Kokkekurs" betyr forhåndsinnspilte eller strukturerte kulinariske kurs og digitalt læringsmateriell opprettet av profesjonelle kokker.',
                 '"KI Matlagningsplan" betyr en personlig tilpasset kulinarisk plan eller oppskrift generert av vår KI Matlagningsassistent.',
                 '"Digitalt innhold" refererer samlet til Kokkekurs og KI Matlagningsplaner.',
-                '"Token(s)" betyr den interne virtuelle kontoenheten som utelukkende brukes til å låse opp digitalt innhold på plattformen.',
+                '"Point(s)" betyr den interne virtuelle kontoenheten som utelukkende brukes til å låse opp digitalt innhold på plattformen.',
             ],
         },
         {
@@ -68,20 +68,20 @@ const termsSchema: PageSchema = {
         },
         {
             type: "text",
-            title: "4. Tokens, Priser og Betalinger",
+            title: "4. Points, Priser og Betalinger",
             bullets: [
-                "4.1. Tokens' art: Tokens er et internt kredittsystem for tilgang til digitalt innhold. De er ikke lovlig betalingsmiddel eller finansielle instrumenter og kan ikke byttes mot kontanter utenfor plattformen.",
-                "4.2. Priser og skatter: Priser vist for Token-pakker er eksklusive gjeldende skatter (som mva). Eventuelle gjeldende skatter beregnes og legges til totalen din ved kassen før betalingsbekreftelse.",
+                "4.1. Points' art: Points er et internt kredittsystem for tilgang til digitalt innhold. De er ikke lovlig betalingsmiddel eller finansielle instrumenter og kan ikke byttes mot kontanter utenfor plattformen.",
+                "4.2. Priser og skatter: Priser vist for Point-pakker er eksklusive gjeldende skatter (som mva). Eventuelle gjeldende skatter beregnes og legges til totalen din ved kassen før betalingsbekreftelse.",
                 "4.3. Betalinger: Vi bruker sikre betalingsbehandlere fra tredjeparter. Ved å sende inn betalingsdetaljer autoriserer du oss (via våre behandlere) til å belaste totalbeløpet.",
-                "4.4. Inaktive kontoer: Hvis kontoen din forblir fullstendig inaktiv i en sammenhengende periode på 24 måneder, forbeholder vi oss retten til å klassifisere kontoen som «inaktiv» og tømme Token-saldoen, etter å ha sendt skriftlig varsel 30 dager i forveien.",
+                "4.4. Inaktive kontoer: Hvis kontoen din forblir fullstendig inaktiv i en sammenhengende periode på 24 måneder, forbeholder vi oss retten til å klassifisere kontoen som «inaktiv» og tømme Point-saldoen, etter å ha sendt skriftlig varsel 30 dager i forveien.",
             ],
         },
         {
             type: "text",
             title: "5. Omfang av tjenester og levering",
             bullets: [
-                "5.1. Tjenesteomfang: Avhengig av dine valg kan tjenestene kjøpt via Tokens inkludere: • Kokkekurs: Strukturerte kulinariske kurs levert av ekte profesjonelle kokker. • KI Matlagningsassistent: Automatisk generering av personlige matlagningsplaner basert på dine valgfrie opplysninger (f.eks. kosthold, ferdighetsnivå).",
-                "5.2. Leveringspolicy: • Digital levering: Alt digitalt innhold leveres digitalt. Det vil være tilgjengelig direkte i kontodashbordet ditt og/eller et varsel sendes til din registrerte e-postadresse. • Tidsrammer: Kokkekurs: Leveres og er tilgjengelig i dashbordet ditt umiddelbart ved Token-innløsning. KI Matlagningsplaner: Genereres og leveres til dashbordet ditt vanligvis innen 4 timer etter innsending av forespørselen din. • Ansett aksept: Du har 7 dager fra levering til å gjennomgå det digitale innholdet. Hvis ingen tekniske problemer eller alvorlige feil rapporteres til support innen denne tidsrammen, anses tjenesten som vellykket fullført.",
+                "5.1. Tjenesteomfang: Avhengig av dine valg kan tjenestene kjøpt via Points inkludere: • Kokkekurs: Strukturerte kulinariske kurs levert av ekte profesjonelle kokker. • KI Matlagningsassistent: Automatisk generering av personlige matlagningsplaner basert på dine valgfrie opplysninger (f.eks. kosthold, ferdighetsnivå).",
+                "5.2. Leveringspolicy: • Digital levering: Alt digitalt innhold leveres digitalt. Det vil være tilgjengelig direkte i kontodashbordet ditt og/eller et varsel sendes til din registrerte e-postadresse. • Tidsrammer: Kokkekurs: Leveres og er tilgjengelig i dashbordet ditt umiddelbart ved Point-innløsning. KI Matlagningsplaner: Genereres og leveres til dashbordet ditt vanligvis innen 4 timer etter innsending av forespørselen din. • Ansett aksept: Du har 7 dager fra levering til å gjennomgå det digitale innholdet. Hvis ingen tekniske problemer eller alvorlige feil rapporteres til support innen denne tidsrammen, anses tjenesten som vellykket fullført.",
                 "5.3. Teknisk kompatibilitet: Vi garanterer ikke at all tredjepartsprogramvare, eldre nettlesere eller utdaterte enheter vil gjengi videokurs eller tekstdokumenter perfekt.",
             ],
         },
@@ -89,9 +89,9 @@ const termsSchema: PageSchema = {
             type: "text",
             title: "6. Refusjoner, kansellering og forbrukerrettigheter",
             bullets: [
-                "6.1. Rett til å kansellere: I henhold til forbrukerloven har du 14 dager til å kansellere kjøpet av en Token-pakke, forutsatt at du ikke har brukt noen av Tokenene.",
-                "6.2. Tap av rett: Ved å innløse Tokens for å låse opp et kurs eller generere en KI-plan samtykker du til umiddelbar digital levering og mister refusjonsretten for de brukte Tokenene.",
-                `6.3. Forespørsel om refusjon: Alle refusjonsforespørsler for ubrukte Tokens eller rapporter om alvorlig defekt digitalt innhold (f.eks. KI-hallusinasjoner eller tekniske feil) må sendes til vårt supportteam på ${COMPANY_EMAIL}. Vi behandler ikke automatiske refusjoner.`,
+                "6.1. Rett til å kansellere: I henhold til forbrukerloven har du 14 dager til å kansellere kjøpet av en Point-pakke, forutsatt at du ikke har brukt noen av Pointene.",
+                "6.2. Tap av rett: Ved å innløse Points for å låse opp et kurs eller generere en KI-plan samtykker du til umiddelbar digital levering og mister refusjonsretten for de brukte Pointene.",
+                `6.3. Forespørsel om refusjon: Alle refusjonsforespørsler for ubrukte Points eller rapporter om alvorlig defekt digitalt innhold (f.eks. KI-hallusinasjoner eller tekniske feil) må sendes til vårt supportteam på ${COMPANY_EMAIL}. Vi behandler ikke automatiske refusjoner.`,
             ],
         },
         {
@@ -124,7 +124,7 @@ const termsSchema: PageSchema = {
             title: "10. Ansvarsbegrensning og erstatning",
             bullets: [
                 "10.1. Ingenting utelukker ansvar for død eller personskade forårsaket av vår direkte uaktsomhet eller bedrageri.",
-                "10.2. Vårt totale ansvar overfor deg skal ikke overstige beløpet du har betalt for Tokens i de 12 månedene før kravet. Vi er ikke ansvarlige for indirekte eller følgeskader.",
+                "10.2. Vårt totale ansvar overfor deg skal ikke overstige beløpet du har betalt for Points i de 12 månedene før kravet. Vi er ikke ansvarlige for indirekte eller følgeskader.",
                 `10.3. Du godtar å erstatte ${COMPANY_LEGAL_NAME || COMPANY_NAME || "FUSION FAIRIES LTD"} og dens uavhengige entreprenører for krav som følge av din misbruk av Tjenesten eller grov uaktsomhet på kjøkkenet.`,
             ],
         },

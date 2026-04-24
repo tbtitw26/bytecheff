@@ -12,12 +12,12 @@ const refundPolicySchema: PageSchema = {
     meta: {
         title: "Refusjons- og returpolicy – Cheffmate",
         description:
-            "Offisiell Refusjons- og returpolicy for Cheffmate: refusjoner for tokens, kokkekurs, KI matlagningsplaner og forbrukerrettigheter.",
+            "Offisiell Refusjons- og returpolicy for Cheffmate: refusjoner for points, kokkekurs, KI matlagningsplaner og forbrukerrettigheter.",
         keywords: [
             "refusjonspolicy",
             "returpolicy",
             "cheffmate",
-            "tokens",
+            "points",
             "KI matlaging",
             "digitalt innhold",
             "forbrukerrettigheter",
@@ -45,7 +45,7 @@ const refundPolicySchema: PageSchema = {
             bullets: [
                 "Behandling av forespørsler: Alle refusjonsforespørsler behandles i henhold til denne policyen og gjeldende britisk forbrukerlov.",
                 "Behandlingstid: Vanligvis 5–10 virkedager etter godkjenning.",
-                "Token-bruk: Tokens fungerer som ikke-refunderbar digital kreditt.",
+                "Point-bruk: Points fungerer som ikke-refunderbar digital kreditt.",
                 "Digital natur: Ingen fysiske varer å returnere.",
                 "Resultatfraskrivelse: Ingen refusjon basert på smak/preferanse.",
                 `Kontakt: ${COMPANY_EMAIL}`,
@@ -63,7 +63,7 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "3. Sentrale definisjoner",
             bullets: [
-                "Tokens: Digital kreditt.",
+                "Points: Digital kreditt.",
                 "Digitalt innhold: Kurs og KI-planer.",
                 "Tjenestetyper: Kokkekurs og KI-assistent.",
                 "Ordre: Bekreftet kjøp.",
@@ -74,7 +74,7 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "4. Generelle refusjonsprinsipper",
             bullets: [
-                "4.1. Tokens er ikke refunderbare etter bruk.",
+                "4.1. Points er ikke refunderbare etter bruk.",
                 "4.2. Refusjon er begrenset til betalt beløp.",
                 "4.3. Feil input fra bruker gir ikke refusjon.",
                 "4.4. Smak/preferanse gir ikke refusjon.",
@@ -83,9 +83,9 @@ const refundPolicySchema: PageSchema = {
 
         {
             type: "text",
-            title: "5. Token-kjøp",
+            title: "5. Point-kjøp",
             bullets: [
-                "5.1. Tokens selges som pakker.",
+                "5.1. Points selges som pakker.",
                 "5.2. 14-dagers refusjon kun hvis ubrukt.",
                 "5.3. Inaktive kontoer kan tømmes etter 24 måneder.",
             ],
@@ -95,7 +95,7 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "6. Kansellering",
             bullets: [
-                "6.1. Tokens brukt = ingen refusjon.",
+                "6.1. Points brukt = ingen refusjon.",
             ],
         },
 
@@ -103,7 +103,7 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "7. Tekniske feil",
             bullets: [
-                "7.1. Ved feil: tilgang gjenopprettes eller tokens returneres.",
+                "7.1. Ved feil: tilgang gjenopprettes eller points returneres.",
                 "7.2. KI-innhold leveres 'som det er'.",
             ],
         },
@@ -149,9 +149,9 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "12. Eksempler",
             bullets: [
-                "Ingen refusjon etter bruk av tokens.",
+                "Ingen refusjon etter bruk av points.",
                 "Dobbel betaling refunderes.",
-                "Teknisk feil → tokens tilbake.",
+                "Teknisk feil → points tilbake.",
             ],
         },
 

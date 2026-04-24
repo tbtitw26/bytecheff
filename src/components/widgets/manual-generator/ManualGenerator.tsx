@@ -29,7 +29,7 @@ const PATHS: Array<{
         id: "ai",
         title: "AI-Crafted Course",
         desc: "Instant, data-driven curriculum available 24/7. Tailored to your specific goals through advanced culinary algorithms.",
-        badge: "LOW TOKEN COST",
+        badge: "LOW POINT COST",
         tokens: 1500,
         icon: "brain",
     },
@@ -245,7 +245,7 @@ export default function CourseGeneratorForm() {
                                         <div className={styles.featureList}>
                                             <div className={styles.featureListItem}>Personalized culinary curriculum</div>
                                             <div className={styles.featureListItem}>AI or chef-guided delivery</div>
-                                            <div className={styles.featureListItem}>Token estimate updates live</div>
+                                            <div className={styles.featureListItem}>Point estimate updates live</div>
                                         </div>
                                     </div>
                                 </div>
@@ -309,7 +309,7 @@ export default function CourseGeneratorForm() {
 
                                                                 <div className={styles.pathBottom}>
                                                                     <span className={styles.badge}>{p.badge}</span>
-                                                                    <span className={styles.tokens}>{p.tokens} Tokens</span>
+                                                                    <span className={styles.tokens}>{p.tokens} Points</span>
                                                                 </div>
                                                             </button>
                                                         );
@@ -445,7 +445,7 @@ export default function CourseGeneratorForm() {
                                                     <div className={styles.fieldCluster}>
                                                         <div className={styles.fieldMeta}>
                                                             <label className={styles.label}>Duration preference</label>
-                                                            <span className={styles.helperText}>Longer courses add more structured weeks and token cost.</span>
+                                                            <span className={styles.helperText}>Longer courses add more structured weeks and point cost.</span>
                                                         </div>
 
                                                         <div className={styles.timelineRail}>
@@ -592,7 +592,7 @@ export default function CourseGeneratorForm() {
                                                                         </div>
                                                                     </div>
 
-                                                                    <div className={styles.extraBottom}>+{extra.tokens} Tokens</div>
+                                                                    <div className={styles.extraBottom}>+{extra.tokens} Points</div>
                                                                 </button>
                                                             );
                                                         })}
@@ -657,7 +657,7 @@ export default function CourseGeneratorForm() {
                                                         <span className={styles.costLabel}>Estimated total</span>
                                                         <div className={styles.costValue}>
                                                             <span>{estimatedTokens}</span>
-                                                            <span className={styles.tokenText}>Tokens</span>
+                                                            <span className={styles.tokenText}>Points</span>
                                                         </div>
                                                     </div>
 

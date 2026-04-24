@@ -42,7 +42,7 @@ export const siteContent = {
     home: {
         common: {
             faqTitle: "Spørsmål og svar",
-            signInToBuyTokens: "Logg inn for å kjøpe tokens",
+            signInToBuyTokens: "Logg inn for å kjøpe points",
             youGetLabel: "Du får",
             heroFeatures: [
                 "Strukturert ukentlig plan",
@@ -64,7 +64,7 @@ export const siteContent = {
             chef: {
                 title: "Lær fra Ekte Kokker",
                 description:
-                    "Velg en profesjonell kokk. Bruk tokens og motta et strukturert, trinn-for-trinn kulinarisk kurs skrevet personlig for deg.",
+                    "Velg en profesjonell kokk. Bruk points og motta et strukturert, trinn-for-trinn kulinarisk kurs skrevet personlig for deg.",
                 actionText: "Velg en Kokk",
             },
             ai: {
@@ -80,7 +80,7 @@ export const siteContent = {
             title: "Hvordan Det Fungerer",
             description:
                 "Én konto. Én saldo. Full frihet til å lære i ditt eget tempo.",
-            note: "Opprett en konto, kjøp tokens, og velg mellom et kokk-skrevet kurs eller en KI-generert plan.",
+            note: "Opprett en konto, kjøp points, og velg mellom et kokk-skrevet kurs eller en KI-generert plan.",
             steps: [
                 {
                     title: "Opprett en Konto",
@@ -88,14 +88,14 @@ export const siteContent = {
                         "Registrer deg og få tilgang til ditt personlige læringsdashboard.",
                 },
                 {
-                    title: "Kjøp Tokens",
+                    title: "Kjøp Points",
                     description:
-                        "Kjøp tokens én gang. De utløper aldri.",
+                        "Kjøp points én gang. De utløper aldri.",
                 },
                 {
                     title: "Velg Din Læringsvei",
                     description:
-                        "Bruk tokens på et kokk-skrevet kurs eller en KI-generert plan.",
+                        "Bruk points på et kokk-skrevet kurs eller en KI-generert plan.",
                 },
             ],
         },
@@ -161,41 +161,41 @@ export const siteContent = {
         pricing: {
             title: "Prøv Det",
             description:
-                "Velg en pakke og bruk tokens når du vil. Ingen abonnementer, bare fleksibel læring.",
+                "Velg en pakke og bruk points når du vil. Ingen abonnementer, bare fleksibel læring.",
             cards: [
                 {
                     title: "Starter",
                     badgeTop: "Prøv Det",
                     description:
                         "Perfekt for å teste kokkekurs eller KI-læring.",
-                    buttonText: "Logg inn for å kjøpe tokens",
+                    buttonText: "Logg inn for å kjøpe points",
                 },
                 {
                     title: "Cook Pro",
                     badgeTop: "Populær",
                     description:
                         "Ideelt for konsekvent læring og ferdighetsvekst.",
-                    buttonText: "Logg inn for å kjøpe tokens",
+                    buttonText: "Logg inn for å kjøpe points",
                 },
                 {
                     title: "Chef Mode",
                     badgeTop: "Beste Verdi",
                     description:
                         "For seriøse lærere og avanserte teknikker.",
-                    buttonText: "Logg inn for å kjøpe tokens",
+                    buttonText: "Logg inn for å kjøpe points",
                 },
                 {
                     title: "Tilpasset Saldo",
                     badgeTop: "Fleksibel",
                     description:
                         "Legg til et hvilket som helst beløp og bruk det når du trenger det.",
-                    buttonText: "Logg inn for å kjøpe tokens",
+                    buttonText: "Logg inn for å kjøpe points",
                 },
             ],
         },
 
         tokens: {
-            title: "Hvorfor Tokens?",
+            title: "Hvorfor Points?",
             description:
                 "Fordi læring bør være fleksibelt, ikke låst bak abonnementer.",
             values: [
@@ -207,12 +207,12 @@ export const siteContent = {
                 {
                     title: "Full Fleksibilitet",
                     description:
-                        "Bruk tokens på kokker eller KI. Bland begge når som helst.",
+                        "Bruk points på kokker eller KI. Bland begge når som helst.",
                 },
                 {
                     title: "Rettferdig Prissetting",
                     description:
-                        "Én token = én læringsleksjon. Enkelt og åpent.",
+                        "Én point = én læringsleksjon. Enkelt og åpent.",
                 },
                 {
                     title: "Ditt Tempo",
@@ -298,22 +298,22 @@ export const siteContent = {
                 {
                     question: "Hvordan kan jeg kjøpe kurs?",
                     answer:
-                        "Kurs kan kjøpes ved hjelp av tokens tilgjengelig på plattformen.",
+                        "Kurs kan kjøpes ved hjelp av points tilgjengelig på plattformen.",
                 },
                 {
-                    question: "Hvordan fungerer tokens?",
+                    question: "Hvordan fungerer points?",
                     answer:
-                        "Tokens er en intern valuta som du kan kjøpe med ekte penger og bruke til å kjøpe kurs eller KI-tjenester.",
+                        "Points er en intern valuta som du kan kjøpe med ekte penger og bruke til å kjøpe kurs eller KI-tjenester.",
                 },
                 {
-                    question: "Kan jeg bruke tokens for både kurs og KI-svar?",
+                    question: "Kan jeg bruke points for både kurs og KI-svar?",
                     answer:
-                        "Ja. Tokens kan brukes til å få tilgang til kokk-skrevet kurs så vel som KI-drevne kulinariske svar.",
+                        "Ja. Points kan brukes til å få tilgang til kokk-skrevet kurs så vel som KI-drevne kulinariske svar.",
                 },
                 {
-                    question: "Hva skjer hvis jeg går tom for tokens?",
+                    question: "Hva skjer hvis jeg går tom for points?",
                     answer:
-                        "Du kan fylle opp tokensaldoen din når som helst ved hjelp av din foretrukne betalingsmetode.",
+                        "Du kan fylle opp pointsaldoen din når som helst ved hjelp av din foretrukne betalingsmetode.",
                 },
             ],
         },
@@ -323,14 +323,14 @@ export const siteContent = {
             title: "Velg Den Riktige Veien til Bedre Matlaging",
             titleHighlight: "Riktige Veien",
             description:
-                "Kjøp tokens én gang og bruk dem på KI-veiledning eller kokk-ledede programmer. Rask fremgang når du vil ha fart, dypere læring når du vil mestre teknikker.",
-            primaryCta: "Få Tokens",
+                "Kjøp points én gang og bruk dem på KI-veiledning eller kokk-ledede programmer. Rask fremgang når du vil ha fart, dypere læring når du vil mestre teknikker.",
+            primaryCta: "Få Points",
             secondaryCta: "Møt Kokkene",
         },
 
         howItWorks: {
             label: "Hvordan Det Fungerer",
-            title: "Fra Tokens til Bedre Matlaging",
+            title: "Fra Points til Bedre Matlaging",
             description: "En enkel flyt designet rundt læringsresultater, ikke stive planer.",
             highlights: [
                 {
@@ -344,7 +344,7 @@ export const siteContent = {
             ],
             steps: [
                 {
-                    title: "Kjøp Tokens",
+                    title: "Kjøp Points",
                     description: "Velg en pakke eller tilpasset beløp.",
                 },
                 {
@@ -360,7 +360,7 @@ export const siteContent = {
         },
 
         packages: {
-            title: "Velg Din Tokenpakke",
+            title: "Velg Din Pointpakke",
             description: "Kjøp én gang, bruk når som helst, og velg den læringsformen som passer målene dine best.",
         },
 
@@ -370,41 +370,41 @@ export const siteContent = {
                 badgeTop: "£5",
                 description: "Perfekt for å prøve KI-veiledning eller et første kokkekurs.",
                 features: [
-                    "500 tokens",
+                    "500 points",
                     "Bra for å teste plattformen",
                     "Bruk på KI eller kokk",
                     "Ingen abonnementer",
                 ],
-                buttonText: "Kjøp Tokens",
+                buttonText: "Kjøp Points",
             },
             {
                 title: "Cook Pro",
                 badgeTop: "£25",
                 description: "Et solid valg for jevn læring og mer regelmessig bruk.",
                 features: [
-                    "2500 tokens",
+                    "2500 points",
                     "God for kontinuerlig fremgang",
                     "Bruk på KI eller kokk",
                     "Mer fleksibilitet for flere kurs",
                 ],
-                buttonText: "Kjøp Tokens",
+                buttonText: "Kjøp Points",
             },
             {
                 title: "Chef Mode",
                 badgeTop: "£75",
                 description: "Beste valg for seriøse brukere som vil lære mer og dypere.",
                 features: [
-                    "7500 tokens",
+                    "7500 points",
                     "Perfekt for avansert læring",
                     "Passer for både KI og kokkeprogrammer",
                     "Større verdi for langsiktig bruk",
                 ],
-                buttonText: "Kjøp Tokens",
+                buttonText: "Kjøp Points",
             },
             {
                 title: "Tilpasset Saldo",
                 badgeTop: "Custom",
-                description: "Velg selv hvor mange tokens du vil kjøpe.",
+                description: "Velg selv hvor mange points du vil kjøpe.",
                 features: [
                     "Fritt valgt beløp",
                     "Full fleksibilitet",
@@ -430,7 +430,7 @@ export const siteContent = {
 
         compare: {
             title: "KI eller Kokk?",
-            description: "Begge veier bruker samme tokensystem, men de passer ulike mål, tempo og læringsstiler.",
+            description: "Begge veier bruker samme pointsystem, men de passer ulike mål, tempo og læringsstiler.",
             ai: {
                 eyebrow: "For Hastighet",
                 title: "KI passer best når du vil komme raskt i gang",
@@ -479,8 +479,8 @@ export const siteContent = {
         },
 
         tokens: {
-            title: "Hvorfor Tokens?",
-            description: "Tokens gjør læringen fleksibel. Du betaler ikke for tid du ikke bruker, og du kan skifte mellom KI og kokker når du vil.",
+            title: "Hvorfor Points?",
+            description: "Points gjør læringen fleksibel. Du betaler ikke for tid du ikke bruker, og du kan skifte mellom KI og kokker når du vil.",
             items: [
                 {
                     title: "Ingen Abonnementer",
@@ -488,7 +488,7 @@ export const siteContent = {
                 },
                 {
                     title: "Full Fleksibilitet",
-                    description: "Bruk tokens på KI eller kokker. Bland begge når som helst.",
+                    description: "Bruk points på KI eller kokker. Bland begge når som helst.",
                 },
                 {
                     title: "Rettferdig Prissetting",
@@ -504,7 +504,7 @@ export const siteContent = {
         cta: {
             title: "Klar til å Lage Mat Smartere?",
             description: "Velg KI for hastighet eller en kokk for mestring. Begynn å lære i dag.",
-            buttonText: "Få Tokens",
+            buttonText: "Få Points",
         },
     },
     getStarted: {
@@ -529,15 +529,15 @@ export const siteContent = {
                 buttonText: "Opprett Konto",
             },
             {
-                title: "Kjøp Matlagnings Tokens",
-                description: "Tokens låser opp kurs, KI-analyse og nedlastbare materialer.",
+                title: "Kjøp Matlagnings Points",
+                description: "Points låser opp kurs, KI-analyse og nedlastbare materialer.",
                 bullets: [
-                    "Fleksible tokenpakker",
+                    "Fleksible pointpakker",
                     "Betal bare for det du bruker",
                     "Ingen abonnementer påkrevd",
                 ],
                 badge: "Fleksibel Prissetting",
-                buttonText: "Se Token Pakker",
+                buttonText: "Se Point Pakker",
             },
             {
                 title: "Velg en Kokk eller KI Mentor",
@@ -580,8 +580,8 @@ export const siteContent = {
                     answer: "Nei. Plattformen tilpasser seg ferdighetsnivået ditt, enten du er nybegynner eller en avansert hjemmekokk.",
                 },
                 {
-                    question: "Hva brukes tokens til?",
-                    answer: "Tokens låser opp kurs, KI-tilbakemeldinger, PDF-materialer og premium kokkeinnhold.",
+                    question: "Hva brukes points til?",
+                    answer: "Points låser opp kurs, KI-tilbakemeldinger, PDF-materialer og premium kokkeinnhold.",
                 },
                 {
                     question: "Kan jeg velge mellom KI og ekte kokker?",
@@ -593,7 +593,7 @@ export const siteContent = {
                 },
                 {
                     question: "Finnes det et abonnement?",
-                    answer: "Ingen abonnementer. Du betaler bare for det du bruker med fleksible tokenpakker.",
+                    answer: "Ingen abonnementer. Du betaler bare for det du bruker med fleksible pointpakker.",
                 },
                 {
                     question: "Kan jeg endre kjøkken eller mentorer senere?",
@@ -899,10 +899,10 @@ export const siteContent = {
         loginRequired: "Innlogging påkrevd",
         loginRequiredMessage: "Du må logge inn for å be om denne SEO-tjenesten.",
         requestTitle: "Be om {service}",
-        requestDescription: "Å sende inn denne forespørselen vil trekke {tokens} tokens fra saldoen din.",
+        requestDescription: "Å sende inn denne forespørselen vil trekke {tokens} points fra saldoen din.",
         supportCenter: "Kundesenter",
         title: "Vi er her for å hjelpe deg med å mestre kjøkkenet.",
-        description: "Har du spørsmål om KI-matlagningsplaner, kokkestyrte programmer eller læringstokens? Send oss en melding — teamet vårt svarer innen 24 timer.",
+        description: "Har du spørsmål om KI-matlagningsplaner, kokkestyrte programmer eller læringspoints? Send oss en melding — teamet vårt svarer innen 24 timer.",
         otherWays: "Andre måter å kontakte oss på",
         repliesWithin: "Svar innen 24 timer",
         fields: {
@@ -1007,8 +1007,8 @@ export const siteContent = {
         balance: {
             label: "KULINARISKE KREDITER",
             description: "Lås opp premium kokk-ledede mesterklasser og KI-oppskriftsgenereringer.",
-            buttonText: "Fyll Opp Tokens",
-            tokensLabel: "{amount} Tokens"
+            buttonText: "Fyll Opp Points",
+            tokensLabel: "{amount} Points"
         },
         dashboard: {
             tabs: {
@@ -1021,7 +1021,7 @@ export const siteContent = {
         title: "Kasse",
         subtitle: "Sikker Betaling",
         orderSummary: "Ordreoppsummering",
-        tokens: "tokens",
+        tokens: "points",
         subtotal: "Delsum",
         vat: "MVA (20%)",
         total: "Totalt",

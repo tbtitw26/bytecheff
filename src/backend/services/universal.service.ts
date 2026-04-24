@@ -240,7 +240,7 @@ export const universalService = {
         const languageCost = body.language && body.language !== "English" ? 5 : 0;
         const totalCost = Number(body.totalTokens) + languageCost;
         if (user.tokens < totalCost) {
-            throw new Error(`Insufficient tokens (have ${user.tokens}, need ${totalCost})`);
+            throw new Error(`Insufficient points (have ${user.tokens}, need ${totalCost})`);
         }
 
         user.tokens -= totalCost;
@@ -299,7 +299,7 @@ export const universalService = {
                 summary: culinaryLiveQueue
                     ? `Your ${body.category} order has been queued and will be delivered in 2-4 hours.`
                     : `Your ${body.category} order has been created successfully.`,
-                amountLabel: `${totalCost} tokens`,
+                amountLabel: `${totalCost} points`,
                 transactionDate: order.createdAt ?? new Date(),
                 details: [
                     { label: "Service", value: body.category },
@@ -312,7 +312,7 @@ export const universalService = {
                                 : "None",
                     },
                     { label: "Language", value: body.language || "English" },
-                    { label: "Tokens used", value: `${totalCost}` },
+                    { label: "Points used", value: `${totalCost}` },
                     {
                         label: "Status",
                         value: getOrderConfirmationStatusLabel({

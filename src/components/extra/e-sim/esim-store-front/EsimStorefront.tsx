@@ -110,7 +110,7 @@ const EsimStorefront: React.FC<Props> = ({ title, description }) => {
                                 <span className={styles.plan}>{plan.label}</span>
 
                                 <span className={styles.price}>
-                                    <strong>{euroToTokens(plan.priceEur)}</strong> tokens
+                                    <strong>{euroToTokens(plan.priceEur)}</strong> points
                                 </span>
 
                                 <ButtonUI

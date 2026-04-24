@@ -19,13 +19,13 @@ export const userController = {
                 email: user.email,
                 firstName: user.firstName,
                 subject: "Payment Confirmation",
-                summary: `Your token purchase was completed successfully. ${amount} tokens have been added to your account.`,
-                amountLabel: `${amount} tokens purchased`,
+                summary: `Your point purchase was completed successfully. ${amount} points have been added to your account.`,
+                amountLabel: `${amount} points purchased`,
                 transactionDate: new Date(),
                 details: [
-                    { label: "Product", value: "Tokens" },
+                    { label: "Product", value: "Points" },
                     { label: "Quantity", value: `${amount}` },
-                    { label: "New balance", value: `${user.tokens} tokens` },
+                    { label: "New balance", value: `${user.tokens} points` },
                 ],
             });
         } catch (error) {
@@ -40,7 +40,7 @@ export const userController = {
 
         const user = await userService.getUserById(userId);
         if (!user) throw new Error("User not found");
-        if ((user.tokens || 0) < amount) throw new Error("Not enough tokens");
+        if ((user.tokens || 0) < amount) throw new Error("Not enough points");
 
         user.tokens -= amount;
         await user.save();

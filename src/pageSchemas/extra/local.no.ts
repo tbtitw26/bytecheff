@@ -110,7 +110,7 @@ Vi sikrer at merkevaret ditt er synlig, betrodd og valgt lokalt.`,
                         "Hastighetsanbefalinger",
                         "Grunnleggende nøkkelordanalyse",
                     ],
-                    buttonText: "Kjøp Tokens",
+                    buttonText: "Kjøp Points",
                     buttonLink: "/pricing",
                 },
                 {

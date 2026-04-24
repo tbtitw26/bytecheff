@@ -159,7 +159,7 @@ export default function SeoRequestForm({
                 <div className={styles.serviceInfo}>
                     <span>Service: {service}</span>
                     <span className={styles.tokens}>
-            💰 {totalTokens} tokens (~{sign}
+            💰 {totalTokens} points (~{sign}
                         {convertedPrice.toFixed(2)} {currency})
           </span>
                 </div>
@@ -191,7 +191,7 @@ export default function SeoRequestForm({
                                                 <p>{extra.desc}</p>
                                             </div>
                                             <span className={styles.extraPrice}>
-                        +{extra.price} tokens ({sign}
+                        +{extra.price} points ({sign}
                                                 {convertFromGBP(extra.price * 0.01).toFixed(2)} {currency})
                       </span>
                                         </>
@@ -203,7 +203,7 @@ export default function SeoRequestForm({
                                             <label>
                                                 {extra.name}{" "}
                                                 <span className={styles.extraPrice}>
-                          +{extra.price} tokens ({sign}
+                          +{extra.price} points ({sign}
                                                     {convertFromGBP(extra.price * 0.01).toFixed(2)}{" "}
                                                     {currency})
                         </span>
@@ -225,7 +225,7 @@ export default function SeoRequestForm({
                                             <label>
                                                 {extra.name}{" "}
                                                 <span className={styles.extraPrice}>
-                          +{extra.price} tokens ({sign}
+                          +{extra.price} points ({sign}
                                                     {convertFromGBP(extra.price * 0.01).toFixed(2)}{" "}
                                                     {currency})
                         </span>
@@ -248,7 +248,7 @@ export default function SeoRequestForm({
                                             <label>
                                                 {extra.name}{" "}
                                                 <span className={styles.extraPrice}>
-                          +{extra.price} tokens ({sign}
+                          +{extra.price} points ({sign}
                                                     {convertFromGBP(extra.price * 0.01).toFixed(2)}{" "}
                                                     {currency})
                         </span>
@@ -268,7 +268,7 @@ export default function SeoRequestForm({
                                             <label>
                                                 {extra.name}{" "}
                                                 <span className={styles.extraPrice}>
-                          +{extra.price} tokens ({sign}
+                          +{extra.price} points ({sign}
                                                     {convertFromGBP(extra.price * 0.01).toFixed(2)}{" "}
                                                     {currency})
                         </span>
@@ -295,7 +295,7 @@ export default function SeoRequestForm({
                     fullWidth
                     color="secondary"
                     textColor="backgroundLight"
-                    text={`Send Request (${totalTokens} tokens ≈ ${sign}${convertedPrice.toFixed(
+                    text={`Send Request (${totalTokens} points ≈ ${sign}${convertedPrice.toFixed(
                         2
                     )} ${currency})`}
                 />

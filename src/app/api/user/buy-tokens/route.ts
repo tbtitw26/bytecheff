@@ -26,12 +26,12 @@ export async function POST(req: NextRequest) {
             // 🧾 запис транзакції вже всередині userController.buyTokens()
             const user = await userController.buyTokens(payload.sub, tokens);
 
-            return NextResponse.json({ user, info: `Converted ${amount} ${currency} → ${tokens} tokens` });
+            return NextResponse.json({ user, info: `Converted ${amount} ${currency} → ${tokens} points` });
         }
 
         const { amount } = body;
         if (!amount || amount <= 0) {
-            return NextResponse.json({ message: "Invalid token amount" }, { status: 400 });
+            return NextResponse.json({ message: "Invalid point amount" }, { status: 400 });
         }
 
         const user = await userController.buyTokens(payload.sub, amount);

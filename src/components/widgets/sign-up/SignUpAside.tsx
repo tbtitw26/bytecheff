@@ -37,8 +37,8 @@ const SignUpAside: React.FC = () => {
                 <li>
                     <span className={styles.icon}>◆</span>
                     <div>
-                        <strong>Premium-tokens</strong>
-                        <p>Kjøp tokens for å låse opp spesialiserte mesterklasser og KI-tilbakemeldinger i sanntid.</p>
+                        <strong>Premium-points</strong>
+                        <p>Kjøp points for å låse opp spesialiserte mesterklasser og KI-tilbakemeldinger i sanntid.</p>
                     </div>
                 </li>
 

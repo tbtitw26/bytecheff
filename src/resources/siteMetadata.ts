@@ -24,10 +24,10 @@ export const siteMetadata = {
     },
     pricing: {
         title: `Priser — ${COMPANY_NAME}`,
-        description: "Fleksibel token-basert prising. Kjøp tokens én gang, bruk dem når som helst. Velg mellom kokk-skrevne kurs eller KI-genererte matlagningsplaner.",
+        description: "Fleksibel point-basert prising. Kjøp points én gang, bruk dem når som helst. Velg mellom kokk-skrevne kurs eller KI-genererte matlagningsplaner.",
         keywords: [
             "matlagningskurs priser",
-            "token system",
+            "point system",
             "kokk kurs",
             "KI matlagningsplaner",
             "kulinarisk utdanning priser"
@@ -46,7 +46,7 @@ export const siteMetadata = {
     },
     getStarted: {
         title: `Kom i Gang — ${COMPANY_NAME}`,
-        description: "Start din kulinariske reise i dag. Opprett en konto, kjøp tokens, og velg din læringsvei med profesjonelle kokker eller KI-assistanse.",
+        description: "Start din kulinariske reise i dag. Opprett en konto, kjøp points, og velg din læringsvei med profesjonelle kokker eller KI-assistanse.",
         keywords: [
             "starte matlaging",
             "kulinariske kurs",
@@ -131,11 +131,11 @@ export const siteMetadata = {
     },
     checkout: {
         title: `Kasse — ${COMPANY_NAME}`,
-        description: "Fullfør kjøpet ditt sikkert. Kjøp tokens for å låse opp premium kokk-ledede mesterklasser og KI-oppskriftsgenereringer.",
+        description: "Fullfør kjøpet ditt sikkert. Kjøp points for å låse opp premium kokk-ledede mesterklasser og KI-oppskriftsgenereringer.",
         keywords: [
             "kasse",
             "kjøp",
-            "kjøp tokens",
+            "kjøp points",
             "betaling"
         ]
     }

@@ -40,7 +40,7 @@ export default function EsimStore() {
         <section className={styles.page}>
             <header className={styles.header}>
                 <h1>Global eSIM Store</h1>
-                <p>Choose a destination and pay with tokens.</p>
+                <p>Choose a destination and pay with points.</p>
             </header>
 
             {/* ⭐ POPULAR */}
@@ -65,7 +65,7 @@ export default function EsimStore() {
                                     <div key={i} className={styles.row}>
                                         <span className={styles.plan}>{plan.label}</span>
                                         <span className={styles.price}>
-                      <strong>{euroToTokens(plan.priceEur)}</strong> tokens
+                      <strong>{euroToTokens(plan.priceEur)}</strong> points
                     </span>
                                         <ButtonUI
                                             size="sm"
@@ -124,7 +124,7 @@ export default function EsimStore() {
                             <div key={i} className={styles.row}>
                                 <span className={styles.plan}>{plan.label}</span>
                                 <span className={styles.price}>
-                  <strong>{euroToTokens(plan.priceEur)}</strong> tokens
+                  <strong>{euroToTokens(plan.priceEur)}</strong> points
                 </span>
                                 <ButtonUI
                                     size="sm"

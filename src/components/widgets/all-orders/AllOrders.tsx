@@ -121,7 +121,7 @@ const AllOrders: React.FC = () => {
                     <span>ID</span>
                     <span>Email</span>
                     <span>Date</span>
-                    <span>Tokens</span>
+                    <span>Points</span>
                     <span>Status</span>
                     <span className={styles.actionsHead}>Actions</span>
                 </div>

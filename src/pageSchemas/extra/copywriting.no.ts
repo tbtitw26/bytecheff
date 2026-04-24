@@ -110,7 +110,7 @@ Vi kombinerer markedsføringspsykologi, nøkkelordstrategi og historiefortelling
                         "Hastighetsanbefalinger",
                         "Grunnleggende nøkkelordanalyse",
                     ],
-                    buttonText: "Kjøp Tokens",
+                    buttonText: "Kjøp Points",
                     buttonLink: "/pricing",
                 },
                 {

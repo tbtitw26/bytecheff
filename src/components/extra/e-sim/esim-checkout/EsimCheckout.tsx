@@ -189,7 +189,7 @@ export default function EsimCheckout({
 
                         <div className={styles.total}>
                             <span>Total</span>
-                            <strong>{tokens} tokens</strong>
+                            <strong>{tokens} points</strong>
                         </div>
 
                         {error && <p className={styles.error}>{error}</p>}
@@ -201,7 +201,7 @@ export default function EsimCheckout({
                             disabled={loading}
                             onClick={handlePay}
                         >
-                            {loading ? "Processing..." : `Pay ${tokens} tokens`}
+                            {loading ? "Processing..." : `Pay ${tokens} points`}
                         </ButtonUI>
 
                         <button

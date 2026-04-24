@@ -60,7 +60,7 @@ const cookiePolicyNo: PageSchema = {
             description:
                 "Vi kategoriserer våre informasjonskapsler i følgende grupper:",
             bullets: [
-                "Strengt nødvendig – Essensielt for at du skal kunne bruke nettsiden og funksjonene (f.eks. tilgang til sikre områder, opprettholde innloggingsøkten din og administrere Token-saldoen din). Uten disse kan tjenesten ikke fungere.",
+                "Strengt nødvendig – Essensielt for at du skal kunne bruke nettsiden og funksjonene (f.eks. tilgang til sikre områder, opprettholde innloggingsøkten din og administrere Point-saldoen din). Uten disse kan tjenesten ikke fungere.",
                 "Ytelse og analyse – Hjelper oss med å forstå hvordan besøkende bruker plattformen (f.eks. hvilke kokkekurs som er mest populære) ved å samle og rapportere informasjon anonymt.",
                 "Funksjonalitet – Brukes til å huske valg du tar (som foretrukket språk eller region) og tilby forbedrede, mer personlige funksjoner.",
                 "Målretting og annonsering – Disse informasjonskapslene brukes for å gjøre reklamebudskap mer relevante for deg og dine kulinariske interesser.",
@@ -68,12 +68,12 @@ const cookiePolicyNo: PageSchema = {
         },
         {
             type: "text",
-            title: "5. Spesielt: KI og Token-sikkerhet",
+            title: "5. Spesielt: KI og Point-sikkerhet",
             description:
-                "Siden Cheffmate bruker en Token-basert økonomi og KI-generering, bruker vi spesifikke informasjonskapsler for å:",
+                "Siden Cheffmate bruker en Point-basert økonomi og KI-generering, bruker vi spesifikke informasjonskapsler for å:",
             bullets: [
-                "Sikre at Token-transaksjoner er sikkert koblet til din unike økt.",
-                "Forhindre «dobbeltforbruk» av Tokens på grunn av sideoppdateringer.",
+                "Sikre at Point-transaksjoner er sikkert koblet til din unike økt.",
+                "Forhindre «dobbeltforbruk» av Points på grunn av sideoppdateringer.",
                 "Opprettholde stabiliteten til KI Matlagningsassistenten mens den behandler oppskriften din (som kan ta opptil flere minutter).",
             ],
         },

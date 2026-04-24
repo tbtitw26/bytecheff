@@ -4,7 +4,7 @@ import { COMPANY_NAME } from "@/resources/constants";
 const servicesSchema: PageSchema = {
     meta: {
         title: `Våre Tjenester — ${COMPANY_NAME}`,
-        description: `Utforsk ${COMPANY_NAME} tjenester: personaliserte treningsplaner, ernæringsveiledning, fremdriftssporing og et fleksibelt tokensystem for fitnessentusiaster på alle nivåer.`,
+        description: `Utforsk ${COMPANY_NAME} tjenester: personaliserte treningsplaner, ernæringsveiledning, fremdriftssporing og et fleksibelt pointsystem for fitnessentusiaster på alle nivåer.`,
         keywords: [
             `${COMPANY_NAME} tjenester`,
             "fitness planer",
@@ -128,8 +128,8 @@ const servicesSchema: PageSchema = {
             cards: [
                 {
                     image: "image4",
-                    title: "Fleksibelt Tokensystem",
-                    description: "Kjøp tokens én gang og bruk dem på treningsøkter, ernæring eller ekstra funksjoner.",
+                    title: "Fleksibelt Pointsystem",
+                    description: "Kjøp points én gang og bruk dem på treningsøkter, ernæring eller ekstra funksjoner.",
                     buttonLink: "/pricing",
                     buttonText: "Se Planer",
                 },
@@ -158,7 +158,7 @@ const servicesSchema: PageSchema = {
                 description: `Fordi fitness skal være enkelt, motiverende og personalisert. ${COMPANY_NAME} tilpasser seg deg — ikke omvendt.`,
                 bullets: [
                     "KI-assistert personalisering",
-                    "Fleksibel prising med tokens",
+                    "Fleksibel prising med points",
                     "Alt-i-ett løsning: trening + ernæring + sporing",
                 ],
                 centerTitle: true,
@@ -174,11 +174,11 @@ const servicesSchema: PageSchema = {
                     answer: "Vi tilbyr treningsplaner, ernæringsveiledning, fremdriftssporing og valgfri ekspertcoaching.",
                 },
                 {
-                    question: "Trenger jeg tokens for å starte?",
-                    answer: "Du kan prøve noen funksjoner gratis, men tokens låser opp avanserte treningsøkter og ernæringsplaner.",
+                    question: "Trenger jeg points for å starte?",
+                    answer: "Du kan prøve noen funksjoner gratis, men points låser opp avanserte treningsøkter og ernæringsplaner.",
                 },
                 {
-                    question: "Hvor fleksibelt er tokensystemet?",
+                    question: "Hvor fleksibelt er pointsystemet?",
                     answer: "Svært. Du kjøper én gang og bruker bare på det du trenger — ingen bortkastede abonnementer.",
                 },
                 {

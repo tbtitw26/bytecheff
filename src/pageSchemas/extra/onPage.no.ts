@@ -110,7 +110,7 @@ Vårt team sikrer at hver side kommuniserer tydelig med Google — og overbevise
                         "Hastighetsanbefalinger",
                         "Grunnleggende nøkkelordanalyse",
                     ],
-                    buttonText: "Kjøp Tokens",
+                    buttonText: "Kjøp Points",
                     buttonLink: "/pricing",
                 },
                 {

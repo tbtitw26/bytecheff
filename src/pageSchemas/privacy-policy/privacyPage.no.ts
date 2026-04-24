@@ -45,7 +45,7 @@ const privacyPolicySchema: PageSchema = {
             bullets: [
                 `Kontroller: ${COMPANY_LEGAL_NAME || COMPANY_NAME || "FUSION FAIRIES LTD"} (Organisasjonsnummer ${COMPANY_NUMBER}), ${COMPANY_ADDRESS} («Cheffmate», «vi», «oss», «vår»).`,
                 `Kontakt: ${COMPANY_EMAIL}`,
-                "Omfang: Denne Policyen gjelder alle brukere av Tjenesten, inkludert personer som kjøper Tokens, får tilgang til Kokkekurs eller genererer KI Matlagningsplaner.",
+                "Omfang: Denne Policyen gjelder alle brukere av Tjenesten, inkludert personer som kjøper Points, får tilgang til Kokkekurs eller genererer KI Matlagningsplaner.",
             ],
         },
         {
@@ -61,7 +61,7 @@ const privacyPolicySchema: PageSchema = {
                 "Konto og identitet: Navn, e-postadresse og passord.",
                 "Kulinariske og KI-opplysninger: Informasjon du oppgir når du ber om en KI Matlagningsplan. Dette kan inkludere matlagningsferdighetsnivå, tilgjengelig kjøkkenutstyr, foretrukne kjøkkener og spesifikke ingredienser.",
                 "Faktureringsinformasjon: Faktureringsnavn, registrert adresse og betalingsmetodedetaljer (behandles sikkert via tredjeparter).",
-                "Lommebok og Tokens: Transaksjonshistorikk, Token-forbrukslogger (f.eks. «5000 Tokens brukt på Fransk kjøkken-kurs») og nåværende saldo.",
+                "Lommebok og Points: Transaksjonshistorikk, Point-forbrukslogger (f.eks. «5000 Points brukt på Fransk kjøkken-kurs») og nåværende saldo.",
                 "Support og kommunikasjon: Kommunikasjon med vårt supportteam angående tekniske problemer eller refusjoner.",
             ],
         },
@@ -71,7 +71,7 @@ const privacyPolicySchema: PageSchema = {
             bullets: [
                 "Tekniske data: IP-adresse, nettlesertype, enhetsinformasjon, tidssone og operativsystem.",
                 "Bruksdata: Hvordan du bruker plattformen (f.eks. hvilke Kokkekurs du ser, videofullføringsrater, prompter brukt til KI-generering).",
-                "Sikkerhetstelemetri: Innloggingslogger, mislykkede autentiseringsforsøk og svindeloppdagelsessignaler for å beskytte kontoen din og Token-saldoen.",
+                "Sikkerhetstelemetri: Innloggingslogger, mislykkede autentiseringsforsøk og svindeloppdagelsessignaler for å beskytte kontoen din og Point-saldoen.",
             ],
         },
         {
@@ -98,15 +98,15 @@ const privacyPolicySchema: PageSchema = {
             title: "3.1. Oppfyllelse av en avtale",
             bullets: [
                 "For å opprette kontoen din og gi tilgang til plattformen.",
-                "For å levere Kokkekurs og generere KI Matlagningsplaner du har låst opp med Tokens.",
-                "For å administrere Token-saldoen din og behandle betalinger.",
+                "For å levere Kokkekurs og generere KI Matlagningsplaner du har låst opp med Points.",
+                "For å administrere Point-saldoen din og behandle betalinger.",
             ],
         },
         {
             type: "text",
             title: "3.2. Legitime interesser",
             bullets: [
-                "Svindelforebygging: Oppdage uvanlig token-bruk, skrapingforsøk eller mistenkelige betalinger.",
+                "Svindelforebygging: Oppdage uvanlig point-bruk, skrapingforsøk eller mistenkelige betalinger.",
                 "Tjenesteforbedring: Analysere aggregerte bruksdata (f.eks. hvilke kurs som er mest populære) for å forbedre tilbudet vårt.",
                 "Sikkerhet: Beskytte infrastrukturen vår mot cyberangrep.",
             ],
@@ -154,8 +154,8 @@ const privacyPolicySchema: PageSchema = {
             description: "Vi følger strenge policyer for dataoppbevaring:",
             bullets: [
                 "Kontodata og innhold: Vi oppbevarer kontodetaljene dine og genererte KI Matlagningsplaner i dashbordet ditt så lenge kontoen din er aktiv.",
-                "Inaktive kontoer: Hvis kontoen din forblir fullstendig inaktiv (ingen innlogginger, ingen Token-bruk) i 24 måneder, kan vi permanent slette kontoen din, Token-saldoen og genererte data for å spare lagring og beskytte personvernet.",
-                "Finansielle poster: Vi oppbevarer transaksjonsdata (Token-kjøp og refusjonsforespørsler) i 6 år som kreves av britisk skatte- og regnskapslovgivning.",
+                "Inaktive kontoer: Hvis kontoen din forblir fullstendig inaktiv (ingen innlogginger, ingen Point-bruk) i 24 måneder, kan vi permanent slette kontoen din, Point-saldoen og genererte data for å spare lagring og beskytte personvernet.",
+                "Finansielle poster: Vi oppbevarer transaksjonsdata (Point-kjøp og refusjonsforespørsler) i 6 år som kreves av britisk skatte- og regnskapslovgivning.",
             ],
         },
         {
@@ -187,7 +187,7 @@ const privacyPolicySchema: PageSchema = {
             type: "text",
             title: "9. Informasjonskapsler",
             description:
-                "Vi bruker informasjonskapsler for å administrere innloggingsøkten din, sikre Token-lommeboken din og analysere nettstedstrafikk. Essensielle informasjonskapsler er nødvendige for at Tjenesten skal fungere. For flere detaljer, vennligst se vår Informasjonskapselpolicy.",
+                "Vi bruker informasjonskapsler for å administrere innloggingsøkten din, sikre Point-lommeboken din og analysere nettstedstrafikk. Essensielle informasjonskapsler er nødvendige for at Tjenesten skal fungere. For flere detaljer, vennligst se vår Informasjonskapselpolicy.",
         },
         {
             type: "text",

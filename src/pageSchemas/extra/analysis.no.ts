@@ -111,7 +111,7 @@ Vår analyse gir deg klarhet — viser hva som fungerer i din nisje og hvordan d
                         "Hastighetsanbefalinger",
                         "Grunnleggende nøkkelordanalyse",
                     ],
-                    buttonText: "Kjøp Tokens",
+                    buttonText: "Kjøp Points",
                     buttonLink: "/pricing",
                 },
                 {
